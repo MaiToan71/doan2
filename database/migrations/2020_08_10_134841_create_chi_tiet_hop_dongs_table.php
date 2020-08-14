@@ -17,7 +17,7 @@ class CreateChiTietHopDongsTable extends Migration
             $table->integer('hopdong_id')->unsigned();
             $table->integer('xe_id')->unsigned();
             $table->integer('SoLuong');
-            $table->boolean('DaXoa')->default(false);
+            //$table->boolean('DaXoa')->default(false);
             $table->boolean('TrangThai')->default(true);
             $table->primary(['hopdong_id','xe_id']);
             $table->foreign('xe_id')->references('xe_id')->on('xes');

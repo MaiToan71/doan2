@@ -90,7 +90,7 @@
               <p>
                Quản lý thông tin xe
                 <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-info right">6</span>
+                <span class="badge badge-info right">3</span>
               </p>
             </a>
             <ul class="nav nav-treeview">
@@ -101,13 +101,13 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                <a href="{{route('QuanLyHangXe.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Quản lý hãng xe</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/boxed.html" class="nav-link">
+                <a href="{{route('QuanLyXe.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Quản lý xe</p>
                 </a>
