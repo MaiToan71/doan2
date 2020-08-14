@@ -24,7 +24,7 @@ class CreateHopDongsTable extends Migration
             $table->dateTime('ThoiGianTheChap');
             $table->dateTime('ThoiGianTraXe');
             $table->string('TienQuaHan',20);
-            $table->boolean('DaXoa')->default(false);
+            //$table->boolean('DaXoa')->default(false);
             $table->boolean('TrangThai')->default(true);
             $table->foreign('khachhang_id')->references('khachhang_id')->on('khach_hangs');
         });

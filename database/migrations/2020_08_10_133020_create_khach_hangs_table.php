@@ -24,7 +24,7 @@ class CreateKhachHangsTable extends Migration
             $table->string('GiayPhepLaiXe',4000);
             $table->string('CMND',4000);
             $table->string('HoKhau',4000);
-            $table->boolean('DaXoa')->default(false);
+           // $table->boolean('DaXoa')->default(false);
             $table->boolean('TrangThai')->default(true);
         });
     }

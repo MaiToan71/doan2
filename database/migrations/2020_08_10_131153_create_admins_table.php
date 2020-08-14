@@ -23,7 +23,7 @@ class CreateAdminsTable extends Migration
            $table->boolean('GioiTinh');
            $table->string('DiaChi');
            $table->integer('Quyen');
-           $table->boolean('DaXoa')->default(false);
+          // $table->boolean('DaXoa')->default(false);
            $table->boolean('TrangThai')->default(true);
         });
     }
