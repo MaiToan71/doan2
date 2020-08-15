@@ -40,6 +40,8 @@ Route::group(['prefix'=>'QuanLyXe','as' => 'QuanLyXe.' ],function(){
     Route::get('/quan-ly-xe','QuanLyXeController@index')->name('index'); 
     //thêm dữ liệu
     Route::get('/them-moi-xe','QuanLyXeController@ThemMoi')->name('ThemMoi');
-
+    Route::post('/them-moi-xe','QuanLyXeController@ThucHienThem')->name('ThucHienThem');
+    Route::get('/Xoa/{xe_id}','QuanLyXeController@Xoa')->name('Xoa');
+    Route::get('/Sua/{xe_id}','QuanLyXeController@Sua')->name('Sua');
 });
 

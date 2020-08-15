@@ -12,8 +12,10 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form  method="post" id="themmoi" role="form" enctype="multipart/form-data">
+              
+              <form  method="post" id="sua" role="form" enctype="multipart/form-data">
                     @csrf
+                    
                     <div class="container">
                             <div class="row">
                                 <div class="col-sm">
@@ -21,9 +23,9 @@
                                         <label >Hãng xe <span style="color:red;">(*)</span>:</label>
                                         <select id="hangxe" class="form-control" name="hangxe" class="required">
                                         <option value="">Chọn hãng xe...</option>
-                                        @foreach($list_hang_xe as $hang_xe)                    
-                                            <option value="{{$hang_xe->hangxe_id}}">{{$hang_xe->TenHangXe}}</option>
-                                        @endforeach;
+                                                        
+                                            <option value=""></option>
+                                       
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -32,7 +34,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label >Tên xe<span style="color:red;">(*)</span>:</label>
-                                        <input type="text" class="form-control" name="tenxe" >
+                                        <input type="text" class="form-control" name="tenxe" valu>
                                     </div>
                                     <div class="form-group">
                                         <label >Năm sản xuất <span style="color:red;">(*)</span>:</label>
@@ -43,7 +45,7 @@
                                         <input type="text" class="form-control" name="nhienlieu" >
                                     </div>
                                     <div class="form-group pt-5">
-                                        <button type="submit" class="btn btn-default">Thêm mới</button>
+                                        <button type="submit" class="btn btn-default">Sửa</button>
                                     </div>
                                 </div>
                                 <div class="col-sm">
@@ -51,9 +53,9 @@
                                         <label >Loại xe<span style="color:red;">(*)</span>:</label>
                                         <select class="form-control" name="loaixe">
                                         <option value="">Chọn loại xe...</option>
-                                        @foreach($list_loai_xe as $loai_xe)                                           
-                                            <option value="{{$loai_xe->loaixe_id}}">{{$loai_xe->SoCho}} chỗ</option>
-                                        @endforeach;                         
+                                                                                  
+                                            <option value="">chỗ</option>
+                                                            
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -81,6 +83,7 @@
                             </div>                         
                         </div>
                 </form>
+           
             </div>
             <!-- /.card -->
             </div>
@@ -94,7 +97,7 @@
       </div><!-- /.container-fluid -->
 </section>
 <script>
-$("#themmoi").validate({
+$("#sua").validate({
 		onfocusout: false,
 		onkeyup: false,
 		onclick: false,
