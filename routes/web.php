@@ -30,7 +30,9 @@ Route::group(['prefix'=>'QuanLyHangXe','as' => 'QuanLyHangXe.' ],function(){
     //lấy dữ liệu
     Route::get('/quan-ly-hang-xe','QuanLyHangXeController@index')->name('index');
     //thêm dữ liệu
-    
+  //  Route::post('/quan-ly-hang-xe','QuanlyhangxeController@Them')->name('Them');
+    Route::post('/quan-ly-hang-xe','QuanlyHangXeController@Them')->name('Them');
+    Route::get('/Xoa/{hangxe_id}','QuanlyHangXeController@Xoa')->name('Xoa');
     
 });
 Route::group(['prefix'=>'QuanLyXe','as' => 'QuanLyXe.' ],function(){
@@ -38,6 +40,6 @@ Route::group(['prefix'=>'QuanLyXe','as' => 'QuanLyXe.' ],function(){
     Route::get('/quan-ly-xe','QuanLyXeController@index')->name('index'); 
     //thêm dữ liệu
     Route::get('/them-moi-xe','QuanLyXeController@ThemMoi')->name('ThemMoi');
-    
+
 });
 
