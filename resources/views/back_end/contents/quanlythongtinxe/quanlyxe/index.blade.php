@@ -88,8 +88,9 @@
                         <td> 
                         <div class="dropdown" style="cursor: pointer;"> 
                             <i class="far fa-hand-rock dropdown-toggle" data-toggle="dropdown"></i>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">                       
-                        <a type="button" class="dropdown-item btn btn-danger" ><i class="far fa-trash-alt"  style="color: red;"></i> Xóa</a>            
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">        
+                            <a type="button" class="dropdown-item btn btn-danger" href="{{route('QuanLyXe.Sua',['xe_id' => $elm->xe_id])}}"  ><i class="fas fa-pen-alt"></i> Sửa</a>               
+                            <a type="button" class="dropdown-item btn btn-danger" href="{{route('QuanLyXe.Xoa',['xe_id' => $elm->xe_id])}}"  onclick="return confirm('Bạn muốn xóa chứ?')"><i class="far fa-trash-alt"  style="color: red;"></i> Xóa</a>            
                         </div>
                         </div>
                         </td>
@@ -102,69 +103,25 @@
                                 <td>null</td> 
                             @endif                          
                         @endforeach
+
                         @foreach($list_loai_xe as $loai_xe)
                             @if( $elm->loaixe_id == $loai_xe->loaixe_id)
                                 <td>Xe {{$loai_xe->SoCho}} chỗ</td>
-                            @else  
-                                <td>null</td> 
-                            @endif                          
-                        @endforeach
-                       
+                            @endif                         
+                        @endforeach                   
                         <td>{{$elm->NamSanXuat}}</td>
                         <td>{{$elm->NhienLieu}}</td>
                         <td>{{$elm->DungTich}} m<sup>3</sup></td>
                         <td>{{$elm->GioiHanKm}} km</td>
-                        <td><i class="far fa-eye"  style="cursor: pointer;" data-toggle="modal"  data-target="#exampleModal"></i>
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">  
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalScrollableTitle">Nội dung mô tả</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>                            
-                                <div class="modal-body">
-                                    <p>{{$elm->MoTa}}</p>
-                                </div>                               
-                                </div>
-                            </div></td>
-                        <td> <!-- Button trigger modal -->
-                        <i class="far fa-eye"  style="cursor: pointer;" data-toggle="modal"  data-target="#exampleModal2"></i>
-                            <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                                            <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalScrollableTitle">Hình ảnh giấy tờ xe</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>                             
-                                <div class="modal-body">
-                                    <img style="width:100%; height=500px;" src="{{URL::asset('imgs/anh1.jpg')}}"/>
-                                </div>                               
-                                </div>
-                            </div>
-                       </td>
-                        <td>
-                        <i class="far fa-eye"  style="cursor: pointer;" data-toggle="modal"  data-target="#exampleModal3"></i>
-                            <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content"> 
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalScrollableTitle">Hình ảnh xe</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>                             
-                                <div class="modal-body">
-                                    <img style="width:100%; height=500px;" src="{{URL::asset('imgs/anh1.jpg')}}"/>
-                                </div>                               
-                                </div>
-                            </div>
-                       </td>
+                        <td><p>{{$elm->MoTa}}</p></td>
+                        <td> 
+                            <img alt="Giấy tờ xe" width="60" height="60" src="{{ URL::to('/') }}/imgs/{{ $elm->GiayToXe }}"/>
                         </td>
-                        @if( $elm->TrangThai === 1)
+                        <td>
+                            <img alt="Hình ảnh xe" width="60" height="60" src="{{ URL::to('/') }}/imgs/{{ $elm->HinhAnh }}"/>
+                        </td>
+                        
+                        @if( $elm->TrangThai == 1)
                             <td><i class="fas fa-check " style="color:blue"></i></td>
                         @else   
                             <td><i class="fas fa-times" style="color:red"></i></td>
@@ -176,6 +133,7 @@
             </div>
 </div>
 <script>
+/*
 $("#timkiem").validate({
 		onfocusout: false,
 		onkeyup: false,
@@ -215,7 +173,7 @@ $("#timkiem").validate({
         $(element).removeClass('is-invalid');
         }
     });
-    
+*/
     
 </script>
 @endsection
