@@ -89,13 +89,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('QuanLyLoaiXe.index')}}" class="nav-link">
+                <a href="{{route('QuanLyKhachHang.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Danh sách người dùng</p>
+                  <p>Danh sách khách hàng</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('QuanLyHangXe.index')}}" class="nav-link">
+                <a href="{{route('QuanLyKhachHang.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Quản lý hãng xe</p>
                 </a>
@@ -104,6 +104,36 @@
                 <a href="{{route('QuanLyXe.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Quản lý xe</p>
+                </a>
+            
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+               Quản lý hợp đồng
+                <i class="fas fa-angle-left right"></i>
+                <span class="badge badge-info right">3</span>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('QuanLyHopDong.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Danh sách hợp đồng</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('QuanLyKhachHang.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Hợp đồng chờ duyệt</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('QuanLyXe.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p> Hợp đồng đã duyệt</p>
                 </a>
             
             </ul>

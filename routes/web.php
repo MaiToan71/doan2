@@ -47,3 +47,14 @@ Route::group(['prefix'=>'QuanLyXe','as' => 'QuanLyXe.' ],function(){
     Route::get('/tim-kiem-xe','QuanLyXeController@TimKiem')->name('TimKiem');
 });
 
+Route::group(['prefix'=>'QuanLyKhachHang','as' => 'QuanLyKhachHang.' ],function(){
+    //lấy dữ liệu
+    Route::get('/danh-sach-khach-hang','QuanLyKhachHangController@index')->name('index');
+    //thêm dữ liệu  
+});
+Route::group(['prefix'=>'QuanLyHopDong','as' => 'QuanLyHopDong.' ],function(){
+    //lấy dữ liệu
+    Route::get('/danh-sach-hop-dong','DanhSachHopDongController@index')->name('index');
+    //thêm dữ liệu  
+});
+
