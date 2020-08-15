@@ -43,7 +43,17 @@
                             </div>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-default btn-sm"  name="find" >Tìm kiếm</button>                                                  
+                            <div class="row">
+                                <div class="col-sm">
+                                <button type="submit" class="btn btn-default btn-sm"  name="find" >Tìm kiếm</button> 
+                                </div>
+                                <div class="col-sm">
+                                <a type="submit" class="btn btn-default btn-sm" href="{{route('QuanLyXe.index')}}" >Tải lại trang</a>  
+                                </div>
+                            
+                            </div>
+                            
+                                                                             
                         </div>
                 </form>
             </div>
@@ -84,7 +94,7 @@
                 </tr>
             </thead>
             <tbody>            
-                @foreach($list_data as $elm)
+                @foreach($timkiem as $elm)
                     <tr>
                         <td> 
                         <div class="dropdown" style="cursor: pointer;"> 
@@ -126,18 +136,12 @@
                             <td><i class="fas fa-times" style="color:red"></i></td>
                         @endif
                     </tr>
-        
                 @endforeach
           
             
             </tbody>
-             </table>         
+             </table>
             </div>
-            <div style="display:flex;justify-content:center;">
-                <nav arial-label="Page navifation">
-                    {!! $list_data->links() !!}
-                </nav>
-             </div>
 </div>
 <script>
 /*

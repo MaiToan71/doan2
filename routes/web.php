@@ -43,5 +43,7 @@ Route::group(['prefix'=>'QuanLyXe','as' => 'QuanLyXe.' ],function(){
     Route::post('/them-moi-xe','QuanLyXeController@ThucHienThem')->name('ThucHienThem');
     Route::get('/Xoa/{xe_id}','QuanLyXeController@Xoa')->name('Xoa');
     Route::get('/Sua/{xe_id}','QuanLyXeController@Sua')->name('Sua');
+    Route::post('/Sua/{xe_id}','QuanLyXeController@ThucHienSua')->name('ThucHienSua');
+    Route::get('/tim-kiem-xe','QuanLyXeController@TimKiem')->name('TimKiem');
 });
 
