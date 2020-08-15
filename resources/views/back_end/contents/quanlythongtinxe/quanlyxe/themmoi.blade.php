@@ -43,7 +43,7 @@
                                         <input type="text" class="form-control" name="nhienlieu" >
                                     </div>
                                     <div class="form-group pt-5">
-                                        <button type="submit" class="btn btn-default">Thêm mới</button>
+                                        <button type="submit" class="btn btn-default btn-sm" style="width:100px;" >Thêm mới</button>
                                     </div>
                                 </div>
                                 <div class="col-sm">
@@ -73,7 +73,7 @@
                                         <textarea class="form-control" name="mota" rows="3"></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <a type="button" class="btn btn-default" href="{{route('QuanLyXe.index')}}">Quay lại</a>
+                                        <a type="button" class="btn btn-default btn-sm" style="width:100px;" href="{{route('QuanLyXe.index')}}">Quay lại</a>
                                     </div>
                                 </div>                               
                             </div>
