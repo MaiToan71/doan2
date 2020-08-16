@@ -8,7 +8,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Danh sach khách hàng</a></li>
+              <li class="breadcrumb-item"><a href="#">Danh sách khách hàng</a></li>
               <li class="breadcrumb-item active">Toản&ThùyAnh_ver1</li>
             </ol>
           </div><!-- /.col -->
@@ -21,7 +21,7 @@
     <section class="content">
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
-        @yield('khachang')
+        @yield('khachhang')
         <!-- /.row () -->
       </div><!-- /.container-fluid -->
     </section>
