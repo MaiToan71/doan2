@@ -16,6 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+//font-end
+Route::get('/giao-dien-khach-hang','FrontendController@index')->name('index');
+Route::group(['prefix'=>'frontend_xe','as' => 'frontend_xe.' ],function(){
+    Route::get('/fontend-xe','FrontendXeController@index')->name('index');
+});
+
+//back-end
 Route::get('/he-thong', 'HethongController@index')->name('hethong');
 
 Route::group(['prefix'=>'QuanLyLoaiXe','as' => 'QuanLyLoaiXe.' ],function(){
@@ -56,5 +63,8 @@ Route::group(['prefix'=>'QuanLyHopDong','as' => 'QuanLyHopDong.' ],function(){
     //lấy dữ liệu
     Route::get('/danh-sach-hop-dong','DanhSachHopDongController@index')->name('index');
     //thêm dữ liệu  
+    Route::get('/sua-hop-dong','DanhSachHopDongController@thongtinsua')->name('thongtinsua');
 });
+
+
 

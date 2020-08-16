@@ -10,7 +10,11 @@ class DanhSachHopDongController extends Controller
 {
     public function index()
     {
-        $danhsach = DB::table('hop_dongs')->where('TrangThai','true')->get();
-        return view('back_end.contents.quanlyhopdong.danhsachhopdong.index', compact('hopdong'));
+        $danhsach_hd = DB::table('hop_dongs')->where('TrangThai',true)->get();
+        return view('back_end.contents.quanlyhopdong.danhsachhopdong.index', compact('danhsach_hd'));
+    }
+    public function thongtinsua()
+    {
+        return view('back_end.contents.quanlyhopdong.danhsachhopdong.thongtinsua');
     }
 }
