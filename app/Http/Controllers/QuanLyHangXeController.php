@@ -40,6 +40,31 @@ class QuanLyHangXeController extends Controller
             DB::rollBack();
         }
     }
+    public function Thongtinsua(Request $request, $hangxe_id){
+        try{
+            DB::beginTransaction();
+            $list_data = DB::table('hang_xes')-> where ('hangxe_id', $hangxe_id)-> get();
+            return view('back_end.contents.quanlythongtinxe.quanlyhangxe.sua',compact('list_data'));
+        }catch(Exception $e){
+            DB::rollBack();
+        }
+
+    }
+    public function Sua(Request $request, $hangxe_id){
+        try{
+            DB::beginTransaction();
+            $thuchien_sua = DB::table('hang_xes')->where('hangxe_id',$hangxe_id)->update([
+                'TenHangXe'=>$request->TenHang,
+                'QuocGia'=>$request->QuocGia,                  
+                
+                ]);
+                DB::commit();
+            return redirect()->route('QuanLyHangXe.index');
+        }catch(Exception $e){
+            DB::rollBack();
+        }
+
+    }
    
     public function Xoa(Request $request, $hangxe_id)
     {

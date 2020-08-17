@@ -58,7 +58,8 @@
                         <td> 
                         <div class="dropdown" style="cursor: pointer;"> 
                             <i class="far fa-hand-rock dropdown-toggle" data-toggle="dropdown"></i>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">                      
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">                    
+                        <a type="button" class="dropdown-item btn btn-danger" href="{{route('QuanLyLoaiXe.Thongtinsua',['loaixe_id' => $elm->loaixe_id])}}" ><i class="fas fa-pen-alt"  style="color: blue;"></i> Sửa</a>  
                         <a type="button" class="dropdown-item btn btn-danger" href="{{route('QuanLyLoaiXe.Xoa',['loaixe_id' => $elm->loaixe_id])}}"  onclick="return confirm('Bạn muốn xóa chứ?')"><i class="far fa-trash-alt"  style="color: red;"></i> Xóa</a>            
                         </div>
                         </div>

@@ -24,6 +24,13 @@ Route::group(['prefix'=>'frontend_xe','as' => 'frontend_xe.' ],function(){
 
 //back-end
 Route::get('/he-thong', 'HethongController@index')->name('hethong');
+Route::group(['prefix'=>'Hethong','as' => 'Hethong.' ],function(){
+    //lấy dữ liệu
+    Route::get('/quan-ly-admin','HethongController@index')->name('index');
+    //thêm dữ liệu
+    Route::get('/them-moi-admin','HethongController@themmoi')->name('themmoi');
+    Route::post('/them-moi-admin','HethongController@Them')->name('Them');
+});
 
 Route::group(['prefix'=>'QuanLyLoaiXe','as' => 'QuanLyLoaiXe.' ],function(){
     //lấy dữ liệu
@@ -31,6 +38,8 @@ Route::group(['prefix'=>'QuanLyLoaiXe','as' => 'QuanLyLoaiXe.' ],function(){
     //thêm dữ liệu
     Route::post('/quan-ly-loai-xe','QuanlyloaixeController@Them')->name('Them');
     Route::get('/Xoa/{loaixe_id}','QuanlyloaixeController@Xoa')->name('Xoa');
+    Route::get('/sua/{loaixe_id}','QuanlyloaixeController@Thongtinsua')->name('Thongtinsua');
+    Route::post('/sua/{loaixe_id}','QuanlyloaixeController@Sua')->name('Sua');
     
 });
 Route::group(['prefix'=>'QuanLyHangXe','as' => 'QuanLyHangXe.' ],function(){
@@ -40,6 +49,8 @@ Route::group(['prefix'=>'QuanLyHangXe','as' => 'QuanLyHangXe.' ],function(){
   //  Route::post('/quan-ly-hang-xe','QuanlyhangxeController@Them')->name('Them');
     Route::post('/quan-ly-hang-xe','QuanlyHangXeController@Them')->name('Them');
     Route::get('/Xoa/{hangxe_id}','QuanlyHangXeController@Xoa')->name('Xoa');
+    Route::get('/sua-hang-xe/{hangxe_id}','QuanlyHangXeController@Thongtinsua')->name('Thongtinsua');
+    Route::post('/sua-hang-xe/{hangxe_id}','QuanlyHangXeController@Sua')->name('Sua');
     
 });
 Route::group(['prefix'=>'QuanLyXe','as' => 'QuanLyXe.' ],function(){

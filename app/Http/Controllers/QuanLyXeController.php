@@ -66,7 +66,8 @@ class QuanLyXeController extends Controller
             $list_hang_xe = DB::table('hang_xes')->where('TrangThai',true)->get();
             $list_loai_xe = DB::table('loai_xes')->where('TrangThai',true)->get();
             DB::commit();
-            return view('back_end.contents.quanlythongtinxe.quanlyxe.index',compact('list_data','list_hang_xe','list_loai_xe'));
+            return redirect()->route('QuanLyXe.index');
+            //return view('back_end.contents.quanlythongtinxe.quanlyxe.index',compact('list_data','list_hang_xe','list_loai_xe'));
         }
         catch(Exception $e)
         {

@@ -54,5 +54,30 @@ class QuanlyloaixeController extends Controller
             DB::rollBack();
         }
     }
+    public function Thongtinsua(Request $request, $loaixe_id){
+        try{
+            DB::beginTransaction();
+            $list_data = DB::table('loai_xes')-> where ('loaixe_id', $loaixe_id)-> get();
+            return view('back_end.contents.quanlythongtinxe.quanlyloaixe.sua',compact('list_data'));
+        }catch(Exception $e){
+            DB::rollBack();
+        }
+
+    }
+    public function Sua(Request $request, $loaixe_id){
+        try{
+            DB::beginTransaction();
+            $thuchien_sua = DB::table('loai_xes')->where('loaixe_id',$loaixe_id)->update([
+                'SoCho'=>$request->SoCho,
+                                  
+                
+                ]);
+                DB::commit();
+                return redirect()->route('QuanLyLoaiXe.index');
+        }catch(Exception $e){
+            DB::rollBack();
+        }
+
+    }
     
 }
