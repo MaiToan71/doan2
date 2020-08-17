@@ -1,5 +1,112 @@
 @extends('back_end.contents.hethong.he_thong_app')
 @section('hethong')
 
-hh
+<section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-12">
+            <!-- jquery validation -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Nhập thông tin tìm kiếm</h3>
+              </div>  
+              <form action="{{route('QuanLyXe.TimKiem')}}" method="get" id="timkiem" role="form">
+                    @csrf                  
+                            <div class="card-body ">
+                            <div class="row">
+                            <div class="col-sm">
+                            <div class="form-group" >       
+                                <label >Mã admin<span style="color:red;">(*)</span>:</label>                        
+                                <input type="text"  class="form-control" name="maadmin">
+                            </div>
+                            </div>
+                            <div class="col-sm">
+                            <div class="form-group "  >        
+                                <label >Họ tên <span style="color:red;">(*)</span>:</label>                       
+                                <input type="text"  class="form-control" name="email">
+                               
+                            </div>
+                            </div>
+                                                                                       
+                        </div>
+                        <button type="submit" class="btn btn-default btn-sm"  name="find" >Tìm kiếm</button>
+                </form>
+            </div>
+            <!-- /.card -->
+            </div>
+          <!--/.col (left) -->
+          <!-- right column -->
+          <div class="col-md-6">
+          </div>
+          <!--/.col (right) -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+</section>
+
+
+
+<div class="container-fluid">
+    <div class="card">
+            <div class="card-header">
+            <a type="button" class="btn btn-default btn-sm" href="{{route('Hethong.themmoi')}}">Thêm mới</a>       
+            <hr/>    
+              <!-- /.card-header -->
+            <div class="card-body table-responsive p-0">
+            <table class="table table-hover text-nowrap " >              
+                <thead>
+                        <tr>
+                            <th ></th>
+                            <th >Mã</th>
+                            <th >E-mail </th>
+                            <th>Mật khẩu</th>
+                            <th>Họ Tên </th>
+                            <th>Số điện thoại </th>
+                            <th>Ngày sinh</th>
+                            <th>Giới tính</th>
+                            <th>Địa chỉ</th>
+                            <th>Quyền</th>
+                            <th>Trạng thái</th>                           
+                        </tr>
+                    </thead>           
+                    <tbody>  
+                    @foreach($list_dat1a as $data)
+                     <tr>
+                      <td></td>
+                      <td>admin_{{$data->admin_id}}</td>
+                      <td>{{$data->email}}</td>
+                      <td>{{$data->MatKhau}}</td>
+                      <td>{{$data->HoTen}}</td>
+                      <td>{{$data->SoDienThoai}}</td>
+                      <td>{{$data->NgaySinh}}</td>
+                      
+                      @if( $data->GioiTinh == 0)
+                            <td>Nam</i></td>
+                        @else   
+                            <td>Nữ</i></td>
+                        @endif
+                        <td>{{$data->DiaChi}}</td>
+                      @if( $data->Quyen == 0)
+                            <td>Admin</td>
+                      @else   
+                            <td>Nhân viên</i></td>
+                      @endif
+                      @if( $data->TrangThai == 1)
+                            <td><i class="fas fa-check " style="color:blue"></i></td>
+                        @else   
+                            <td><i class="fas fa-times" style="color:red"></i></td>
+                      @endif
+                     </tr>
+                     @endforeach
+                    </tbody>
+             </table>         
+            </div>
+            <div style="display:flex;justify-content:center;">
+                <nav arial-label="Page navifation">
+                    {!! $list_dat1a->links() !!}
+                </nav>
+             </div>
+</div>
+
 @endsection
