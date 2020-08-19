@@ -19,7 +19,7 @@ class QuanlyloaixeController extends Controller
     { 
         try{
             DB::beginTransaction();
-            $list_data = DB::table('loai_xes')->where('TrangThai',true)->get();
+            $list_data = DB::table('loai_xes')->where('TrangThai',true)->orderBy('loaixe_id','DESC')->get();
             return view('back_end.contents.quanlythongtinxe.quanlyloaixe.index', compact('list_data'));
         }catch(Exception $e)
         {

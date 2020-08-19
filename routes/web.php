@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+//login
+Route::get('/login','LoginController@Login')->name('Login');
+Route::post('/login','LoginController@PostLogin')->name('PostLogin');
+
 //font-end
 Route::get('/giao-dien-khach-hang','FrontendController@index')->name('index');
 Route::group(['prefix'=>'frontend_xe','as' => 'frontend_xe.' ],function(){
@@ -30,6 +34,13 @@ Route::group(['prefix'=>'Hethong','as' => 'Hethong.' ],function(){
     //thêm dữ liệu
     Route::get('/them-moi-admin','HethongController@themmoi')->name('themmoi');
     Route::post('/them-moi-admin','HethongController@Them')->name('Them');
+    //sua admin
+    Route::get('/sua-admin/{admin_id}','HethongController@thongtinsua')->name('thongtinsua');
+    Route::post('/sua-admin/{admin_id}','HethongController@sua')->name('sua');
+    // xoa
+    Route::get('/xoa/{admin_id}','HethongController@Xoa')->name('Xoa');
+    //timkiem
+    Route::get('/tim-kiem-admin','HethongController@TimKiem')->name('TimKiem');
 });
 
 Route::group(['prefix'=>'QuanLyLoaiXe','as' => 'QuanLyLoaiXe.' ],function(){

@@ -20,7 +20,7 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-        <!-- Small boxes (Stat box) -->
+        <!-- Small boxes  -->
         @yield('hethong')
         <!-- /.row  -->
       </div><!-- /.container-fluid -->
