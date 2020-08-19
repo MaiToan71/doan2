@@ -125,13 +125,13 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('QuanLyKhachHang.index')}}" class="nav-link">
+                <a href="{{route('QuanLyHopDong.hienthilanmot')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Hợp đồng chờ duyệt</p>
+                  <p>Hợp đồng đang thực hiện</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('QuanLyXe.index')}}" class="nav-link">
+                <a href="{{route('QuanLyHopDong.hopdongxog')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p> Hợp đồng đã duyệt</p>
                 </a>
