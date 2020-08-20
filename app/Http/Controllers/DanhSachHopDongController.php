@@ -69,4 +69,19 @@ class DanhSachHopDongController extends Controller
             }
         }
     }
+
+    public function formvipham( $hopdong_id)
+    {
+        {
+            try{
+                DB::beginTransaction();
+                $HopDongViPham = DB::table('hop_dongs')->where('hopdong_id', $hopdong_id)->get();
+        
+                return view('back_end.contents.quanlyhopdong.danhsachhopdong.Form_them_vipham', compact('HopDongViPham'));
+            }catch(Expception $e)
+            {
+                DB::rollBack();
+            }
+        }
+    }
 }

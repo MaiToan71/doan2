@@ -71,7 +71,7 @@
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> 
                             <a type="button" class="dropdown-item btn btn-danger" href="{{route('QuanLyHopDong.vipham',['hopdong_id' => $elm->hopdong_id])}}" onclick="return confirm('Bạn xác nhận có vi phạm chứ?')"><i class="fas fa-pen-alt"></i> Có vi phạm</a>   
                             @if($elm->Duyet ==3)
-                            <a type="button" class="dropdown-item btn btn-danger" href="{{route('QuanLyHopDong.vipham',['hopdong_id' => $elm->hopdong_id])}}" ><i class="fas fa-pen-alt"></i> Ghi nội dung vi phạm</a>                
+                            <a type="button" class="dropdown-item btn btn-danger" href="{{route('QuanLyHopDong.formvipham',['hopdong_id' => $elm->hopdong_id])}}" ><i class="fas fa-pen-alt"></i> Ghi nội dung vi phạm</a>                
                             @endif
                             <a type="button" class="dropdown-item btn btn-danger" href="{{route('QuanLyHopDong.ketthuc',['hopdong_id' => $elm->hopdong_id])}}"  onclick="return confirm('Bạn xác nhận duyệt chứ?')"><i class="fas fa-pen-alt"></i> Kêt thúc</a>                                          
                         </div>

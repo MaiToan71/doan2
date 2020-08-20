@@ -94,6 +94,8 @@ Route::group(['prefix'=>'QuanLyHopDong','as' => 'QuanLyHopDong.' ],function(){
     Route::get('/hop-dong-xong/{hopdong_id}','DanhSachHopDongController@ketthuc')->name('ketthuc');
     //hop dong co vi pham
     Route::get('/vi-pham/{hopdong_id}','DanhSachHopDongController@vipham')->name('vipham');
+    // form them vi pham
+    Route::get('/form-vi-pham/{hopdong_id}','DanhSachHopDongController@formvipham')->name('formvipham');
 });
 
 
