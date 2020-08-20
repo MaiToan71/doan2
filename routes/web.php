@@ -16,11 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+//login
+Route::get('/login','LoginController@Login')->name('Login');
+Route::post('/login','LoginController@PostLogin')->name('PostLogin');
+
 //font-end
-Route::get('/giao-dien-khach-hang','FrontendController@index')->name('index');
-Route::group(['prefix'=>'frontend_xe','as' => 'frontend_xe.' ],function(){
-    Route::get('/fontend-xe','FrontendXeController@index')->name('index');
-});
+
 
 //back-end
 Route::get('/he-thong', 'HethongController@index')->name('hethong');
@@ -30,6 +31,13 @@ Route::group(['prefix'=>'Hethong','as' => 'Hethong.' ],function(){
     //thêm dữ liệu
     Route::get('/them-moi-admin','HethongController@themmoi')->name('themmoi');
     Route::post('/them-moi-admin','HethongController@Them')->name('Them');
+    //sua admin
+    Route::get('/sua-admin/{admin_id}','HethongController@thongtinsua')->name('thongtinsua');
+    Route::post('/sua-admin/{admin_id}','HethongController@sua')->name('sua');
+    // xoa
+    Route::get('/xoa/{admin_id}','HethongController@Xoa')->name('Xoa');
+    //timkiem
+    Route::get('/tim-kiem-admin','HethongController@TimKiem')->name('TimKiem');
 });
 
 Route::group(['prefix'=>'QuanLyLoaiXe','as' => 'QuanLyLoaiXe.' ],function(){
@@ -70,11 +78,24 @@ Route::group(['prefix'=>'QuanLyKhachHang','as' => 'QuanLyKhachHang.' ],function(
     Route::get('/danh-sach-khach-hang','QuanLyKhachHangController@index')->name('index');
     //thêm dữ liệu  
 });
+
+// quan ly hop dong
 Route::group(['prefix'=>'QuanLyHopDong','as' => 'QuanLyHopDong.' ],function(){
     //lấy dữ liệu
     Route::get('/danh-sach-hop-dong','DanhSachHopDongController@index')->name('index');
     //thêm dữ liệu  
     Route::get('/sua-hop-dong','DanhSachHopDongController@thongtinsua')->name('thongtinsua');
+    // duyet hop dong
+    Route::get('/duyet-lan-1/{hopdong_id}','DanhSachHopDongController@DuyetLanMot')->name('DuyetLanMot');
+    //hien thi duyet lan 1
+    Route::get('/duyet-hop-dong-lan-1','DanhSachHopDongController@hienthilanmot')->name('hienthilanmot');
+    // hop dong done 
+    Route::get('/hop-dong-xong','DanhSachHopDongController@hopdongxog')->name('hopdongxog');
+    Route::get('/hop-dong-xong/{hopdong_id}','DanhSachHopDongController@ketthuc')->name('ketthuc');
+    //hop dong co vi pham
+    Route::get('/vi-pham/{hopdong_id}','DanhSachHopDongController@vipham')->name('vipham');
+    // form them vi pham
+    Route::get('/form-vi-pham/{hopdong_id}','DanhSachHopDongController@formvipham')->name('formvipham');
 });
 
 

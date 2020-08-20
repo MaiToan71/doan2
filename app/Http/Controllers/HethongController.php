@@ -16,7 +16,7 @@ class HethongController extends Controller
     }
     public function index()
     {
-        $list_dat1a = DB::table('admins')->where('TrangThai',true)->paginate(1);
+        $list_dat1a = DB::table('admins')->where('TrangThai',true)->orderBy('admin_id','DESC')->paginate(5);
         
         return view('back_end.contents.hethong.he_thong', compact('list_dat1a'));
     }
@@ -47,7 +47,49 @@ class HethongController extends Controller
                 DB::rollBack();
         }
     }
+    public function thongtinsua($admin_id)
+    {
+        $listdata = DB::table('admins')->where('admin_id',$admin_id)->get();
+       // dd($listdata);
+        return view('back_end.contents.hethong.sua', compact('listdata'));
+    }
         
-    
-    
+    public function sua(Request $request, $admin_id)
+    {
+        try{
+            DB::beginTransaction();
+            $sua_admin = DB::table('admins')->where('admin_id',$admin_id)->update([
+                    'email' => $request->email,
+                    'MatKhau' =>Hash::make($request->matkhau),
+                    'HoTen' => $request->hoten,
+                    'SoDienThoai' => $request->sodienthoai,
+                    'NgaySinh' => $request->ngaysinh,
+                    'GioiTinh' => $request->gioitinh,
+                    'DiaChi' => $request->diachi,
+                    'Quyen' => $request->quyen,                 
+                
+                ]);
+                DB::commit();
+                return redirect()->route('Hethong.index');
+        }catch(Exception $e){
+            DB::rollBack();
+        }
+    }
+    public function Xoa(Request $request, $admin_id)
+    {
+        try{
+            DB::beginTransaction();
+            $xoa = DB::table('admins')->where('admin_id', $admin_id)->update(['TrangThai' => false]);
+            DB::commit();
+            return redirect()->route('Hethong.index');
+        }catch(Expception $e)
+        {
+            DB::rollBack();
+        }
+    }
+    public function TimKiem(Request $request)
+    {
+        $data_timkiem= DB::table('admins')->where('HoTen','like', "%$request->hoten%")->where('TrangThai',true)->get();
+        return view('back_end.contents.hethong.timkiem', compact('data_timkiem'));
+    }
 }

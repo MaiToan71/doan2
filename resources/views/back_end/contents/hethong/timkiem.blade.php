@@ -11,21 +11,22 @@
               <div class="card-header">
                 <h3 class="card-title">Nhập thông tin tìm kiếm</h3>
               </div>  
-              <form action="{{route('Hethong.TimKiem')}}" method="get" id="timkiem" role="form">
+              <form action="{{route('QuanLyXe.TimKiem')}}" method="get" id="timkiem" role="form">
                     @csrf                  
                             <div class="card-body ">
-                            <div class="row">
-                            
-                            <div class="col-sm">
-                            <div class="form-group "  >        
-                                <label >Họ tên <span style="color:red;">(*)</span>:</label>                       
-                                <input type="text"  class="form-control" name="hoten">
-                               
-                            </div>
-                            </div>
-                                                                                       
-                        </div>
-                        <button type="submit" class="btn btn-default btn-sm"  name="find" >Tìm kiếm</button>
+                               <div class="form-group">        
+                                    <label >Họ tên <span style="color:red;">(*)</span>:</label>                       
+                                    <input type="text"  class="form-control" name="email">                                   
+                                </div>
+                                <div class="row">                                
+                                    <div class="col-sm">                                              
+                                        <button type="submit" class="btn btn-default btn-sm"  >Tìm kiếm</button>                                                                         
+                                   </div>
+                                   <div class="col-sm">                                             
+                                        <a type="button" class="btn btn-default btn-sm"  href="{{route('Hethong.index')}}" >Tải lại trang</a>                                                 
+                                   </div>
+                                </div>                                                                                                                     
+                            </div>        
                 </form>
             </div>
             <!-- /.card -->
@@ -68,7 +69,7 @@
                         </tr>
                     </thead>           
                     <tbody>  
-                    @foreach($list_dat1a as $data)
+                    @foreach($data_timkiem as $data)
                      <tr>
                       <td>
                             <div class="dropdown" style="cursor: pointer;"> 
@@ -109,11 +110,7 @@
                     </tbody>
              </table>         
             </div>
-            <div style="display:flex;justify-content:center;">
-                <nav arial-label="Page navifation">
-                    {!! $list_dat1a->links() !!}
-                </nav>
-             </div>
+           
 </div>
 
 @endsection

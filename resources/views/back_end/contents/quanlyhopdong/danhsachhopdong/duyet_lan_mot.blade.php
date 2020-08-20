@@ -43,7 +43,7 @@
 <div class="container-fluid">
     <div class="card">
     <hr>
-    <h4 style="margin-left:20px;">Danh sách hợp đồng tiếp nhận</h4>
+    <h4 style="margin-left:20px;">Danh sách hợp đồng đang chờ duyệt</h4>
     <hr>   
               <!-- /.card-header -->
             <div class="card-body table-responsive p-0">
@@ -63,15 +63,17 @@
                 </tr>
             </thead>
             <tbody>                           
-                  @foreach($danhsach_hd as $elm)
+                  @foreach($duyetlanmot as $elm)
                   <tr>
                     <td>
                     <div class="dropdown" style="cursor: pointer;"> 
                             <i class="far fa-hand-rock dropdown-toggle" data-toggle="dropdown"></i>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> 
-                        <a type="button" class="dropdown-item btn btn-danger" href="{{route('QuanLyHopDong.thongtinsua',['hopdong_id' => $elm->hopdong_id])}}"><i class="fas fa-pen-alt"></i> Sửa</a>                   
-                            <a type="button" class="dropdown-item btn btn-danger" href="{{route('QuanLyHopDong.DuyetLanMot',['hopdong_id' => $elm->hopdong_id])}}"  onclick="return confirm('Bạn xác nhận duyệt chứ?')"><i class="fas fa-pen-alt"></i> Duyệt lần 1</a>               
-                           
+                            <a type="button" class="dropdown-item btn btn-danger" href="{{route('QuanLyHopDong.vipham',['hopdong_id' => $elm->hopdong_id])}}" onclick="return confirm('Bạn xác nhận có vi phạm chứ?')"><i class="fas fa-pen-alt"></i> Có vi phạm</a>   
+                            @if($elm->Duyet ==3)
+                            <a type="button" class="dropdown-item btn btn-danger" href="{{route('QuanLyHopDong.formvipham',['hopdong_id' => $elm->hopdong_id])}}" ><i class="fas fa-pen-alt"></i> Ghi nội dung vi phạm</a>                
+                            @endif
+                            <a type="button" class="dropdown-item btn btn-danger" href="{{route('QuanLyHopDong.ketthuc',['hopdong_id' => $elm->hopdong_id])}}"  onclick="return confirm('Bạn xác nhận duyệt chứ?')"><i class="fas fa-pen-alt"></i> Kêt thúc</a>                                          
                         </div>
                         </div>
                     </td>

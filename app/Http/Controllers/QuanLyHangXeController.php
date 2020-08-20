@@ -17,7 +17,7 @@ class QuanLyHangXeController extends Controller
     public function index(){
         try{
             DB::beginTransaction();
-            $list_data1 = DB::table('hang_xes')-> where ('TrangThai', true)-> get();
+            $list_data1 = DB::table('hang_xes')-> where ('TrangThai', true)->orderBy('hangxe_id','DESC')-> get();
             return view('back_end.contents.quanlythongtinxe.quanlyhangxe.index', compact('list_data1'));
         }catch(Exception $e){
             DB::rollBack();
