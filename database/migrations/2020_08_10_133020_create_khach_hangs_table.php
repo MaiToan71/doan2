@@ -22,9 +22,9 @@ class CreateKhachHangsTable extends Migration
             $table->string('SoDienThoai',15);
             $table->date('NgaySinh');
             $table->boolean('GioiTinh');
-            $table->string('GiayPhepLaiXe',4000);
-            $table->string('CMND',4000);
-            $table->string('HoKhau',4000);
+            $table->string('GiayPhepLaiXe',1000);
+            $table->string('CMND',1000);
+            $table->string('HoKhau',1000);
            // $table->boolean('DaXoa')->default(false);
             $table->boolean('TrangThai')->default(true);
         });

@@ -26,8 +26,11 @@
                                 </div>
                                 <div class="col-sm ml-4">
                                   <div class="form-group">
-                                  <button type="submit" class="btn btn-default ">Tìm kiếm</button>
-                                  </div>
+                                  <div>
+                                    <button type="submit" class="btn btn-default ">Tìm kiếm</button>
+                                    <a type="button " href="{{route('QuanLyHopDong.index')}}" class="btn btn-default ">Quay lại</a>
+                                  </div>    
+                                  
                                 </div>
                               </div>                                                                              
                        </div>
@@ -43,7 +46,7 @@
 <div class="container-fluid">
     <div class="card">
     <hr>
-    <h4 style="margin-left:20px;">Danh sách hợp đồng đang chờ duyệt</h4>
+    <h4 style="margin-left:20px;">Danh sách hợp đồng tiếp nhận</h4>
     <hr>   
               <!-- /.card-header -->
             <div class="card-body table-responsive p-0">
@@ -53,8 +56,7 @@
                     <th ></th>
                     <th >Mã hợp đồng</th>
                     <th>Tên khách hàng </th>
-                    <th>Tên hợp đồng </th>
-                   
+                    <th>Tên hợp đồng </th>                  
                     <th >Tiền thế chấp (đồng)</th>
                     <th >Bắt đầu</th>                   
                     <th >Ngày trả</th>
@@ -63,18 +65,30 @@
                 </tr>
             </thead>
             <tbody>                           
-                  @foreach($duyetlanmot as $elm)
+                  @foreach($timkiem as $elm)
                   <tr>
                     <td>
                     <div class="dropdown" style="cursor: pointer;"> 
                             <i class="far fa-hand-rock dropdown-toggle" data-toggle="dropdown"></i>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> 
-                            <a type="button" class="dropdown-item btn btn-danger" href="{{route('QuanLyHopDong.ChiTiet',['hopdong_id' => $elm->hopdong_id])}}"><i class="fas fa-pen-alt"></i> Chi Tiết hợp đồng</a>
-                            <a type="button" class="dropdown-item btn btn-danger" href="{{route('QuanLyHopDong.vipham',['hopdong_id' => $elm->hopdong_id])}}" onclick="return confirm('Bạn xác nhận có vi phạm chứ?')"><i class="fas fa-pen-alt"></i> Có vi phạm</a>   
-                            @if($elm->Duyet ==3)
-                            <a type="button" class="dropdown-item btn btn-danger" href="{{route('QuanLyHopDong.formvipham',['hopdong_id' => $elm->hopdong_id])}}" ><i class="fas fa-pen-alt"></i> Ghi nội dung vi phạm</a>                
+                        <a type="button" class="dropdown-item btn btn-danger" href="{{route('QuanLyHopDong.ChiTiet',['hopdong_id' => $elm->hopdong_id])}}"><i class="fas fa-pen-alt"></i> Chi Tiết hợp đồng</a>
+                        @if($elm->Duyet ==1)
+                        <a type="button" class="dropdown-item btn btn-danger" href="{{route('QuanLyHopDong.thongtinsua',['hopdong_id' => $elm->hopdong_id])}}"><i class="fas fa-pen-alt"></i> Sửa</a>                   
+                            <a type="button" class="dropdown-item btn btn-danger" href="{{route('QuanLyHopDong.DuyetLanMot',['hopdong_id' => $elm->hopdong_id])}}"  onclick="return confirm('Bạn xác nhận duyệt chứ?')"><i class="fas fa-pen-alt"></i> Duyệt lần 1</a>   
+                            
+                           @endif
+                           @if($elm->Duyet ==3)
+                            <a type="button" class="dropdown-item btn btn-danger" href="{{route('QuanLyHopDong.formvipham',['hopdong_id' => $elm->hopdong_id])}}" ><i class="fas fa-pen-alt"></i> Ghi nội dung vi phạm</a>    
+                            <a type="button" class="dropdown-item btn btn-danger" href="{{route('QuanLyHopDong.vipham',['hopdong_id' => $elm->hopdong_id])}}" onclick="return confirm('Bạn xác nhận có vi phạm chứ?')"><i class="fas fa-pen-alt"></i> Có vi phạm</a>    
+                            <a type="button" class="dropdown-item btn btn-danger" href="{{route('QuanLyHopDong.ketthuc',['hopdong_id' => $elm->hopdong_id])}}"  onclick="return confirm('Bạn xác nhận duyệt chứ?')"><i class="fas fa-pen-alt"></i> Hoàn thành</a>         
+                                   
                             @endif
-                            <a type="button" class="dropdown-item btn btn-danger" href="{{route('QuanLyHopDong.ketthuc',['hopdong_id' => $elm->hopdong_id])}}"  onclick="return confirm('Bạn xác nhận duyệt chứ?')"><i class="fas fa-pen-alt"></i> Hoàn thành</a>                                          
+                            @if($elm->Duyet ==2)
+                           <a type="button" class="dropdown-item btn btn-danger" href="{{route('QuanLyHopDong.vipham',['hopdong_id' => $elm->hopdong_id])}}" onclick="return confirm('Bạn xác nhận có vi phạm chứ?')"><i class="fas fa-pen-alt"></i> Có vi phạm</a>   
+                                      
+                           
+                            <a type="button" class="dropdown-item btn btn-danger" href="{{route('QuanLyHopDong.ketthuc',['hopdong_id' => $elm->hopdong_id])}}"  onclick="return confirm('Bạn xác nhận duyệt chứ?')"><i class="fas fa-pen-alt"></i> Hoàn thành</a>         
+                            @endif                   
                         </div>
                         </div>
                     </td>
@@ -86,7 +100,7 @@
                     @endforeach
                     <td>{{$elm->TenHopDong}}</td>
                     
-                    <td >{{$elm->TienTheChap}}</td>
+                    <td id="tienthechap">{{$elm->TienTheChap}}</td>
                     <td>{{$elm->ThoiGianTheChap}}</td>
                     <td>{{$elm->ThoiGianTraXe}}</td>
                     
@@ -106,6 +120,9 @@
                     @endif
                 </tr>
                 @endforeach
+                <tr>
+                <td>1</td>
+                </tr>
             </tbody>
              </table>         
             </div>
