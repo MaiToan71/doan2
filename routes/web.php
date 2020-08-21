@@ -24,6 +24,9 @@ Route::post('/login','LoginController@PostLogin')->name('PostLogin');
 
 
 //back-end
+Route::get('/Trang-chu', 'TrangChuController@TrangChu')->name('TrangChu');
+Route::get('/data', 'TrangChuController@data')->name('data');
+
 Route::get('/he-thong', 'HethongController@index')->name('hethong');
 Route::group(['prefix'=>'Hethong','as' => 'Hethong.' ],function(){
     //lấy dữ liệu
