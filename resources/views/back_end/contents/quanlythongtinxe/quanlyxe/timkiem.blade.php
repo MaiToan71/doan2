@@ -86,7 +86,7 @@
                     <th >Năm sản xuất </th>
                     <th >Loại nhiên liệu</th>
                     <th >Dung tích</th>
-                    <th >Giới hạn</th>
+                    <th >Giới hạn ngày</th>
                     <th >Mô tả</th>
                     <th >Giấy tờ xe</th>
                     <th >Hình ảnh xe</th>                    
@@ -121,7 +121,7 @@
                         <td>{{$elm->NamSanXuat}}</td>
                         <td>{{$elm->NhienLieu}}</td>
                         <td>{{$elm->DungTich}} m<sup>3</sup></td>
-                        <td>{{$elm->GioiHanKm}} km</td>
+                        <td>{{$elm->GioiHanNgay}} km</td>
                         <td><p>{{$elm->MoTa}}</p></td>
                         <td> 
                             <img alt="Giấy tờ xe" width="60" height="60" src="{{ URL::to('/') }}/imgs/{{ $elm->GiayToXe }}"/>

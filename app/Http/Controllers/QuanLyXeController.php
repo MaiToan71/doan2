@@ -56,7 +56,7 @@ class QuanLyXeController extends Controller
                 'NhienLieu'=>$request->nhienlieu,
                 'DungTich'=>$request->dungtich,
                 'GiayToXe'=>$file_giaytoxe->getClientOriginalName(),
-                'GioiHanKm'=>$request->quangduong,
+                'GioiHanNgay'=>$request->quangduong,
                 'MoTa'=>$request->mota
 
             ]);
@@ -113,12 +113,12 @@ class QuanLyXeController extends Controller
                     'NamSanXuat'=>$request->namsanxuat,
                     'NhienLieu'=>$request->nhienlieu,
                     'DungTich'=>$request->dungtich,                   
-                    'GioiHanKm'=>$request->quangduong,
+                    'GioiHanNgay'=>$request->quangduong,
                     'MoTa'=>$request->mota
                     ]);
             }else{                
                 $file_hinhanh1 = $request->hinhanh;     
-                dd($file_hinhanh1);         
+                //dd($file_hinhanh1);         
                 $file_hinhanh1->move('imgs', $file_hinhanh1->getClientOriginalName());               
                 $file_giaytoxe1 = $request->file('giaytoxe');
                 $file_giaytoxe1->move('imgs', $file_giaytoxe1->getClientOriginalName());                 
@@ -131,7 +131,7 @@ class QuanLyXeController extends Controller
                     'NhienLieu'=>$request->nhienlieu,
                     'DungTich'=>$request->dungtich,
                     'GiayToXe'=>$file_giaytoxe1->getClientOriginalName(),
-                    'GioiHanKm'=>$request->quangduong,
+                    'GioiHanNgay'=>$request->quangduong,
                     'MoTa'=>$request->mota
                     ]);
             }

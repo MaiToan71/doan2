@@ -12,7 +12,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form method="get" id="timkiem" role="form">
+              <form method="get" id="timkiem" role="form" action="{{route('QuanLyHopDong.TimKiem')}}">
                     @csrf                  
                         <div class="card-body">
                         <div class="row">
@@ -21,7 +21,7 @@
                                 </div>
                                 <div class="col-sm col-md-6">
                                   <div class="form-group">                               
-                                  <input type="text" class="form-control" name="TenHang" >
+                                  <input type="text" class="form-control" name="mahopdong" >
                                   </div>  
                                 </div>
                                 <div class="col-sm ml-4">
@@ -55,31 +55,37 @@
                     <th>Tên khách hàng </th>
                     <th>Tên hợp đồng </th>
                    
-                    <th >Tiền thế chấp</th>
+                    <th >Tiền thế chấp (đồng)</th>
                     <th >Bắt đầu</th>                   
                     <th >Ngày trả</th>
                     <th >Duyệt</th>
                     <th >Trạng thái</th>                          
                 </tr>
             </thead>
-            <tbody>                           
+            <tbody>           
+
                   @foreach($danhsach_hd as $elm)
                   <tr>
                     <td>
                     <div class="dropdown" style="cursor: pointer;"> 
                             <i class="far fa-hand-rock dropdown-toggle" data-toggle="dropdown"></i>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> 
-                        <a type="button" class="dropdown-item btn btn-danger" href="{{route('QuanLyHopDong.thongtinsua',['hopdong_id' => $elm->hopdong_id])}}"><i class="fas fa-pen-alt"></i> Sửa</a>                   
+                            <a type="button" class="dropdown-item btn btn-danger" href="{{route('QuanLyHopDong.ChiTiet',['hopdong_id' => $elm->hopdong_id])}}"><i class="fas fa-pen-alt"></i> Chi Tiết hợp đồng</a>     
+                            <a type="button" class="dropdown-item btn btn-danger" href="{{route('QuanLyHopDong.thongtinsua',['hopdong_id' => $elm->hopdong_id])}}"><i class="fas fa-pen-alt"></i> Sửa</a>                   
                             <a type="button" class="dropdown-item btn btn-danger" href="{{route('QuanLyHopDong.DuyetLanMot',['hopdong_id' => $elm->hopdong_id])}}"  onclick="return confirm('Bạn xác nhận duyệt chứ?')"><i class="fas fa-pen-alt"></i> Duyệt lần 1</a>               
                            
                         </div>
                         </div>
                     </td>
                     <td>HĐ{{$elm->hopdong_id}}</td>
-                    <td>{{$elm->khachhang_id}}</td>
+                    @foreach ($Tens as $Ten)
+                      @if($Ten->khachhang_id == $elm->khachhang_id)
+                    <td>{{$Ten->Ten}}</td>
+                      @endif
+                    @endforeach
                     <td>{{$elm->TenHopDong}}</td>
                     
-                    <td>{{$elm->TienTheChap}}</td>
+                    <td id="tienthechap">{{$elm->TienTheChap}}</td>
                     <td>{{$elm->ThoiGianTheChap}}</td>
                     <td>{{$elm->ThoiGianTraXe}}</td>
                     
@@ -99,10 +105,46 @@
                     @endif
                 </tr>
                 @endforeach
+                
             </tbody>
              </table>         
             </div>
             
 </div>
 </section>
+<script>
+$("#timkiem").validate({
+		onfocusout: false,
+		onkeyup: false,
+		onclick: false,
+		rules: {
+			"mahopdong": {
+				required: true,
+        number: true,
+			}
+            
+			
+		},
+        messages: {
+			"mahopdong": {
+				required: "Bạn chưa nhập giá trị",
+        number:"Bạn chỉ được nhập số"
+			},
+           
+        },
+        errorElement: 'span',
+        errorPlacement: function (error, element) {
+        error.addClass('invalid-feedback');
+        element.closest('.form-group').append(error);
+        },
+        highlight: function (element, errorClass, validClass) {
+        $(element).addClass('is-invalid');
+        },
+        unhighlight: function (element, errorClass, validClass) {
+        $(element).removeClass('is-invalid');
+        }
+    });
+    
+    
+</script>
 @endsection

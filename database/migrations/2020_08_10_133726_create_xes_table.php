@@ -17,13 +17,13 @@ class CreateXesTable extends Migration
             $table->increments('xe_id');
             $table->unsignedInteger('hangxe_id');
             $table->unsignedInteger('loaixe_id');
-            $table->string('HinhAnh',4000);
+            $table->string('HinhAnh',500);
             $table->string('TenXe',50);
             $table->integer('NamSanXuat');
             $table->string('NhienLieu',20);
             $table->integer('DungTich');
-            $table->string('GiayToXe',4000);
-            $table->string('GioiHanKm',10);
+            $table->string('GiayToXe',500);
+            $table->string('GioiHanNgay',10);
             $table->string('MoTa',1000);
            // $table->boolean('DaXoa')->default(false);
             $table->boolean('TrangThai')->default(true);
