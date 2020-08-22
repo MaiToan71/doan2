@@ -49,21 +49,23 @@
                     <th>Địa Chỉ</th>
                     <th>Số Điện Thoại</th>
                     <th>Ngày Sinh</th>
-                    <th>Giới Tính</th>                  
+                    <th>Giới Tính</th>
+                    <th>Giấy Phép Lái Xe</th>
+                    <th>CMND</th>
+                    <th>Hộ Khẩu</th>                    
                     <th>Trạng thái</th>         
                 </tr>
             </thead>
             <tbody>            
         
-            @foreach($list_cust as $elm)
+            @foreach($timkiem as $elm)
                   <tr>
                     <td>
                     <div class="dropdown" style="cursor: pointer;"> 
                             <i class="far fa-hand-rock dropdown-toggle" data-toggle="dropdown"></i>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> 
-                        <a type="button" class="dropdown-item btn btn-danger" href="{{route('QuanLyKhachHang.chitiet',['khachhang_id' => $elm->khachhang_id])}}"><i class="fas fa-pen-alt"></i> Chi Tiết</a>                   
                         <a type="button" class="dropdown-item btn btn-danger" href="{{route('QuanLyKhachHang.sua',['khachhang_id' => $elm->khachhang_id])}}"><i class="fas fa-pen-alt"></i> Sửa</a>                   
-                        <a type="button" class="dropdown-item btn btn-danger" href="{{route('QuanLyKhachHang.xoa',['khachhang_id' => $elm->khachhang_id])}}"  onclick="return confirm('Bạn xác nhận duyệt chứ?')"><i class="fas fa-pen-alt"></i> Xóa</a>               
+                            <a type="button" class="dropdown-item btn btn-danger" href="{{route('QuanLyKhachHang.xoa',['khachhang_id' => $elm->khachhang_id])}}"  onclick="return confirm('Bạn xác nhận duyệt chứ?')"><i class="fas fa-pen-alt"></i> Xóa</a>               
                            
                         </div>
                         </div>
@@ -81,6 +83,9 @@
                         @else   
                             <td>Nữ</i></td>
                         @endif
+                    <td>{{$elm->GiayPhepLaiXe}}</td>
+                    <td>{{$elm->CMND}}</td>
+                    <td>{{$elm->HoKhau}}</td>
                     @if( $elm->TrangThai == 1)
                             <td><i class="fas fa-check " style="color:blue"></i></td>
                     @else   

@@ -76,7 +76,16 @@ Route::group(['prefix'=>'QuanLyXe','as' => 'QuanLyXe.' ],function(){
 Route::group(['prefix'=>'QuanLyKhachHang','as' => 'QuanLyKhachHang.' ],function(){
     //lấy dữ liệu
     Route::get('/danh-sach-khach-hang','QuanLyKhachHangController@index')->name('index');
-    //thêm dữ liệu  
+    //sửa dữ liệu  
+    Route::get('/sua/{khachhang_id}','QuanLyKhachHangController@sua')->name('sua');
+    Route::post('/sua/{khachhang_id}','QuanLyKhachHangController@ThucHienSua')->name('ThucHienSua');
+    //xóa dữ liệu
+    Route::get('/xoa/{khachhang_id}','QuanLyKhachHangController@xoa')->name('xoa');
+    //tìm kiếm
+    Route::get('/tim-kiem','QuanLyKhachHangController@TimKiem')->name('TimKiem');
+    //hiển thị chi tiết
+    Route::get('/chitiet/{khachhang_id}','QuanLyKhachHangController@chitiet')->name('chitiet');
+
 });
 
 // quan ly hop dong
