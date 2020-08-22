@@ -47,7 +47,7 @@ $().ready(function(){
                 datasets: [
                   {
                     data: [],
-                    backgroundColor : ['#f56954', '#00a65a'],
+                    backgroundColor : ['#8A2BE2','#f56954', '#00a65a','#033106'],
                   }
                 ]
               }

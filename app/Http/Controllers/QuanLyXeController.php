@@ -116,16 +116,34 @@ class QuanLyXeController extends Controller
                     'GioiHanNgay'=>$request->quangduong,
                     'MoTa'=>$request->mota
                     ]);
-            }else{                
+            }else if ($request->hasFile('hinhanh')){                
                 $file_hinhanh1 = $request->hinhanh;     
                 //dd($file_hinhanh1);         
                 $file_hinhanh1->move('imgs', $file_hinhanh1->getClientOriginalName());               
+                //$file_giaytoxe1 = $request->file('giaytoxe');
+                //$file_giaytoxe1->move('imgs', $file_giaytoxe1->getClientOriginalName());                 
+                $thuchien_sua = DB::table('xes')->where('xe_id',$xe_id)->update([
+                    'hangxe_id'=>$request->hangxe,
+                    'loaixe_id'=>$request->loaixe,
+                    'HinhAnh'=>$file_hinhanh1->getClientOriginalName(),
+                    'TenXe'=>$request->tenxe,
+                    'NamSanXuat'=>$request->namsanxuat,
+                    'NhienLieu'=>$request->nhienlieu,
+                    'DungTich'=>$request->dungtich,
+                  //  'GiayToXe'=>$file_giaytoxe1->getClientOriginalName(),
+                    'GioiHanNgay'=>$request->quangduong,
+                    'MoTa'=>$request->mota
+                    ]);
+            }else{
+                //$file_hinhanh1 = $request->hinhanh;     
+                //dd($file_hinhanh1);         
+              //  $file_hinhanh1->move('imgs', $file_hinhanh1->getClientOriginalName());               
                 $file_giaytoxe1 = $request->file('giaytoxe');
                 $file_giaytoxe1->move('imgs', $file_giaytoxe1->getClientOriginalName());                 
                 $thuchien_sua = DB::table('xes')->where('xe_id',$xe_id)->update([
                     'hangxe_id'=>$request->hangxe,
                     'loaixe_id'=>$request->loaixe,
-                    'HinhAnh'=>$file_hinhanh1->getClientOriginalName(),
+                  //  'HinhAnh'=>$file_hinhanh1->getClientOriginalName(),
                     'TenXe'=>$request->tenxe,
                     'NamSanXuat'=>$request->namsanxuat,
                     'NhienLieu'=>$request->nhienlieu,

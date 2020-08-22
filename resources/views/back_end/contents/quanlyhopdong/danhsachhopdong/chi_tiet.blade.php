@@ -20,16 +20,26 @@
                             <div class="row">
                                 <div class="col-sm">
                                     <div class="form-group">
-                                        <label >Mã hợp đồng <span style="color:red;">(*)</span>:</label>
+                                        <label >Tên hợp đồng <span style="color:red;">(*)</span>:</label>
                                         <input type="text" class="form-control" disabled name="tenhopdong" value="{{$elm->TenHopDong}}">
                                     </div>
                                     <div class="form-group">
                                         <label >Tên khách hàng<span style="color:red;">(*)</span>:</label>
-                                        @foreach($Tens as $name)
-                                            @if($name->khachhang_id  == $elm->khachhang_id)
-                                        <input type="text" class="form-control" disabled name="tenkhachhang" value="{{$name->Ten}}">
-                                            @endif
-                                        @endforeach
+                                       
+                                        <input type="text" class="form-control" disabled name="tenkhachhang" value="{{$elm->Ten}}">
+                                        
+                                    </div>
+                                    <div class="form-group">
+                                        <label >Tên xe:<span style="color:red;">(*)</span>:</label>
+                                        <input type="datetime" class="form-control" disabled name="ketthuc" value="{{$elm->TenXe}}">
+                                    </div> 
+                                    <div class="form-group">
+                                        <label >Mã xe <span style="color:red;">(*)</span>:</label>
+                                        <input type="text" class="form-control" disabled name="tenhopdong" value="{{$elm->xe_id}}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label >Hãng xe <span style="color:red;">(*)</span>:</label>
+                                        <input type="text" class="form-control" disabled name="tenhopdong" value="{{$elm->TenHangXe}}">
                                     </div>
                                     <div class="form-group">
                                         <label >Tiền thế chấp<span style="color:red;">(*)</span>:</label>
@@ -44,13 +54,26 @@
                                 </div>
                                 <div class="col-sm">
                                     <div class="form-group">
+                                        <label >Địa chỉ <span style="color:red;">(*)</span>:</label>
+                                        <input type="text" class="form-control" disabled name="tenhopdong" value="{{$elm->TenHopDong}}">
+                                    </div>
+                                    <div class="form-group">
                                         <label >Bắt đầu:<span style="color:red;">(*)</span>:</label>
                                         <input type="text" class="form-control" disabled name="tienthechap" value="{{$elm->ThoiGianTheChap}}">
                                     </div>
+                                    
                                     <div class="form-group">
                                         <label >Kết thúc: <span style="color:red;">(*)</span>:</label>
                                         <input type="text" class="form-control" disabled name="tienthechap"  value="{{$elm->ThoiGianTraXe}}">
-                                    </div>                                                 
+                                    </div>   
+                                    <div class="form-group">
+                                        <label >Loại xe <span style="color:red;">(*)</span>:</label>
+                                        <input type="text" class="form-control" disabled name="tenhopdong" value="{{$elm->SoCho}} Chỗ">
+                                    </div>  
+                                    <div class="form-group">
+                                        <label >Số lượng:<span style="color:red;">(*)</span>:</label>
+                                        <input type="datetime" class="form-control" disabled name="ketthuc" value="{{$elm->SoLuong}}">
+                                    </div>                                             
                                     <div class="form-group">
                                         <label >Tiền quá hạn: <span style="color:red;">(*)</span>:</label>
                                         <input type="text" class="form-control" disabled name="tienthechap" value="{{$elm->TienQuaHan}}">
