@@ -24,11 +24,11 @@
                                     </div>
                                     <div class="form-group">
                                         <label >Thời gian bắt đầu<span style="color:red;">(*)</span>:</label>
-                                        <input type="datetime" class="form-control" name="batdau" value="{{$elm->ThoiGianTheChap}}">
+                                        <input type="date" class="form-control" name="batdau" value="{{$elm->ThoiGianTheChap}}">
                                     </div>
                                     <div class="form-group">
                                         <label >THời gian kết thúc<span style="color:red;">(*)</span>:</label>
-                                        <input type="datetime" class="form-control" name="ketthuc" value="{{$elm->ThoiGianTraXe}}">
+                                        <input type="date" class="form-control" name="ketthuc" value="{{$elm->ThoiGianTraXe}}">
                                     </div>                                                  
                                     <div class="form-group ">
                                         <button type="submit" class="btn btn-default btn-sm" style="width:100px;margin-top:120px;" >Sửa</button>
