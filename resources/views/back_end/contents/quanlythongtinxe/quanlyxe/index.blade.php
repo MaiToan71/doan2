@@ -69,7 +69,7 @@
                 <thead>
                 <tr>
                     <th ></th>
-                    <th >STT</th>
+                    <th >Mã xe</th>
                     <th>Tên xe </th>
                     <th >Hãng xe</th>
                     <th >Loại xe</th>
@@ -95,7 +95,7 @@
                         </div>
                         </div>
                         </td>
-                        <td scope="row">{{$loop->index +1 }}</td>
+                        <td scope="row">{{$elm->xe_id}}</td>
                         <td>{{$elm->TenXe}}</td>
                         @foreach($list_hang_xe as $hang_xe)
                             @if( $elm->hangxe_id == $hang_xe->hangxe_id)
@@ -111,7 +111,7 @@
                         <td>{{$elm->NamSanXuat}}</td>
                         <td>{{$elm->NhienLieu}}</td>
                         <td>{{$elm->DungTich}} m<sup>3</sup></td>
-                        <td>{{$elm->GioiHanKm}} km</td>
+                        <td>{{$elm->GioiHanNgay}} ngày</td>
                         <td><p>{{$elm->MoTa}}</p></td>
                         <td> 
                             <img alt="Giấy tờ xe" width="60" height="60" src="{{ URL::to('/') }}/imgs/{{ $elm->GiayToXe }}"/>

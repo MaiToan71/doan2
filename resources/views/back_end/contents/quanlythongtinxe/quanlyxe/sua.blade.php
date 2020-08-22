@@ -72,8 +72,8 @@
                                         <input type="text" class="form-control" name="dungtich"  value={{$xe->DungTich}}>
                                     </div>
                                     <div class="form-group">
-                                        <label >Giới hạn quãng đường: <span style="color:red;">(*)</span>:</label>
-                                        <input type="text" class="form-control" name="quangduong"  value={{$xe->GioiHanKm}}>
+                                        <label >Giới hạn ngày: <span style="color:red;">(*)</span>:</label>
+                                        <input type="text" class="form-control" name="quangduong"  value={{$xe->GioiHanNgay}}>
                                     </div>
                                     <div class="form-group">
                                         <label >Mô tả: <span style="color:red;">(*)</span>:</label>

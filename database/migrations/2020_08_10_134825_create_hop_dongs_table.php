@@ -17,12 +17,12 @@ class CreateHopDongsTable extends Migration
             $table->increments('hopdong_id');
             $table->unsignedInteger('khachhang_id');
             $table->string('TenHopDong',50)->nullable();
-            $table->string('FileHopDong',4000)->nullable();
+            $table->string('FileHopDong',1000)->nullable();
             $table->string('LoiViPham',100)->nullable();
-            $table->string('HinhAnhLoi',4000)->nullable();
+            $table->string('HinhAnhLoi',1000)->nullable();
             $table->string('TienTheChap',20)->nullable();
-            $table->dateTime('ThoiGianTheChap')->nullable();
-            $table->dateTime('ThoiGianTraXe')->nullable();
+            $table->date('ThoiGianTheChap')->nullable();
+            $table->date('ThoiGianTraXe')->nullable();
             $table->string('TienQuaHan',20)->nullable();
             $table->integer('Duyet')->default(1);
             $table->boolean('TrangThai')->default(true);

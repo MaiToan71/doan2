@@ -24,6 +24,9 @@ Route::post('/login','LoginController@PostLogin')->name('PostLogin');
 
 
 //back-end
+Route::get('/Trang-chu', 'TrangChuController@TrangChu')->name('TrangChu');
+Route::get('/data', 'TrangChuController@data')->name('data');
+
 Route::get('/he-thong', 'HethongController@index')->name('hethong');
 Route::group(['prefix'=>'Hethong','as' => 'Hethong.' ],function(){
     //lấy dữ liệu
@@ -91,9 +94,12 @@ Route::group(['prefix'=>'QuanLyKhachHang','as' => 'QuanLyKhachHang.' ],function(
 // quan ly hop dong
 Route::group(['prefix'=>'QuanLyHopDong','as' => 'QuanLyHopDong.' ],function(){
     //lấy dữ liệu
+    Route::get('/chi-tiet-hop-dong/{hopdong_id}','DanhSachHopDongController@ChiTiet')->name('ChiTiet');
     Route::get('/danh-sach-hop-dong','DanhSachHopDongController@index')->name('index');
-    //thêm dữ liệu  
-    Route::get('/sua-hop-dong','DanhSachHopDongController@thongtinsua')->name('thongtinsua');
+    Route::get('/Tim-kiem','DanhSachHopDongController@TimKiem')->name('TimKiem');
+    //sua hop dong 
+    Route::get('/sua-hop-dong/{hopdong_id}','DanhSachHopDongController@thongtinsua')->name('thongtinsua');
+    Route::post('/sua-hop-dong/{hopdong_id}','DanhSachHopDongController@thuchiensua')->name('thuchiensua');
     // duyet hop dong
     Route::get('/duyet-lan-1/{hopdong_id}','DanhSachHopDongController@DuyetLanMot')->name('DuyetLanMot');
     //hien thi duyet lan 1
@@ -105,6 +111,7 @@ Route::group(['prefix'=>'QuanLyHopDong','as' => 'QuanLyHopDong.' ],function(){
     Route::get('/vi-pham/{hopdong_id}','DanhSachHopDongController@vipham')->name('vipham');
     // form them vi pham
     Route::get('/form-vi-pham/{hopdong_id}','DanhSachHopDongController@formvipham')->name('formvipham');
+    Route::post('/form-vi-pham/{hopdong_id}','DanhSachHopDongController@ghiLaiViPham')->name('ghiLaiViPham');
 });
 
 
