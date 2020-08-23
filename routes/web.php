@@ -19,16 +19,23 @@ Route::get('/', function () {
 //login
 Route::get('/login','LoginController@Login')->name('Login');
 Route::post('/login','LoginController@PostLogin')->name('PostLogin');
+Route::get('/logout','LoginController@logout')->name('logout');
+
 
 //font-end
+Route::get('/giao-dien','GiaoDienController@index')->name('index');
+Route::group(['prefix'=>'Giaodien','as' => 'Giaodien.' ],function(){
+    Route::get('/tim-kiem','GiaoDienTimKiemController@TimKiem')->name('timkiem');
+    Route::get('/danh-sach-xe','GiaoDienTimKiemController@DanhSachXe')->name('danhsachxe');
+});
 
 
 //back-end
-Route::get('/Trang-chu', 'TrangChuController@TrangChu')->name('TrangChu');
+Route::get('/Trang-chu', 'TrangChuController@TrangChu')->middleware('LoginMiddle')->name('TrangChu');
 Route::get('/data', 'TrangChuController@data')->name('data');
 
-Route::get('/he-thong', 'HethongController@index')->name('hethong');
-Route::group(['prefix'=>'Hethong','as' => 'Hethong.' ],function(){
+Route::get('/he-thong', 'HethongController@index')->middleware('LoginMiddle')->name('hethong');
+Route::group(['prefix'=>'Hethong','middleware'=>'LoginMiddle','as' => 'Hethong.' ],function(){
     //lấy dữ liệu
     Route::get('/quan-ly-admin','HethongController@index')->name('index');
     //thêm dữ liệu
@@ -43,7 +50,7 @@ Route::group(['prefix'=>'Hethong','as' => 'Hethong.' ],function(){
     Route::get('/tim-kiem-admin','HethongController@TimKiem')->name('TimKiem');
 });
 
-Route::group(['prefix'=>'QuanLyLoaiXe','as' => 'QuanLyLoaiXe.' ],function(){
+Route::group(['prefix'=>'QuanLyLoaiXe','middleware'=>'LoginMiddle','as' => 'QuanLyLoaiXe.' ],function(){
     //lấy dữ liệu
     Route::get('/quan-ly-loai-xe','QuanlyloaixeController@index')->name('index');
     //thêm dữ liệu
@@ -53,7 +60,7 @@ Route::group(['prefix'=>'QuanLyLoaiXe','as' => 'QuanLyLoaiXe.' ],function(){
     Route::post('/sua/{loaixe_id}','QuanlyloaixeController@Sua')->name('Sua');
     
 });
-Route::group(['prefix'=>'QuanLyHangXe','as' => 'QuanLyHangXe.' ],function(){
+Route::group(['prefix'=>'QuanLyHangXe','middleware'=>'LoginMiddle','as' => 'QuanLyHangXe.' ],function(){
     //lấy dữ liệu
     Route::get('/quan-ly-hang-xe','QuanLyHangXeController@index')->name('index');
     //thêm dữ liệu
@@ -64,7 +71,7 @@ Route::group(['prefix'=>'QuanLyHangXe','as' => 'QuanLyHangXe.' ],function(){
     Route::post('/sua-hang-xe/{hangxe_id}','QuanlyHangXeController@Sua')->name('Sua');
     
 });
-Route::group(['prefix'=>'QuanLyXe','as' => 'QuanLyXe.' ],function(){
+Route::group(['prefix'=>'QuanLyXe','middleware'=>'LoginMiddle','as' => 'QuanLyXe.' ],function(){
     //lấy dữ liệu
     Route::get('/quan-ly-xe','QuanLyXeController@index')->name('index'); 
     //thêm dữ liệu
@@ -76,7 +83,7 @@ Route::group(['prefix'=>'QuanLyXe','as' => 'QuanLyXe.' ],function(){
     Route::get('/tim-kiem-xe','QuanLyXeController@TimKiem')->name('TimKiem');
 });
 
-Route::group(['prefix'=>'QuanLyKhachHang','as' => 'QuanLyKhachHang.' ],function(){
+Route::group(['prefix'=>'QuanLyKhachHang','middleware'=>'LoginMiddle','as' => 'QuanLyKhachHang.' ],function(){
     //lấy dữ liệu
     Route::get('/danh-sach-khach-hang','QuanLyKhachHangController@index')->name('index');
     //sửa dữ liệu  
@@ -92,7 +99,7 @@ Route::group(['prefix'=>'QuanLyKhachHang','as' => 'QuanLyKhachHang.' ],function(
 });
 
 // quan ly hop dong
-Route::group(['prefix'=>'QuanLyHopDong','as' => 'QuanLyHopDong.' ],function(){
+Route::group(['prefix'=>'QuanLyHopDong','middleware'=>'LoginMiddle','as' => 'QuanLyHopDong.' ],function(){
     //lấy dữ liệu
     Route::get('/chi-tiet-hop-dong/{hopdong_id}','DanhSachHopDongController@ChiTiet')->name('ChiTiet');
     Route::get('/danh-sach-hop-dong','DanhSachHopDongController@index')->name('index');
