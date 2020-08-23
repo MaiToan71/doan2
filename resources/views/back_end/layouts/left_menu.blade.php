@@ -16,6 +16,11 @@
        
        
       </li>
+      <li class="nav-item">
+        <a class="nav-link"   href="{{route('logout')}}" role="button">
+        Đăng xuất
+        </a>
+      </li>
     </ul>
   </nav>
   <!-- /.navbar -->
@@ -23,7 +28,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="{{{route('TrangChu')}}}" class="brand-link">
+    <a href="{{route('TrangChu')}}" class="brand-link">
       <img src="{{URL::asset('dist/img/AdminLTELogo.png')}} " alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
       <span class="brand-text font-weight-light">Quản trị</span>
@@ -36,8 +41,8 @@
         <div class="image">
           <img src="{{URL::asset('dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div>
-        <div class="info">
-         
+        <div class="info" style="color:white">
+        {{ session('email')['email'] }}
         </div>
       </div>
 
@@ -153,18 +158,8 @@
                   <p>Quản lý hệ thống</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="pages/tables/data.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>DataTables</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/tables/jsgrid.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>jsGrid</p>
-                </a>
-              </li>
+             
+             
             </ul>
           </li>
          

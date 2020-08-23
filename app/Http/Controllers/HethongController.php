@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\admin;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Crypt;
 class HethongController extends Controller
 {
     private $admin;
@@ -31,7 +32,7 @@ class HethongController extends Controller
             DB::beginTransaction();
             $admin = $this->admin->create([
                     'email' => $request->email,
-                    'MatKhau' =>Hash::make($request->matkhau),
+                    'MatKhau' =>md5($request->matkhau),
                     'HoTen' => $request->hoten,
                     'SoDienThoai' => $request->sodienthoai,
                     'NgaySinh' => $request->ngaysinh,
@@ -60,7 +61,7 @@ class HethongController extends Controller
             DB::beginTransaction();
             $sua_admin = DB::table('admins')->where('admin_id',$admin_id)->update([
                     'email' => $request->email,
-                    'MatKhau' =>Hash::make($request->matkhau),
+                    'MatKhau' =>md5($request->matkhau),
                     'HoTen' => $request->hoten,
                     'SoDienThoai' => $request->sodienthoai,
                     'NgaySinh' => $request->ngaysinh,

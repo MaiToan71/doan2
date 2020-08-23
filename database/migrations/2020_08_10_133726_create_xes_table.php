@@ -25,7 +25,8 @@ class CreateXesTable extends Migration
             $table->string('GiayToXe',500);
             $table->string('GioiHanNgay',10);
             $table->string('MoTa',1000);
-          //  $table->boolean('Gia')->default(false);
+            $table->string('GiaThue',20);
+            $table->string('UuDai',20)->nullable();
             $table->boolean('TrangThai')->default(true);
             $table->foreign('hangxe_id')->references('hangxe_id')->on('hang_xes');
             $table->foreign('loaixe_id')->references('loaixe_id')->on('loai_xes');

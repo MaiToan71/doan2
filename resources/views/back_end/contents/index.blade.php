@@ -1,7 +1,7 @@
 @extends('back_end.layouts.left_menu')
 @section('section')
  <section class="content mb-5">
-    <h2 class="ml-3" style="color:blue">Hệ thống quản trị phần mềm xe tự lái</h1>
+    <h2 class="ml-3" style="color:blue">Hệ thống quản trị phần mềm xe tự lái </h1>
  </section>
  <section class="content">
       <div class="container-fluid">

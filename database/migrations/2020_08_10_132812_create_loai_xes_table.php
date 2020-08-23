@@ -16,7 +16,6 @@ class CreateLoaiXesTable extends Migration
         Schema::create('loai_xes', function (Blueprint $table) {
             $table->increments('loaixe_id');
             $table->integer('SoCho');
-            //$table->boolean('DaXoa')->default(false);
             $table->boolean('TrangThai')->default(true);   
         });
     }

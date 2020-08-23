@@ -15,16 +15,18 @@ class CreateKhachHangsTable extends Migration
     {
         Schema::create('khach_hangs', function (Blueprint $table) {
             $table->increments('khachhang_id');
-            $table->string('Ten',20);
-            $table->string('Email',20);
-            $table->string('MatKhau',20);
-            $table->string('DiaChi');
-            $table->string('SoDienThoai',15);
-            $table->date('NgaySinh');
-            $table->boolean('GioiTinh');
-            $table->string('GiayPhepLaiXe',1000);
-            $table->string('CMND',1000);
-            $table->string('HoKhau',1000);
+            $table->string('Ten',20)->nullable();
+            $table->string('Email',20)->nullable();
+            $table->string('MatKhau',20)->nullable();
+            $table->string('DiaChi')->nullable();
+            $table->string('SoDienThoai',15)->nullable();
+            $table->date('NgaySinh')->nullable();
+            $table->boolean('GioiTinh')->nullable();
+            $table->string('GiayPhepLaiXe',1000)->nullable();
+            $table->string('CMND',1000)->nullable();
+            $table->string('HoKhau',1000)->nullable();
+            $table->date('NgayHen')->nullable();
+            $table->time('ThoiGianHen')->nullable();
            // $table->boolean('DaXoa')->default(false);
             $table->boolean('TrangThai')->default(true);
         });
