@@ -27,7 +27,7 @@ class CreateKhachHangsTable extends Migration
             $table->string('HoKhau',1000)->nullable();
             $table->date('NgayHen')->nullable();
             $table->time('ThoiGianHen')->nullable();
-            $table->int("TrangThaiHen")->default(0);
+            $table->boolean("TrangThaiHen")->default(0);
            // $table->boolean('DaXoa')->default(false);
             $table->boolean('TrangThai')->default(true);
         });
