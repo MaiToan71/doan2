@@ -45,11 +45,13 @@
                     <th>Mã_KH</th>
                     <th>Họ Tên</th>
                     <th>Email</th>
+
                     <th>Tên xe</th>
                     <th>Hãng xe</th>
                     <th>Số chỗ</th>
                     <th>Ngày hẹn</th>
                     <th>Giờ hẹn</th>                  
+                               
                     <th>Trạng thái</th>         
                 </tr>
             </thead>
@@ -70,14 +72,14 @@
                     </td>
                     <td>KH_{{$elm->khachhang_id}}</td>
                     <td>{{$elm->Ten}}</td>
-                    <td>{{$elm->Email}}</td>
-                    
+                    <td>{{$elm->Email}}</td>                
                     <td>{{$elm->TenXe}}</td>
                     <td>{{$elm->TenHangXe}}</td>
                     <td>{{$elm->SoCho}} chỗ</td>
                     <td>{{$elm->NgayHen}}</td>
                     <td>{{$elm->ThoiGianHen}}</td>
                     
+
                     @if( $elm->TrangThai == 1)
                             <td><i class="fas fa-check " style="color:blue"></i></td>
                     @else   

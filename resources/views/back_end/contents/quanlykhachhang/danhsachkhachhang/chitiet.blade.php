@@ -48,6 +48,11 @@
                                         <label>CMND<span style="color:red;">(*)</span>:</label>
                                         <br>
                                         <img src="{{ URL::to('/') }}/imgs/{{ $elm->CMND}}" width="100" height="100"></img>
+                                    </div>    
+                                    <div class="form-group">
+                                        <label>Hộ Khẩu<span style="color:red;">(*)</span>:</label>
+                                        <br>
+                                        <img src="{{ URL::to('/') }}/imgs/{{ $elm->HoKhau}}" width="100" height="100"></img>
                                     </div>
                                 </div>
                                 <div class="col-sm">
@@ -67,10 +72,21 @@
                                         <label >Ngày Sinh<span style="color:red;">(*)</span>:</label>
                                         <input type="date" class="form-control" name="NgaySinh"  value={{$elm->NgaySinh}}>
                                     </div>  
-                                    <div class="form-group" style="margin-top:76px;">
-                                        <label>Hộ Khẩu<span style="color:red;">(*)</span>:</label>
-                                        <br>
-                                        <img src="{{ URL::to('/') }}/imgs/{{ $elm->HoKhau}}" width="100" height="100"></img>
+                                    <div class="form-group">
+                                        <label >Ngày Hẹn<span style="color:red;">(*)</span>:</label>
+                                        <input type="date" class="form-control" name="NgayHen"  value={{$elm->NgayHen}}>
+                                    </div>  
+                                    <div class="form-group">
+                                        <label >Thời Gian Hẹn<span style="color:red;">(*)</span>:</label>
+                                        <input type="date" class="form-control" name="ThoiGianHen"  value={{$elm->ThoiGianHen}}>
+                                    </div>
+                                    <div class="form-group">
+                                        <label >Trạng Thái Hẹn<span style="color:red;">(*)</span>:</label>
+                                        @if( $elm->TrangThaiHen == 1)
+                                        <p style="color:blue;"><b>Đã Hẹn</b></p>
+                                        @else   
+                                        <p style="color:red;"><b> Đã Hủy Hẹn</b></p>
+                                        @endif  
                                     </div>
                                 </div>                               
                             </div>
