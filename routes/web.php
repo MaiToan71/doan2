@@ -119,6 +119,11 @@ Route::group(['prefix'=>'QuanLyHopDong','middleware'=>'LoginMiddle','as' => 'Qua
     // form them vi pham
     Route::get('/form-vi-pham/{hopdong_id}','DanhSachHopDongController@formvipham')->name('formvipham');
     Route::post('/form-vi-pham/{hopdong_id}','DanhSachHopDongController@ghiLaiViPham')->name('ghiLaiViPham');
+
+    // route them moi hop dong
+    Route::get('/them-hop-dong','DanhSachHopDongController@ThemHopDong')->name('ThemHopDong');
+    Route::post('/them-hop-dong','DanhSachHopDongController@ThucHienThem')->name('ThucHienThem');
+ 
 });
 
 

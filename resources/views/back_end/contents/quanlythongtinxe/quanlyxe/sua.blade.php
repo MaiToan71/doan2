@@ -43,6 +43,10 @@
                                         <label >Nhiên liệu xe: <span style="color:red;">(*)</span>:</label>
                                         <input type="text" class="form-control" name="nhienlieu" value="{{$xe->NhienLieu}}">
                                     </div>
+                                    <div class="form-group">
+                                        <label > Ưu đãi: <span style="color:red;">(*)</span>:</label>
+                                        <input type="text" class="form-control" name="uudai" value="{{$xe->UuDai}}%">
+                                    </div>
                                     <div class="form-group form-check">
                                         
                                         <input type="checkbox" checked class="form-check-input" id="exampleCheck1">    
@@ -74,6 +78,10 @@
                                     <div class="form-group">
                                         <label >Giới hạn ngày: <span style="color:red;">(*)</span>:</label>
                                         <input type="text" class="form-control" name="quangduong"  value={{$xe->GioiHanNgay}}>
+                                    </div>
+                                    <div class="form-group">
+                                        <label >Gía thuê: <span style="color:red;">(*)</span>:</label>
+                                        <input type="text" class="form-control" name="giathue" value={{$xe->GiaThue}}>
                                     </div>
                                     <div class="form-group">
                                         <label >Mô tả: <span style="color:red;">(*)</span>:</label>

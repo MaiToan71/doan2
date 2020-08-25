@@ -57,7 +57,9 @@ class QuanLyXeController extends Controller
                 'DungTich'=>$request->dungtich,
                 'GiayToXe'=>$file_giaytoxe->getClientOriginalName(),
                 'GioiHanNgay'=>$request->quangduong,
-                'MoTa'=>$request->mota
+                'MoTa'=>$request->mota,
+                'GiaThue'=>$request->giathue,
+                'UuDai'=>$request->uudai,
 
             ]);
 
@@ -114,7 +116,9 @@ class QuanLyXeController extends Controller
                     'NhienLieu'=>$request->nhienlieu,
                     'DungTich'=>$request->dungtich,                   
                     'GioiHanNgay'=>$request->quangduong,
-                    'MoTa'=>$request->mota
+                    'MoTa'=>$request->mota,
+                    'GiaThue'=>$request->giathue,
+                    'UuDai'=>$request->uudai,
                     ]);
             }else if ($request->hasFile('hinhanh')){                
                 $file_hinhanh1 = $request->hinhanh;     

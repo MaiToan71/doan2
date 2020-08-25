@@ -28,9 +28,13 @@
   <link rel="stylesheet" href="{{URL::asset('plugins/daterangepicker/daterangepicker.css')}}">
   <!-- summernote -->
   <link rel="stylesheet" href="{{URL::asset('plugins/summernote/summernote-bs4.css')}}">
+  <link rel="stylesheet" href="{{URL::asset('plugins/select2/css/select2.min.css')}}">
+  <link rel="stylesheet" href="{{URL::asset('plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
   <!-- Google Font: Source Sans Pro -->
  
   <script src="{{URL::asset('plugins/chart.js/Chart.min.js')}}"></script>
+  <script src="{{URL::asset('plugins/select2/js/select2.full.min.js')}}"></script>
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 @yield('body')

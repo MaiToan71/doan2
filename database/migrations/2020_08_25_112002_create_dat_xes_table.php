@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateChiTietHopDongsTable extends Migration
+class CreateDatXesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class CreateChiTietHopDongsTable extends Migration
      */
     public function up()
     {
-        Schema::create('chi_tiet_hop_dongs', function (Blueprint $table) {
-            $table->integer('hopdong_id')->unsigned();
+        Schema::create('dat_xes', function (Blueprint $table) {
             $table->integer('xe_id')->unsigned();
-            $table->integer('SoLuong');
-            $table->boolean('TrangThai')->default(true);
-            $table->primary(['hopdong_id','xe_id']);
+            $table->integer('khachhang_id')->unsigned();
+            $table->primary(['khachhang_id','xe_id']);
             $table->foreign('xe_id')->references('xe_id')->on('xes');
-            $table->foreign('hopdong_id')->references('hopdong_id')->on('hop_dongs');
+            $table->foreign('khachhang_id')->references('khachhang_id')->on('khach_hangs');
         });
     }
 
@@ -31,6 +29,6 @@ class CreateChiTietHopDongsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('chi_tiet_hop_dongs');
+        Schema::dropIfExists('dat_xes');
     }
 }

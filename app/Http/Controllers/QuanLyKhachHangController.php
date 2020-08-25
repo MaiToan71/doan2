@@ -9,7 +9,18 @@ class QuanLyKhachHangController extends Controller
 {
     public function index()
     {
-        $list_cust = DB::table('khach_hangs')->where('TrangThai',true)->where('TrangThai',1)->get();
+       // $ = DB::table('khach_hangs')->where('TrangThai',true)->get();
+        $list_cust = DB::select(DB::raw(
+            "
+            SELECT 
+            khach_hangs.khachhang_id,khach_hangs.TrangThai,khach_hangs.Ten, khach_hangs.Email, xes.TenXe, hang_xes.TenHangXe,loai_xes.SoCho, khach_hangs.NgayHen, khach_hangs.ThoiGianHen 
+            FROM khach_hangs 
+            JOIN dat_xes ON khach_hangs.khachhang_id=dat_xes.khachhang_id 
+            JOIN xes ON xes.xe_id = dat_xes.xe_id 
+            JOIN hang_xes ON xes.hangxe_id = hang_xes.hangxe_id 
+            JOIN loai_xes ON xes.loaixe_id = loai_xes.loaixe_id 
+            "
+        ));
         return view('back_end.contents.quanlykhachhang.danhsachkhachhang.index',compact('list_cust'));
     }
     public function sua($khachhang_id)

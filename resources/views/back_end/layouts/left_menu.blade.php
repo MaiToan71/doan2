@@ -99,18 +99,7 @@
                   <p>Danh sách khách hàng</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="{{route('QuanLyKhachHang.index')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Quản lý hãng xe</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{route('QuanLyXe.index')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Quản lý xe</p>
-                </a>
-            
+              
             </ul>
           </li>
           <li class="nav-item has-treeview">
@@ -143,6 +132,7 @@
             
             </ul>
           </li>
+          @if( session('quyen') ==0)
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
@@ -158,7 +148,7 @@
                   <p>Quản lý hệ thống</p>
                 </a>
               </li>
-             
+             @endif
              
             </ul>
           </li>

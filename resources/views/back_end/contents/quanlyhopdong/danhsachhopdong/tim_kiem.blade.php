@@ -101,7 +101,7 @@
                     <td>{{$elm->TenHopDong}}</td>
                     
                     <td id="tienthechap">{{$elm->TienTheChap}}</td>
-                    <td>{{$elm->ThoiGianTheChap}}</td>
+                    <td>{{$elm->ThoiGianNhanXe}}</td>
                     <td>{{$elm->ThoiGianTraXe}}</td>
                     
                     @if($elm->Duyet == 1)                  
