@@ -49,7 +49,10 @@
                     <th>Địa Chỉ</th>
                     <th>Số Điện Thoại</th>
                     <th>Ngày Sinh</th>
-                    <th>Giới Tính</th>                  
+                    <th>Giới Tính</th>
+                    <th>Ngày Hẹn</th>
+                    <th>Thời Gian Hẹn</th>   
+                    <th>Trạng Thái Hẹn</th>               
                     <th>Trạng thái</th>         
                 </tr>
             </thead>
@@ -81,6 +84,13 @@
                         @else   
                             <td>Nữ</i></td>
                         @endif
+                    <td>{{$elm->NgayHen}}</td>
+                    <td>{{$elm->ThoiGianHen}}</td>                    
+                    @if( $elm->TrangThaiHen == 0)
+                            <td style="color:red;"><b>Đã Hủy Hẹn</b></td>
+                        @else   
+                            <td style="color:blue;"><b>Đã Hẹn</b></td>
+                        @endif                    
                     @if( $elm->TrangThai == 1)
                             <td><i class="fas fa-check " style="color:blue"></i></td>
                     @else   
