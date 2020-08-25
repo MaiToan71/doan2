@@ -45,7 +45,7 @@
     <hr>
     <h4 style="margin-left:20px;">Danh sách hợp đồng tiếp nhận</h4>
     <div class="card-header">
-            <a type="button" class="btn btn-default btn-sm" href="{{route('QuanLyXe.ThemMoi')}}">Tạo hợp đồng</a>       
+            <a type="button" class="btn btn-default btn-sm" href="{{route('QuanLyHopDong.ThemHopDong')}}">Tạo hợp đồng</a>       
            </div>
     <hr>   
               <!-- /.card-header -->
@@ -89,7 +89,7 @@
                     <td>{{$elm->TenHopDong}}</td>
                     
                     <td id="tienthechap">{{$elm->TienTheChap}}</td>
-                    <td>{{$elm->ThoiGianTheChap}}</td>
+                    <td>{{$elm->ThoiGianNhanXe}}</td>
                     <td>{{$elm->ThoiGianTraXe}}</td>
                     
                     @if($elm->Duyet == 1)                  

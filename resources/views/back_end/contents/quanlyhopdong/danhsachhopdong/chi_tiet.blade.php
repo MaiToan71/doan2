@@ -59,7 +59,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label >Bắt đầu:<span style="color:red;">(*)</span>:</label>
-                                        <input type="text" class="form-control" disabled name="tienthechap" value="{{$elm->ThoiGianTheChap}}">
+                                        <input type="text" class="form-control" disabled name="tienthechap" value="{{$elm->ThoiGianNhanXe}}">
                                     </div>
                                     
                                     <div class="form-group">

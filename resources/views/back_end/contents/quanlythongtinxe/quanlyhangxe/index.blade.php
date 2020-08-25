@@ -86,6 +86,11 @@
              </table>
             </div>
 </div>
+        <div style="display:flex;justify-content:center;">
+                <nav arial-label="Page navifation">
+                    {!! $list_data1->links() !!}
+                </nav>
+             </div>
 
 <script>
 $("#themmoi").validate({

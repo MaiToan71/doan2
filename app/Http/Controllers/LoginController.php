@@ -18,12 +18,12 @@ class LoginController extends Controller
     public function PostLogin(Request $request){
         $email= $request->email;
         $matkhau =md5($request->matkhau);
-        $request->session()->put('email',$request->input());
-        
+        $request->session()->put('email',$request->input());      
         $result = DB::table('admins')->where('email',$email)->get()->toArray();
         foreach($result as $value)
         {}
-        $output=2;
+       
+        $request->session()->put('quyen',$value->Quyen); 
         if($value->MatKhau== $matkhau){
            
             return redirect()->route('TrangChu');

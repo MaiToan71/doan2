@@ -24,7 +24,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label >Thời gian bắt đầu<span style="color:red;">(*)</span>:</label>
-                                        <input type="date" class="form-control" name="batdau" value="{{$elm->ThoiGianTheChap}}">
+                                        <input type="date" class="form-control" name="batdau" value="{{$elm->ThoiGianNhanXe}}">
                                     </div>
                                     <div class="form-group">
                                         <label >THời gian kết thúc<span style="color:red;">(*)</span>:</label>
