@@ -27,11 +27,13 @@ Route::get('/logout','LoginController@logout')->name('logout');
 Route::get('/dang-ky','GiaoDienDangKyController@DangKy')->name('DangKy');
 Route::post('/dang-ky','GiaoDienDangKyController@ThucHienDangKy')->name('ThucHienDangKy');
 Route::get('/dang-nhap','GiaoDienDangKyController@DangNhap')->name('DangNhap');
+Route::post('/dang-nhap','GiaoDienDangKyController@ThucHienDangNhap')->name('ThucHienDangNhap');
 
 Route::get('/giao-dien','GiaoDienController@index')->name('index');
 Route::group(['prefix'=>'Giaodien','as' => 'Giaodien.' ],function(){
     Route::get('/tim-kiem','GiaoDienTimKiemController@TimKiem')->name('timkiem');
     Route::get('/danh-sach-xe','GiaoDienTimKiemController@DanhSachXe')->name('danhsachxe');
+    Route::get('/danh-sach-thong-tin-xe','GiaoDienXeController@Xes')->name('Xes');
 });
 
 

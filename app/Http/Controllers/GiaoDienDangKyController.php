@@ -33,6 +33,24 @@ class GiaoDienDangKyController extends Controller
         }
     }
     public function DangNhap(){
+        return view('front_end.dangky.dangnhap');
+    }
+    public function ThucHienDangNhap(Request $request){
+        $Email = $request->Email;
+        $MatKhau = md5($request->MatKhau);
         
+        $request->session()->put('Email',$request->input());      
+        $result = DB::table('khach_hangs')->where('Email',$Email)->get()->toArray();
+        
+        foreach($result as $value)
+        {}
+       
+        $request->session()->put('khachhang_id',$value->khachhang_id); 
+        if($value->MatKhau== $MatKhau){
+           
+            return redirect()->route('index');
+        }else{
+            dd('false');
+        }
     }
 }
