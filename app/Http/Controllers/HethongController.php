@@ -93,4 +93,31 @@ class HethongController extends Controller
         $data_timkiem= DB::table('admins')->where('HoTen','like', "%$request->hoten%")->where('TrangThai',true)->get();
         return view('back_end.contents.hethong.timkiem', compact('data_timkiem'));
     }
+    public function ChinhSua()
+    {
+        $list_data = DB::table('admins')->get();
+        return view('back_end.contents.hethong.chinhsua',compact('list_data'));
+    }
+    
+    public function ThucHienChinhSua(Request $request)
+    {
+        try{
+            DB::beginTransaction();
+            $sua_admin = DB::table('admins')->where('admin_id',$request->admin_id)->update([
+                    'email' => $request->email,
+                    'MatKhau' =>md5($request->matkhau),
+                    'HoTen' => $request->hoten,
+                    'SoDienThoai' => $request->sodienthoai,
+                    'NgaySinh' => $request->ngaysinh,
+                    'GioiTinh' => $request->gioitinh,
+                    'DiaChi' => $request->diachi,
+                                   
+                
+                ]);
+                DB::commit();
+                return redirect()->route('Hethong.ChinhSua');
+        }catch(Exception $e){
+            DB::rollBack();
+        }
+    }
 }
