@@ -23,6 +23,11 @@ Route::get('/logout','LoginController@logout')->name('logout');
 
 
 //font-end
+
+Route::get('/dang-ky','GiaoDienDangKyController@DangKy')->name('DangKy');
+Route::post('/dang-ky','GiaoDienDangKyController@ThucHienDangKy')->name('ThucHienDangKy');
+Route::get('/dang-nhap','GiaoDienDangKyController@DangNhap')->name('DangNhap');
+
 Route::get('/giao-dien','GiaoDienController@index')->name('index');
 Route::group(['prefix'=>'Giaodien','as' => 'Giaodien.' ],function(){
     Route::get('/tim-kiem','GiaoDienTimKiemController@TimKiem')->name('timkiem');
