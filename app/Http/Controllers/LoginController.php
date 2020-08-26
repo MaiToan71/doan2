@@ -22,8 +22,9 @@ class LoginController extends Controller
         $result = DB::table('admins')->where('email',$email)->get()->toArray();
         foreach($result as $value)
         {}
-       
-        $request->session()->put('quyen',$value->Quyen); 
+      
+        $request->session()->put('quyen',$value->Quyen);
+        $request->session()->put('admin_id',$value->admin_id); 
         if($value->MatKhau== $matkhau){
            
             return redirect()->route('TrangChu');

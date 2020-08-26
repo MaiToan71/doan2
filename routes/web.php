@@ -47,8 +47,10 @@ Route::group(['prefix'=>'Hethong','middleware'=>'LoginMiddle','as' => 'Hethong.'
     Route::get('/them-moi-admin','HethongController@themmoi')->name('themmoi');
     Route::post('/them-moi-admin','HethongController@Them')->name('Them');
     //sua admin
-    Route::get('/sua-admin/{admin_id}','HethongController@thongtinsua')->name('thongtinsua');
-    Route::post('/sua-admin/{admin_id}','HethongController@sua')->name('sua');
+    Route::get('/thong-tin-admin/{admin_id}','HethongController@thongtinsua')->name('thongtinsua');
+ //   Route::post('/sua-admin/{admin_id}','HethongController@sua')->name('sua');
+    Route::get('/sua-admin','HethongController@ChinhSua')->name('ChinhSua');
+    Route::post('/sua-admin','HethongController@ThucHienChinhSua')->name('ThucHienChinhSua');
     // xoa
     Route::get('/xoa/{admin_id}','HethongController@Xoa')->name('Xoa');
     //timkiem

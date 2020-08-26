@@ -22,9 +22,9 @@ class CreateHopDongsTable extends Migration
             $table->string('HinhAnhLoi',1000)->nullable();
             $table->string('TienTheChap',20)->nullable();
             $table->date('ThoiGianNhanXe')->nullable();
-            $table->date('GioNhanXe')->nullable();
+            $table->time('GioNhanXe')->nullable();
             $table->date('ThoiGianTraXe')->nullable();
-            $table->date('GioTraXe')->nullable();
+            $table->time('GioTraXe')->nullable();
             $table->string('TienQuaHan',20)->nullable();
             $table->integer('Duyet')->default(1);
             $table->boolean('TrangThai')->default(true);

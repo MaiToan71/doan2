@@ -31,7 +31,7 @@
     <a href="{{route('TrangChu')}}" class="brand-link">
       <img src="{{URL::asset('dist/img/AdminLTELogo.png')}} " alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">Quản trị</span>
+      <span class="brand-text font-weight-light">Quản trị </span>
     </a>
 
     <!-- Sidebar -->
@@ -42,7 +42,8 @@
           <img src="{{URL::asset('dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info" style="color:white">
-        {{ session('email')['email'] }}
+       <a  href="{{route('Hethong.ChinhSua')}}"> {{ session('email')['email'] }}</a>
+    
         </div>
       </div>
 
