@@ -136,7 +136,9 @@ class QuanLyXeController extends Controller
                     'DungTich'=>$request->dungtich,
                   //  'GiayToXe'=>$file_giaytoxe1->getClientOriginalName(),
                     'GioiHanNgay'=>$request->quangduong,
-                    'MoTa'=>$request->mota
+                    'MoTa'=>$request->mota,
+                    'GiaThue'=>$request->giathue,
+                    'UuDai'=>$request->uudai,
                     ]);
             }else{
                 //$file_hinhanh1 = $request->hinhanh;     
@@ -154,7 +156,9 @@ class QuanLyXeController extends Controller
                     'DungTich'=>$request->dungtich,
                     'GiayToXe'=>$file_giaytoxe1->getClientOriginalName(),
                     'GioiHanNgay'=>$request->quangduong,
-                    'MoTa'=>$request->mota
+                    'MoTa'=>$request->mota,
+                    'GiaThue'=>$request->giathue,
+                    'UuDai'=>$request->uudai,
                     ]);
             }
             DB::commit();
