@@ -41,8 +41,8 @@
                                         <input type="text" class="form-control" name="namsanxuat" >
                                     </div>
                                     <div class="form-group">
-                                        <label > Ưu đãi: <span style="color:red;">(*)</span>:</label>
-                                        <input type="text" class="form-control" name="uudai" >
+                                        <label > Ưu đãi %: <span style="color:red;">(*)</span>:</label>
+                                        <input type="text" class="form-control" name="uudai" value="0">
                                     </div>
                                     <div class="form-group">
                                         <label >Nhiên liệu xe: <span style="color:red;">(*)</span>:</label>

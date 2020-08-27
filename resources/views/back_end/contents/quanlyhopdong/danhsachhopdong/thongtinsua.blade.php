@@ -30,8 +30,15 @@
                                         <label >THời gian kết thúc<span style="color:red;">(*)</span>:</label>
                                         <input type="date" class="form-control" name="ketthuc" value="{{$elm->ThoiGianTraXe}}">
                                     </div>                                                  
-                                    <div class="form-group ">
-                                        <button type="submit" class="btn btn-default btn-sm" style="width:100px;margin-top:120px;" >Sửa</button>
+                                
+                                    <div class="form-group">
+                                        <label >Hình ảnh hợp đồng: <span style="color:red;">(*)</span>:</label>
+                                        <input type="file" class="form-control-file" name="filehopdong">
+                                        <img src="{{ URL::to('/') }}/imgs/{{ $elm->FileHopDong }}" width="100%" height="500">
+                                    </div>
+                                    <div class="form-group mt-4">
+                                    <button type="submit" class="btn btn-default btn-sm" style="width:100px;" >Sửa</button>
+                                        <a type="button" class="btn btn-default btn-sm" style="width:100px;" href="{{route('QuanLyHopDong.index')}}">Quay lại</a>
                                     </div>
                                 </div>
                                 <div class="col-sm">
@@ -47,14 +54,7 @@
                                         <label >Tiền thế chấp <span style="color:red;">(*)</span>:</label>
                                         <input type="text" class="form-control" name="tienthechap" value="{{$elm->TienTheChap}}">
                                     </div>                                                 
-                                    <div class="form-group">
-                                        <label >Hình ảnh hợp đồng: <span style="color:red;">(*)</span>:</label>
-                                        <input type="file" class="form-control-file" name="filehopdong">
-                                        <img src="{{ URL::to('/') }}/imgs/{{ $elm->FileHopDong }}" width="100" height="120">
-                                    </div>
-                                    <div class="form-group mt-4">
-                                        <a type="button" class="btn btn-default btn-sm" style="width:100px;" href="{{route('QuanLyHopDong.index')}}">Quay lại</a>
-                                    </div>
+                                   
                                 </div>                               
                             </div>
                            

@@ -26,11 +26,7 @@
                                         @endforeach
                                         </select>
                                     </div>
-                                    <div class="form-group">
-                                        <label >Hình ảnh <span style="color:red;">(*)</span>:</label>
-                                        <input type="file" class="form-control-file" name="hinhanh" >
-                                        <img src="{{ URL::to('/') }}/imgs/{{ $xe->HinhAnh }}" width="100" height="100"></img>
-                                    </div>
+                                    
                                     <div class="form-group">
                                         <label >Tên xe<span style="color:red;">(*)</span>:</label>
                                         <input type="text" class="form-control" name="tenxe" value="{{$xe->TenXe}}">
@@ -52,6 +48,11 @@
                                         <input type="checkbox" checked class="form-check-input" id="exampleCheck1">    
                                         <label class="form-check-label"  >Trạng thái</label>                                   
                                     </div>
+                                    <div class="form-group">
+                                        <label >Hình ảnh <span style="color:red;">(*)</span>:</label>
+                                        <input type="file" class="form-control-file" name="hinhanh" >
+                                        <img src="{{ URL::to('/') }}/imgs/{{ $xe->HinhAnh }}" width="100%" height="500"></img>
+                                    </div>
                                     <div class="form-group pt-2">
                                         <button type="submit" class="btn btn-default btn-sm" style="width:100px;">Sửa</button>
                                     </div>
@@ -66,11 +67,7 @@
                                         @endforeach                                                     
                                         </select>
                                     </div>
-                                    <div class="form-group">
-                                        <label >Giấy tờ xe <span style="color:red;">(*)</span>:</label>
-                                        <input type="file" class="form-control-file" name="giaytoxe">
-                                        <img src="{{ URL::to('/') }}/imgs/{{ $xe->GiayToXe }}" width="100" height="100"></img>
-                                    </div>
+                                   
                                     <div class="form-group">
                                         <label >Dung tích <span style="color:red;">(*)</span>:</label>
                                         <input type="text" class="form-control" name="dungtich"  value={{$xe->DungTich}}>
@@ -86,6 +83,11 @@
                                     <div class="form-group">
                                         <label >Mô tả: <span style="color:red;">(*)</span>:</label>
                                         <textarea class="form-control" name="mota" rows="3">{{$xe->MoTa}}</textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label >Giấy tờ xe <span style="color:red;">(*)</span>:</label>
+                                        <input type="file" class="form-control-file" name="giaytoxe">
+                                        <img src="{{ URL::to('/') }}/imgs/{{ $xe->GiayToXe }}" width="100%" height="500"></img>
                                     </div>
                                     <div class="form-group">
                                         <a type="button" class="btn btn-default btn-sm" style="width:100px;" href="{{route('QuanLyXe.index')}}">Quay lại</a>

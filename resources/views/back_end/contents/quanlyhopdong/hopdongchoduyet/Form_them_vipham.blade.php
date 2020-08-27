@@ -44,10 +44,16 @@
                                             <input type="text" class="form-control" disabled id="homnay"  value=" {{date('m/d/Y')}}" >
                                     </div>
                                     <div class="form-group">
-                                        <label >Tiền đã thế chấp <span style="color:red;">(Đồng)</span>:</label>
-                                        <input type="text" class="form-control" id="tienthechap" disabled value="{{$elm->TienTheChap}}"> 
-                                    </div>
+                                    @foreach($XeHopDong as $xe)
+                                        <label >Tiền đã thuê xe <span style="color:red;">(Đồng)</span>:</label>
+                                        <input type="text" class="form-control" id="tienthechap" disabled value="{{$xe->GiaThue}}">
                                   
+                                    </div>
+                                    <div class="form-group">
+                                        <label >Ưu đãi %<span style="color:red;">(Đồng)</span>:</label>
+                                        <input type="text" class="form-control" id="uudai" disabled value="{{$xe->UuDai}}"> 
+                                    </div>
+                                    @endforeach 
                                     
                                 </div>                               
                             </div>
@@ -89,13 +95,15 @@
 </section>
 <script>
     $(document).ready(function(){
+        var uudai = Number($("#uudai").val())/100;
         var homnay  =  $("#homnay").val();
        var hen  =  $("#ngayhentra").val();
        var change = hen.split("-").join("/");
        var tienTC =  $("#tienthechap").val();   
        var x =(new Date(homnay) - new Date(change))/86400000;
        var tienphat = Number(x)*10000;
-       var tongTienPhat = Number(tienTC) + Number(tienphat);
+       var tongTienPhat =  Number(tienTC)-Number(tienTC)*uudai+ Number(tienphat);
+   
        var fomatTien = tongTienPhat.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
        var fomatTienPhat =  tienphat.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
        

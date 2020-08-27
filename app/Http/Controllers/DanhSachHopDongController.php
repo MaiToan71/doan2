@@ -29,14 +29,8 @@ class DanhSachHopDongController extends Controller
     {
         $danhsach_hd = DB::select(DB::raw(
             "
-            SELECT hop_dongs.hopdong_id,hop_dongs.TenHopDong, hop_dongs.FileHopDong, hop_dongs.LoiViPham, hop_dongs.TienTheChap,hop_dongs.ThoiGianNhanXe, hop_dongs.ThoiGianTraXe, hop_dongs.TienQuaHan, hop_dongs.Duyet, khach_hangs.Ten, khach_hangs.DiaChi, chi_tiet_hop_dongs.SoLuong ,xes.TenXe,xes.xe_id, loai_xes.SoCho ,hang_xes.TenHangXe
-            FROM hop_dongs 
-            JOIN khach_hangs ON khach_hangs.khachhang_id=hop_dongs.khachhang_id 
-            JOIN chi_tiet_hop_dongs ON hop_dongs.hopdong_id = chi_tiet_hop_dongs.hopdong_id 
-            JOIN xes ON chi_tiet_hop_dongs.xe_id = xes.xe_id 
-            JOIN loai_xes ON loai_xes.loaixe_id = xes.loaixe_id 
-            JOIN hang_xes ON hang_xes.hangxe_id = xes.hangxe_id 
-            WHERE hop_dongs.hopdong_id=$hopdong_id
+            SELECT hop_dongs.hopdong_id,hop_dongs.TenHopDong, hop_dongs.FileHopDong, hop_dongs.LoiViPham, hop_dongs.TienTheChap,hop_dongs.ThoiGianNhanXe, hop_dongs.ThoiGianTraXe, hop_dongs.TienQuaHan, hop_dongs.Duyet, khach_hangs.Ten, khach_hangs.DiaChi, chi_tiet_hop_dongs.SoLuong ,xes.TenXe,xes.xe_id,xes.GiaThue,xes.UuDai, loai_xes.SoCho ,hang_xes.TenHangXe FROM hop_dongs JOIN khach_hangs ON khach_hangs.khachhang_id=hop_dongs.khachhang_id JOIN chi_tiet_hop_dongs ON hop_dongs.hopdong_id = chi_tiet_hop_dongs.hopdong_id JOIN xes ON chi_tiet_hop_dongs.xe_id = xes.xe_id JOIN loai_xes ON loai_xes.loaixe_id = xes.loaixe_id JOIN hang_xes ON hang_xes.hangxe_id = xes.hangxe_id WHERE hop_dongs.hopdong_id=$hopdong_id
+           
             "
         ));
         //dd($danhsach_hd);
@@ -144,9 +138,13 @@ class DanhSachHopDongController extends Controller
             try{
                 DB::beginTransaction();
                 $HopDongViPham = DB::table('hop_dongs')->where('hopdong_id', $hopdong_id)->get();
-               // $tienTheChap = DB::table('hop_dongs')->where('hopdong_id', $hopdong_id)->get();
-               
-                return view('back_end.contents.quanlyhopdong.hopdongchoduyet.Form_them_vipham', compact('HopDongViPham'));
+                $Xes = DB::table('chi_tiet_hop_dongs')->where('hopdong_id', $hopdong_id)->get();
+                foreach($Xes as $xe){
+
+                }
+              //  dd();
+                $XeHopDong = DB::table('xes')->where('xe_id',$xe->xe_id)->get();
+                return view('back_end.contents.quanlyhopdong.hopdongchoduyet.Form_them_vipham', compact('HopDongViPham','XeHopDong'));
             }catch(Expception $e)
             {
                 DB::rollBack();
