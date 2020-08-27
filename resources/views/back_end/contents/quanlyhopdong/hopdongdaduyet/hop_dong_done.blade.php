@@ -54,7 +54,7 @@
                     <th >Mã hợp đồng</th>
                     <th>Tên khách hàng </th>
                     <th>Tên hợp đồng </th>                 
-                    <th >Tổng tiền</th>                   
+                                      
                     <th >Duyệt</th>
                     <th >Trạng thái</th>                          
                 </tr>
@@ -79,7 +79,7 @@
                     @endforeach
                     <td>{{$elm->TenHopDong}}</td>
                     
-                    <td>{{$elm->TienTheChap + $elm->TienQuaHan}}</td>
+                   
                    
                     
                     @if($elm->Duyet == 1)                  

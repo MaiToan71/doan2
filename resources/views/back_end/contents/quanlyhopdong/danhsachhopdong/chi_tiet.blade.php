@@ -44,13 +44,26 @@
                                     <div class="form-group">
                                         <label >Tiền thế chấp<span style="color:red;">(*)</span>:</label>
                                         <input type="datetime" class="form-control" disabled name="ketthuc" value="{{$elm->TienTheChap}}">
-                                    </div>         
+                                    </div>  
+                                    <div class="form-group">
+                                        <label >Gía thuê<span style="color:red;">(*)</span>:</label>
+                                        <input type="datetime" class="form-control" disabled name="ketthuc" value="{{$elm->GiaThue}}">
+                                    </div>       
                                     <div class="form-group">
                                         <label >Mô tả lỗi<span style="color:red;">(*)</span>:</label>
                                         <textarea class="form-control" name="MoTaLoi" disabled rows="3" id="loivipham" >
                                         {{$elm->LoiViPham}}
                                         </textarea>                                      
-                                    </div>                                                                                                             
+                                    </div>  
+                                    <div class="form-group">
+                                        <label >Hình ảnh hợp đồng: <span style="color:red;">(*)</span>:</label>
+                                        <br>
+                                        <img src="{{ URL::to('/') }}/imgs/{{ $elm->FileHopDong }}" width="100%" height="500">
+                                       
+                                    </div>     
+                                    <div class="form-group mt-4">
+                                        <a type="button" class="btn btn-default btn-sm" style="width:100px;" href="{{route('QuanLyHopDong.index')}}">Quay lại</a>
+                                    </div>                                                                                                      
                                 </div>
                                 <div class="col-sm">
                                     <div class="form-group">
@@ -73,21 +86,18 @@
                                     <div class="form-group">
                                         <label >Số lượng:<span style="color:red;">(*)</span>:</label>
                                         <input type="datetime" class="form-control" disabled name="ketthuc" value="{{$elm->SoLuong}}">
-                                    </div>                                             
+                                    </div> 
+                                    <div class="form-group">
+                                        <label >Uư đãi %:<span style="color:red;">(*)</span>:</label>
+                                        <input type="datetime" class="form-control" disabled name="ketthuc" value="{{$elm->UuDai}}">
+                                    </div>                                            
                                     <div class="form-group">
                                         <label >Tiền quá hạn: <span style="color:red;">(*)</span>:</label>
                                         <input type="text" class="form-control" disabled name="tienthechap" value="{{$elm->TienQuaHan}}">
                                        
                                     </div>
-                                    <div class="form-group">
-                                        <label >Hình ảnh hợp đồng: <span style="color:red;">(*)</span>:</label>
-                                        <br>
-                                        <img src="{{ URL::to('/') }}/imgs/{{ $elm->FileHopDong }}" width="100" height="120">
-                                       
-                                    </div>
-                                    <div class="form-group mt-4">
-                                        <a type="button" class="btn btn-default btn-sm" style="width:100px;" href="{{route('QuanLyHopDong.index')}}">Quay lại</a>
-                                    </div>
+                                    
+                                   
                                 </div>                               
                             </div>
                            

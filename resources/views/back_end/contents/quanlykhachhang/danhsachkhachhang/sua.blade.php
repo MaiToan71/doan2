@@ -40,22 +40,37 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
+                                        <label >Ngày Sinh<span style="color:red;">(*)</span>:</label>
+                                        <input type="date" class="form-control" name="NgaySinh"  value={{$elm->NgaySinh}}>
+                                    </div> 
+                                    <div class="form-group">
+                                        <label >Trạng Thái Hẹn<span style="color:red;">(*)</span>:</label>
+                                        <br>
+                                        <select class="form-control" name="TrangThaiHen">
+                                            <option value="">Chọn.....</option>
+                                            @if($elm->TrangThaiHen==0)
+                                            <option value="0" selected>Đã Hủy Hẹn</option>
+                                            <option value="1" >Đã Hẹn</option>
+                                            @else
+                                            <option value="1" selected>Đã Hẹn</option>
+                                            <option value="0" >Đã Hủy Hẹn</option>                       
+                                            @endif
+                                        </select> 
+                                    </div> 
+                                    <div class="form-group">
                                         <label>Giấy Phép Lái Xe<span style="color:red;">(*)</span>:</label>
                                         <input type="file" class="form-control-file" name="GiayPhepLaiXe" >
-                                        <img src="{{ URL::to('/') }}/imgs/{{ $elm->GiayPhepLaiXe}}" width="100" height="100"></img>
+                                        <img src="{{ URL::to('/') }}/imgs/{{ $elm->GiayPhepLaiXe}}" width="100%" height="500"></img>
                                     </div>
                                     <div class="form-group">
                                         <label>CMND<span style="color:red;">(*)</span>:</label>
                                         <input type="file" class="form-control-file" name="CMND" >
-                                        <img src="{{ URL::to('/') }}/imgs/{{ $elm->CMND}}" width="100" height="100"></img>
+                                        <img src="{{ URL::to('/') }}/imgs/{{ $elm->CMND}}" width="100%" height="500"></img>
                                     </div>
-                                    <div class="form-group"">
-                                        <label>Hộ Khẩu<span style="color:red;">(*)</span>:</label>
-                                        <input type="file" class="form-control-file" name="HoKhau" >
-                                        <img src="{{ URL::to('/') }}/imgs/{{ $elm->HoKhau}}" width="100" height="100"></img>
-                                    </div> 
+                                    
                                     <div class="form-group pt-2" style="margin-top:43px;">
                                         <button type="submit" class="btn btn-default btn-sm" style="width:100px;margin-right:15px;">Sửa</button>
+                                        <a type="button" class="btn btn-default btn-sm" style="width:100px;" href="{{route('QuanLyKhachHang.index')}}">Quay lại</a>
                                     </div>
                                 </div>
                                 <div class="col-sm">
@@ -71,35 +86,22 @@
                                         <label>Số Điện Thoại<span style="color:red;">(*)</span>:</label>
                                         <input type="text" class="form-control" name="SoDienThoai"  value={{$elm->SoDienThoai}}>
                                     </div>
-                                    <div class="form-group">
-                                        <label >Ngày Sinh<span style="color:red;">(*)</span>:</label>
-                                        <input type="date" class="form-control" name="NgaySinh"  value={{$elm->NgaySinh}}>
-                                    </div>  
+                                    
                                     <div class="form-group">
                                         <label >Ngày Hẹn<span style="color:red;">(*)</span>:</label>
                                         <input type="date" class="form-control" name="NgayHen"  value={{$elm->NgayHen}}>
                                     </div>  
                                     <div class="form-group">
                                         <label >Thời Gian Hẹn<span style="color:red;">(*)</span>:</label>
-                                        <input type="datetime" class="form-control" name="ThoiGianHen"  value={{$elm->ThoiGianHen}}>
+                                        <input type="time" class="form-control" name="ThoiGianHen"  value={{$elm->ThoiGianHen}}>
                                     </div>
                                     <div class="form-group">
-                                        <label >Trạng Thái Hẹn<span style="color:red;">(*)</span>:</label>
-                                        <br>
-                                        <select class="form-control" name="TrangThaiHen">
-                                            <option value="">Chọn.....</option>
-                                            @if($elm->TrangThaiHen==0)
-                                            <option value="0" selected>Đã Hủy Hẹn</option>
-                                            <option value="1" >Đã Hẹn</option>
-                                            @else
-                                            <option value="1" selected>Đã Hẹn</option>
-                                            <option value="0" >Đã Hủy Hẹn</option>                       
-                                            @endif
-                                        </select> 
-                                    </div>                    
-                                    <div class="form-group pt-2" style="margin-top:43px;">
-                                        <a type="button" class="btn btn-default btn-sm" style="width:100px;" href="{{route('QuanLyKhachHang.index')}}">Quay lại</a>
-                                    </div>
+                                        <label>Hộ Khẩu<span style="color:red;">(*)</span>:</label>
+                                        <input type="file" class="form-control-file" name="HoKhau" >
+                                        <img src="{{ URL::to('/') }}/imgs/{{ $elm->HoKhau}}" width="100%" height="500"></img>
+                                    </div>          
+                                   
+                                   
                                 </div>                               
                             </div>
                            

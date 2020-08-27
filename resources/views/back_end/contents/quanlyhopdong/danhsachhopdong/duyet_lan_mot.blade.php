@@ -55,7 +55,7 @@
                     <th>Tên khách hàng </th>
                     <th>Tên hợp đồng </th>
                    
-                    <th >Tiền thế chấp (đồng)</th>
+                   
                     <th >Bắt đầu</th>                   
                     <th >Ngày trả</th>
                     <th >Duyệt</th>
@@ -86,7 +86,7 @@
                     @endforeach
                     <td>{{$elm->TenHopDong}}</td>
                     
-                    <td >{{$elm->TienTheChap}}</td>
+                 
                     <td>{{$elm->ThoiGianNhanXe}}</td>
                     <td>{{$elm->ThoiGianTraXe}}</td>
                     
