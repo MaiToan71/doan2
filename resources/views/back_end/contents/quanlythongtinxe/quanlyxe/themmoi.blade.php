@@ -19,11 +19,13 @@
                                 <div class="col-sm">
                                     <div class="form-group">
                                         <label >Hãng xe <span style="color:red;">(*)</span>:</label>
-                                        <select id="hangxe" class="form-control" name="hangxe" class="required">
-                                        <option value="">Chọn hãng xe...</option>
-                                        @foreach($list_hang_xe as $hang_xe)                    
-                                            <option value="{{$hang_xe->hangxe_id}}">{{$hang_xe->TenHangXe}}</option>
-                                        @endforeach;
+                                      
+                                       
+                                        <select class="select2bs4" multiple="multiple"name="hangxe" id="hangxe"data-placeholder="Chọn hãng xe"
+                                                style="width: 100%;">
+                                                @foreach($list_hang_xe as $hang_xe)                                  
+                                    <option value="{{$hang_xe->hangxe_id}}">{{$hang_xe->TenHangXe}}</option>
+                                @endforeach
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -53,11 +55,11 @@
                                 <div class="col-sm">
                                     <div class="form-group">
                                         <label >Loại xe<span style="color:red;">(*)</span>:</label>
-                                        <select class="form-control" name="loaixe">
-                                        <option value="">Chọn loại xe...</option>
-                                        @foreach($list_loai_xe as $loai_xe)                                           
-                                            <option value="{{$loai_xe->loaixe_id}}">{{$loai_xe->SoCho}} chỗ</option>
-                                        @endforeach;                         
+                                        <select class="select2bs4" multiple="multiple" id="loaixe"  name="loaixe" data-placeholder="Chọn loại xe"
+                                                style="width: 100%;">
+                                                @foreach($list_loai_xe as $loai_xe)  
+                                    <option value="{{$loai_xe->loaixe_id}}">{{$loai_xe->SoCho}} chỗ</option>
+                                @endforeach
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -188,6 +190,13 @@ $("#themmoi").validate({
         }
     });
     
-    
+    $().ready(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2();
+    $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    })
+   
+  })
 </script>
 @endsection

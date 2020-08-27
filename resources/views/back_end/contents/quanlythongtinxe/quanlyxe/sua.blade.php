@@ -44,8 +44,8 @@
                                         <input type="text" class="form-control" name="nhienlieu" value="{{$xe->NhienLieu}}">
                                     </div>
                                     <div class="form-group">
-                                        <label > Ưu đãi: <span style="color:red;">(*)</span>:</label>
-                                        <input type="text" class="form-control" name="uudai" value="{{$xe->UuDai}}%">
+                                        <label > Ưu đãi %: <span style="color:red;">(*)</span>:</label>
+                                        <input type="text" class="form-control" name="uudai" value="{{$xe->UuDai}}">
                                     </div>
                                     <div class="form-group form-check">
                                         

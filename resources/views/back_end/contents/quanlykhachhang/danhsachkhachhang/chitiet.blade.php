@@ -83,9 +83,11 @@
                                     <div class="form-group">
                                         <label >Trạng Thái Hẹn<span style="color:red;">(*)</span>:</label>
                                         @if( $elm->TrangThaiHen == 1)
-                                        <p style="color:blue;"><b>Đã Hẹn</b></p>
-                                        @else   
-                                        <p style="color:red;"><b> Đã Hủy Hẹn</b></p>
+                                        <p style="color:blue;"><b>Đang có lịch Hẹn</b></p>
+                                        @elseif($elm->TrangThaiHen == 0)  
+                                        <p style="color:red;"><b> Không có lịch hẹn</b></p>
+                                        @else
+                                        <p style="color:red;"><b>Đã có hợp đồng thành công</b></p>
                                         @endif  
                                     </div>
                                 </div>                               

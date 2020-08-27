@@ -45,13 +45,8 @@
                     <th>Mã_KH</th>
                     <th>Họ Tên</th>
                     <th>Email</th>
-
-                    <th>Tên xe</th>
-                    <th>Hãng xe</th>
-                    <th>Số chỗ</th>
-                    <th>Ngày hẹn</th>
-                    <th>Giờ hẹn</th>                  
-                               
+                    <th>Số điện thoại</th>                                    
+                    <th>Trạng thái hẹn</th>  
                     <th>Trạng thái</th>         
                 </tr>
             </thead>
@@ -73,11 +68,14 @@
                     <td>KH_{{$elm->khachhang_id}}</td>
                     <td>{{$elm->Ten}}</td>
                     <td>{{$elm->Email}}</td>                
-                    <td>{{$elm->TenXe}}</td>
-                    <td>{{$elm->TenHangXe}}</td>
-                    <td>{{$elm->SoCho}} chỗ</td>
-                    <td>{{$elm->NgayHen}}</td>
-                    <td>{{$elm->ThoiGianHen}}</td>
+                    <td>{{$elm->SoDienThoai}}</td>
+                    @if( $elm->TrangThaiHen == 0)
+                            <td>Không có lịch hẹn</td>
+                    @elseif ( $elm->TrangThaiHen == 1)  
+                            <td>Có lịch hẹn</td>
+                    @else
+                    <td>Có hợp đồng thành công</td>
+                    @endif
                     
 
                     @if( $elm->TrangThai == 1)
