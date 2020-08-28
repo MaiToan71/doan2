@@ -73,8 +73,17 @@
                                         <input type="text" class="form-control" name="dungtich"  value={{$xe->DungTich}}>
                                     </div>
                                     <div class="form-group">
-                                        <label >Giới hạn ngày: <span style="color:red;">(*)</span>:</label>
-                                        <input type="text" class="form-control" name="quangduong"  value={{$xe->GioiHanNgay}}>
+                                        <label >Tình trạng xe: <span style="color:red;">(*)</span>:</label>
+                                        <select class="form-control" name="TrangThaiXe">
+                                            <option value="">Chọn.....</option>
+                                            @if($xe->TrangThaiXe==0)
+                                            <option value="0" selected>Chưa có người thuê</option>
+                                            <option value="1" >Đang có người thuê</option>
+                                            @else
+                                            <option value="1" selected>Chưa có người thuê</option>
+                                            <option value="0" >Đang có người thuê</option>                       
+                                            @endif
+                                        </select> 
                                     </div>
                                     <div class="form-group">
                                         <label >Gía thuê: <span style="color:red;">(*)</span>:</label>

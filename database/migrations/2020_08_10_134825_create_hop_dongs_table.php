@@ -18,7 +18,7 @@ class CreateHopDongsTable extends Migration
             $table->unsignedInteger('khachhang_id');
             $table->string('TenHopDong',50)->nullable();
             $table->string('FileHopDong',1000)->nullable();
-            $table->string('LoiViPham',100)->nullable();
+           
             $table->string('HinhAnhLoi',1000)->nullable();
             $table->string('TienTheChap',20)->nullable();
             $table->date('ThoiGianNhanXe')->nullable();
@@ -26,8 +26,10 @@ class CreateHopDongsTable extends Migration
             $table->date('ThoiGianTraXe')->nullable();
             $table->time('GioTraXe')->nullable();
             $table->string('TienQuaHan',20)->nullable();
+            
             $table->integer('Duyet')->default(1);
             $table->boolean('TrangThai')->default(true);
+            $table->integer('TongTien',20)->nullable();
             $table->foreign('khachhang_id')->references('khachhang_id')->on('khach_hangs');
         });
     }

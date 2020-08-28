@@ -56,7 +56,7 @@ class QuanLyXeController extends Controller
                 'NhienLieu'=>$request->nhienlieu,
                 'DungTich'=>$request->dungtich,
                 'GiayToXe'=>$file_giaytoxe->getClientOriginalName(),
-                'GioiHanNgay'=>$request->quangduong,
+                
                 'MoTa'=>$request->mota,
                 'GiaThue'=>$request->giathue,
                 'UuDai'=>$request->uudai,
@@ -115,10 +115,11 @@ class QuanLyXeController extends Controller
                     'NamSanXuat'=>$request->namsanxuat,
                     'NhienLieu'=>$request->nhienlieu,
                     'DungTich'=>$request->dungtich,                   
-                    'GioiHanNgay'=>$request->quangduong,
+                   
                     'MoTa'=>$request->mota,
                     'GiaThue'=>$request->giathue,
                     'UuDai'=>$request->uudai,
+                    'TrangThaiXe'=>$request->TrangThaiXe
                     ]);
             }else if ($request->hasFile('hinhanh')){                
                 $file_hinhanh1 = $request->hinhanh;     
@@ -135,10 +136,11 @@ class QuanLyXeController extends Controller
                     'NhienLieu'=>$request->nhienlieu,
                     'DungTich'=>$request->dungtich,
                   //  'GiayToXe'=>$file_giaytoxe1->getClientOriginalName(),
-                    'GioiHanNgay'=>$request->quangduong,
+                   
                     'MoTa'=>$request->mota,
                     'GiaThue'=>$request->giathue,
                     'UuDai'=>$request->uudai,
+                    'TrangThaiXe'=>$request->TrangThaiXe
                     ]);
             }else{
                 //$file_hinhanh1 = $request->hinhanh;     
@@ -155,10 +157,11 @@ class QuanLyXeController extends Controller
                     'NhienLieu'=>$request->nhienlieu,
                     'DungTich'=>$request->dungtich,
                     'GiayToXe'=>$file_giaytoxe1->getClientOriginalName(),
-                    'GioiHanNgay'=>$request->quangduong,
+                  
                     'MoTa'=>$request->mota,
                     'GiaThue'=>$request->giathue,
                     'UuDai'=>$request->uudai,
+                    'TrangThaiXe'=>$request->TrangThaiXe
                     ]);
             }
             DB::commit();

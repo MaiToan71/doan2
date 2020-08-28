@@ -29,7 +29,7 @@ class DanhSachHopDongController extends Controller
     {
         $danhsach_hd = DB::select(DB::raw(
             "
-            SELECT hop_dongs.hopdong_id,hop_dongs.TenHopDong, hop_dongs.FileHopDong, hop_dongs.LoiViPham, hop_dongs.TienTheChap,hop_dongs.ThoiGianNhanXe, hop_dongs.ThoiGianTraXe, hop_dongs.TienQuaHan, hop_dongs.Duyet, khach_hangs.Ten, khach_hangs.DiaChi, chi_tiet_hop_dongs.SoLuong ,xes.TenXe,xes.xe_id,xes.GiaThue,xes.UuDai, loai_xes.SoCho ,hang_xes.TenHangXe FROM hop_dongs JOIN khach_hangs ON khach_hangs.khachhang_id=hop_dongs.khachhang_id JOIN chi_tiet_hop_dongs ON hop_dongs.hopdong_id = chi_tiet_hop_dongs.hopdong_id JOIN xes ON chi_tiet_hop_dongs.xe_id = xes.xe_id JOIN loai_xes ON loai_xes.loaixe_id = xes.loaixe_id JOIN hang_xes ON hang_xes.hangxe_id = xes.hangxe_id WHERE hop_dongs.hopdong_id=$hopdong_id
+            SELECT hop_dongs.hopdong_id,hop_dongs.TenHopDong,hop_dongs.TongTien, hop_dongs.FileHopDong, hop_dongs.LoiViPham, hop_dongs.TienTheChap,hop_dongs.ThoiGianNhanXe, hop_dongs.ThoiGianTraXe, hop_dongs.TienQuaHan, hop_dongs.Duyet, khach_hangs.Ten, khach_hangs.DiaChi, chi_tiet_hop_dongs.SoLuong ,xes.TenXe,xes.xe_id,xes.GiaThue,xes.UuDai, loai_xes.SoCho ,hang_xes.TenHangXe FROM hop_dongs JOIN khach_hangs ON khach_hangs.khachhang_id=hop_dongs.khachhang_id JOIN chi_tiet_hop_dongs ON hop_dongs.hopdong_id = chi_tiet_hop_dongs.hopdong_id JOIN xes ON chi_tiet_hop_dongs.xe_id = xes.xe_id JOIN loai_xes ON loai_xes.loaixe_id = xes.loaixe_id JOIN hang_xes ON hang_xes.hangxe_id = xes.hangxe_id WHERE hop_dongs.hopdong_id=$hopdong_id
            
             "
         ));
@@ -83,6 +83,17 @@ class DanhSachHopDongController extends Controller
         try{
             DB::beginTransaction();
             $duyet1 = DB::table('hop_dongs')->where('hopdong_id', $hopdong_id)->update(['Duyet' => 2]);
+            $hopdong =DB::table('chi_tiet_hop_dongs')->where('hopdong_id', $hopdong_id)->get()->toArray();
+            foreach($hopdong as $value)
+            {}
+            $xe_id = $value->xe_id;
+            $xe =DB::table('xes')->where('xe_id', $xe_id)->get()->toArray();
+            foreach($xe as $value1)
+            {}
+            $giathue = $value1->GiaThue;
+            $uudai =($value1->UuDai)/100;
+            $tongtien = $giathue + $giathue*$uudai;
+            DB::table('hop_dongs')->where('hopdong_id', $hopdong_id)->update(['TongTien' => $tongtien]);
             DB::commit();
             return redirect()->route('QuanLyHopDong.hienthilanmot');
         }catch(Expception $e)
@@ -123,6 +134,11 @@ class DanhSachHopDongController extends Controller
                 DB::beginTransaction();
                 
                 $ketthuc = DB::table('hop_dongs')->where('hopdong_id', $hopdong_id)->update(['Duyet' => 4]);
+                $hopdong =DB::table('chi_tiet_hop_dongs')->where('hopdong_id', $hopdong_id)->get()->toArray();
+                foreach($hopdong as $value)
+                {}
+              //  dd();
+                $hopdong =DB::table('xes')->where('xe_id', $value->xe_id)->update(['TrangThaiXe' => 0]);             
                 DB::commit();
                 return redirect()->route('QuanLyHopDong.hopdongxog');
             }catch(Expception $e)
@@ -157,6 +173,7 @@ class DanhSachHopDongController extends Controller
         $ghiLaiViPham = DB::table('hop_dongs')->where('hopdong_id',$hopdong_id)->update([               
             'TienQuaHan'=>$request->quahan,                         
             'LoiViPham'=>$request->MoTaLoi,
+            'TongTien'=>$request->tongtien
             ]);
         DB::commit();
         return redirect()->route('QuanLyHopDong.hienthilanmot');

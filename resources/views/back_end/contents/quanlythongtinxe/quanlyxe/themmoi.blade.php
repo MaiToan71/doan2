@@ -50,6 +50,7 @@
                                     </div>
                                     <div class="form-group pt-5">
                                         <button type="submit" class="btn btn-default btn-sm" style="width:100px;" >Thêm mới</button>
+                                        <a type="button" class="btn btn-default btn-sm" style="width:100px;" href="{{route('QuanLyXe.index')}}">Quay lại</a>
                                     </div>
                                 </div>
                                 <div class="col-sm">
@@ -70,10 +71,7 @@
                                         <label >Dung tích <span style="color:red;">(*)</span>:</label>
                                         <input type="text" class="form-control" name="dungtich" >
                                     </div>
-                                    <div class="form-group">
-                                        <label >Giới hạn ngày: <span style="color:red;">(*)</span>:</label>
-                                        <input type="text" class="form-control" name="quangduong" >
-                                    </div>
+                                   
                                     <div class="form-group">
                                         <label >Gía thuê: <span style="color:red;">(*)</span>:</label>
                                         <input type="text" class="form-control" name="giathue" >
@@ -83,7 +81,7 @@
                                         <textarea class="form-control" name="mota" rows="3"></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <a type="button" class="btn btn-default btn-sm" style="width:100px;" href="{{route('QuanLyXe.index')}}">Quay lại</a>
+                                       
                                     </div>
                                 </div>                               
                             </div>
