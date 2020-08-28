@@ -34,6 +34,7 @@ Route::group(['prefix'=>'Giaodien','as' => 'Giaodien.' ],function(){
     Route::get('/tim-kiem','GiaoDienTimKiemController@TimKiem')->name('timkiem');
     Route::get('/danh-sach-xe','GiaoDienTimKiemController@DanhSachXe')->name('danhsachxe');
     Route::get('/danh-sach-thong-tin-xe','GiaoDienXeController@Xes')->name('Xes');
+    Route::get('/thong-tin-xe-chi-tiet/{xe_id}','GiaoDienXeController@ThongTinChiTiet')->name('ThongTinChiTiet');
 });
 
 

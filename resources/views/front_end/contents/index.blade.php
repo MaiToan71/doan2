@@ -81,7 +81,7 @@
 					            <div class="services w-100 text-center">
 				              	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-rent"></span></div>
 				              	<div class="text w-100">
-					                <h3 class="heading mb-2">  {{ session('Email')['Email'] }}</h3>
+					                <h3 class="heading mb-2"> </h3>
 					              </div>
 					            </div>      
 					          </div>

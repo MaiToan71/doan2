@@ -40,7 +40,7 @@
 	        <ul class="navbar-nav ml-auto">
 	          <li class="nav-item active"><a href="{{route('index')}}" class="nav-link">Trang chủ</a></li>
 	          <li class="nav-item"><a href="about.html" class="nav-link">Giới thiệu</a></li>	        
-	          <li class="nav-item"><a href="car.html" class="nav-link">Danh sách xe</a></li>	         
+	          <li class="nav-item"><a href="{{route('Giaodien.Xes')}}" class="nav-link">Danh sách xe</a></li>	         
 	          <li class="nav-item"><a href="contact.html" class="nav-link">Hồ sơ cá nhân</a></li>
 	        </ul>
 	      </div>

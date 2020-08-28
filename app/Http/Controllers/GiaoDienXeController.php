@@ -18,9 +18,17 @@ class GiaoDienXeController extends Controller
         //     JOIN loai_xes ON xes.loaixe_id = loai_xes.loaixe_id 
         //     "
         // ));
-        $ds_xe = DB::table('xes')->where('TrangThai',true)->paginate(1);
+        $ds_xe = DB::table('xes')->where('TrangThai',true)->paginate(4);
         $ds_hang_xe = DB::table('hang_xes')->get();
         return view('front_end.contents.danhsachxe.index',compact('ds_xe','ds_hang_xe'));
     }
+    public function ThongTinChiTiet($xe_id)
+    {
+        $loai_xe = DB::table('loai_xes')->where('TrangThai',true)->paginate(1);
+        $ds_hang_xe = DB::table('hang_xes')->get();
+        $info = DB::table('xes')->where('xe_id', $xe_id)->update(['TrangThai' => false]);
+        return view('front_end.contents.danhsachxe.thongTinChiTietXe',compact('info','loai_xe','ds_hang_xe'));
+    }
+    
 }
 ?>

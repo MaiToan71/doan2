@@ -34,7 +34,7 @@
 								</span>
 	    						<p class="price ml-auto">{{$elm->GiaThue}}<span>/day</span></p>
     						</div>
-    						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Đặt Xe</a> <a href="car-single.html" class="btn btn-secondary py-2 ml-1">Chi Tiết</a></p>
+    						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Đặt Xe</a> <a href="{{route('Giaodien.ThongTinChiTiet',['xe_id' => $elm->xe_id])}}" class="btn btn-secondary py-2 ml-1">Chi Tiết</a></p>
     					</div>
     				</div>
     			</div>
