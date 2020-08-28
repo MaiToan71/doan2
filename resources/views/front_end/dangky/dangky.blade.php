@@ -19,10 +19,7 @@
                                 <label for=""><i class="zmdi zmdi-email"></i></label>
                                 <input type="date" name="NgaySinh" placeholder="Ngày Sinh"/>
                             </div>
-                            <div class="form-group">
-                                <label for=""><i class="zmdi zmdi-email"></i></label>
-                                <input type="text" name="GioiTinh" id="GioiTinh" placeholder="Giới Tính"/>
-                            </div>                            
+                                                     
                             <div class="form-group">
                                 <label for=""><i class="zmdi zmdi-email"></i></label>
                                 <input type="text" name="DiaChi" id="DiaChi" placeholder="Địa Chỉ"/>

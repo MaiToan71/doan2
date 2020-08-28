@@ -26,8 +26,9 @@ class GiaoDienXeController extends Controller
     {
         $loai_xe = DB::table('loai_xes')->where('TrangThai',true)->paginate(1);
         $ds_hang_xe = DB::table('hang_xes')->get();
-        $info = DB::table('xes')->where('xe_id', $xe_id)->update(['TrangThai' => false]);
-        return view('front_end.contents.danhsachxe.thongTinChiTietXe',compact('info','loai_xe','ds_hang_xe'));
+        $info = DB::table('xes')->where('xe_id', $xe_id)->get();
+        $hopdong = DB::table('hop_dongs')->where('TrangThai', true)->get();
+        return view('front_end.contents.danhsachxe.thongTinChiTietXe',compact('info','loai_xe','ds_hang_xe','hopdong'));
     }
     
 }
