@@ -18,12 +18,12 @@
                             <div class="row">
                                 <div class="col-sm">
                                     <div class="form-group">                                        
-                                        <img src="{{ URL::to('/') }}/imgs/{{ $elm->HinhAnh}}" width="100" height="100"></img>
+                                        <img src="{{ URL::to('/') }}/imgs/{{ $elm->HinhAnh}}" width="500" height="500"></img>
                                     </div>                                        
                                 </div>
                                 <div class="col-sm">
                                     <div class="form-group">
-                                        <h1 class="price ml-auto" style="color: red;">{{$elm->TenXe}}</h1>
+                                        <h5 class="price ml-auto" style="color: red;">{{$elm->TenXe}}</h5>
                                         <p class="price ml-auto">Hãng Xe: 
                                             @foreach($ds_hang_xe as $hang_xe)
 									        @if($hang_xe->hangxe_id == $elm->hangxe_id)
@@ -41,8 +41,15 @@
                                         <p class="price ml-auto">Năm Sản Xuất: {{$elm->NamSanXuat}}</p>
                                         <p class="price ml-auto">Nhiên Liệu: {{$elm->NhienLieu}}</p>
                                         <p class="price ml-auto">Dung Tích: {{$elm->DungTich}}</p>
-                                        <p class="price ml-auto">Giới Hạn Ngày Thuê: {{$elm->GioiHanNgay}}</p>
-                                        <h1 class="price ml-auto" style="color: red;">Giá: {{$elm->GiaThue}}<span>/day</span></h1>    
+                                        <p class="price ml-auto">Tình trạng xe:
+                                         {{$elm->DungTich}}
+                                         </p>
+                                        <h1 class="price ml-auto" style="color: red;">Giá: {{$elm->GiaThue}}<span>/day</span></h1> 
+                                        @if(!Session::has('Email'))
+                                        <a href="{{route('DangNhap')}}" class="btn btn-primary py-2 mr-1">Đặt Xe</a> 
+                                        @else
+                                        <a href="{{route('Giaodien.FormDatXe')}}" class="btn btn-primary py-2 mr-1">Đặt Xe</a> 
+                                        @endif   
                                     </div>
                                     </div>
                                 </div>                               

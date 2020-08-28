@@ -18,15 +18,14 @@ class GiaoDienDangKyController extends Controller
             $dangky=khach_hang::create([
                     'Ten' => $request->Ten,
                     'SoDienThoai' => $request->SoDienThoai,
-                    'NgaySinh' => $request->NgaySinh,
-                    'GioiTinh' => $request->GioiTinh,
+                    'NgaySinh' => $request->NgaySinh,                   
                     'DiaChi' => $request->DiaChi,
                     'Email' => $request->Email,
                     'MatKhau' =>md5($request->MatKhau),
                 ]);
-                dd($dangky);
+                
             DB::commit();
-            return "";
+            return redirect()->route('DangNhap');
         }catch(Exception $e)
         {
                 DB::rollBack();
@@ -46,11 +45,15 @@ class GiaoDienDangKyController extends Controller
         {}
        
         $request->session()->put('khachhang_id',$value->khachhang_id); 
-        if($value->MatKhau== $MatKhau){
-           
+        if($value->MatKhau== $MatKhau){          
             return redirect()->route('index');
         }else{
             dd('false');
         }
+    }
+    public function logout(){
+        session()->forget('Email');
+        session()->forget('khachhang_id');
+        return redirect()->route('index');
     }
 }

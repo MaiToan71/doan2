@@ -38,10 +38,24 @@
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item active"><a href="{{route('index')}}" class="nav-link">Trang chủ</a></li>
-	          <li class="nav-item"><a href="about.html" class="nav-link">Giới thiệu</a></li>	        
-	          <li class="nav-item"><a href="{{route('Giaodien.Xes')}}" class="nav-link">Danh sách xe</a></li>	         
-	          <li class="nav-item"><a href="contact.html" class="nav-link">Hồ sơ cá nhân</a></li>
+	          <li class="nav-item "><a href="{{route('index')}}" class="nav-link">Trang chủ</a></li>
+	   	        
+	          <li class="nav-item"><a href="{{route('Giaodien.Xes')}}" class="nav-link">Danh sách xe</a></li>	   
+            @if(Session::has('Email'))
+            <div class="btn-group">
+                <a href ="# "class="nav-link   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top:5%;color:white">
+                  Hồ sơ cá nhân
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                <li class="nav-item"><a href="{{route('Giaodien.ThongTinCaNhan')}}" class="nav-link" style="color:black">Hồ sơ </a></li>
+                <li class="nav-item"><a href="{{route('Giaodien.ThongTinCaNhan')}}" class="nav-link" style="color:black">Lịch sửa đặt xe</a></li>
+                 
+                </div>
+              </div>      
+
+            @endif
+            <li class="nav-item"><a href="{{route('DangNhap')}}" class="nav-link">Đăng nhập</a></li>
+            <li class="nav-item"><a href="{{route('logout')}}" class="nav-link">Đăng xuất</a></li>
 	        </ul>
 	      </div>
 	    </div>
