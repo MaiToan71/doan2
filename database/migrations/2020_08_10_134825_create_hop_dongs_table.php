@@ -15,22 +15,19 @@ class CreateHopDongsTable extends Migration
     {
         Schema::create('hop_dongs', function (Blueprint $table) {
             $table->increments('hopdong_id');
-            $table->unsignedInteger('khachhang_id');
+            $table->unsignedInteger('khachhang_id');        
             $table->string('TenHopDong',50)->nullable();
-            $table->string('FileHopDong',1000)->nullable();
-           
-            $table->string('HinhAnhLoi',1000)->nullable();
-            $table->string('TienTheChap',20)->nullable();
-            $table->date('ThoiGianNhanXe')->nullable();
-            $table->time('GioNhanXe')->nullable();
-            $table->date('ThoiGianTraXe')->nullable();
-            $table->time('GioTraXe')->nullable();
-            $table->string('TienQuaHan',20)->nullable();
-            
-            $table->integer('Duyet')->default(1);
+            $table->string('HinhAnhHopDong',500)->nullable();          
+            $table->float('TienTheChap')->nullable();
+            $table->datetime('ThoiGianNhanXe')->nullable();         
+            $table->datetime('ThoiGianTraXe')->nullable();           
+            $table->float('TienQuaHan')->nullable();
+            $table->datetime('NgayTraThucTe')->nullable();               
+            $table->integer('Duyet')->default(1);         
+            $table->float('TongTien')->nullable();
             $table->boolean('TrangThai')->default(true);
-            $table->integer('TongTien',20)->nullable();
             $table->foreign('khachhang_id')->references('khachhang_id')->on('khach_hangs');
+           
         });
     }
 

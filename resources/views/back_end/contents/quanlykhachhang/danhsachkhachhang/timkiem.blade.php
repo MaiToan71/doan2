@@ -42,18 +42,13 @@
                 <thead>
                 <tr>
                     <th></th>
-                    <th>Id</th>
+                    <th>Mã_KH</th>
                     <th>Họ Tên</th>
                     <th>Email</th>
-                    <th>Mật Khẩu</th>
-                    <th>Địa Chỉ</th>
-                    <th>Số Điện Thoại</th>
-                    <th>Ngày Sinh</th>
-                    <th>Giới Tính</th>
-                    <th>Giấy Phép Lái Xe</th>
-                    <th>CMND</th>
-                    <th>Hộ Khẩu</th>                    
-                    <th>Trạng thái</th>         
+                    <th>Địa chỉ</th>
+                    <th>Ngày sinh</th>
+                    <th>Số điện thoại</th>                                    
+                           
                 </tr>
             </thead>
             <tbody>            
@@ -64,38 +59,28 @@
                     <div class="dropdown" style="cursor: pointer;"> 
                             <i class="far fa-hand-rock dropdown-toggle" data-toggle="dropdown"></i>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> 
+                        <a type="button" class="dropdown-item btn btn-danger" href="{{route('QuanLyKhachHang.chitiet',['khachhang_id' => $elm->khachhang_id])}}"><i class="fas fa-pen-alt"></i> Chi Tiết</a>                   
                         <a type="button" class="dropdown-item btn btn-danger" href="{{route('QuanLyKhachHang.sua',['khachhang_id' => $elm->khachhang_id])}}"><i class="fas fa-pen-alt"></i> Sửa</a>                   
-                            <a type="button" class="dropdown-item btn btn-danger" href="{{route('QuanLyKhachHang.xoa',['khachhang_id' => $elm->khachhang_id])}}"  onclick="return confirm('Bạn xác nhận duyệt chứ?')"><i class="fas fa-pen-alt"></i> Xóa</a>               
+                        <a type="button" class="dropdown-item btn btn-danger" href="{{route('QuanLyKhachHang.xoa',['khachhang_id' => $elm->khachhang_id])}}"  onclick="return confirm('Bạn xác nhận duyệt chứ?')"><i class="fas fa-pen-alt"></i> Xóa</a>               
                            
                         </div>
                         </div>
                     </td>
-                    <td>KH {{$elm->khachhang_id}}</td>
+                    <td>KH_{{$elm->khachhang_id}}</td>
                     <td>{{$elm->Ten}}</td>
-                    <td>{{$elm->Email}}</td>
-                    
-                    <td>{{$elm->MatKhau}}</td>
-                    <td>{{$elm->DiaChi}}</td>
+                    <td>{{$elm->Email}}</td>  
+                    <td>{{$elm->DiaChi}}</td>    
+                    <td>{{$elm->NgaySinh}}</td>          
                     <td>{{$elm->SoDienThoai}}</td>
-                    <td>{{$elm->NgaySinh}}</td>
-                    @if( $elm->GioiTinh == 0)
-                            <td>Nam</i></td>
-                        @else   
-                            <td>Nữ</i></td>
-                        @endif
-                    <td>{{$elm->GiayPhepLaiXe}}</td>
-                    <td>{{$elm->CMND}}</td>
-                    <td>{{$elm->HoKhau}}</td>
-                    @if( $elm->TrangThai == 1)
-                            <td><i class="fas fa-check " style="color:blue"></i></td>
-                    @else   
-                            <td><i class="fas fa-times" style="color:red"></i></td>
-                    @endif
+                   
+                    
+
+                 
                 </tr>
                 @endforeach
             
             </tbody>
-             </table>         
+             </table>   
            
             
 </div>

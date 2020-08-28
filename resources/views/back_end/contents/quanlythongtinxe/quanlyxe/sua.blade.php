@@ -55,6 +55,7 @@
                                     </div>
                                     <div class="form-group pt-2">
                                         <button type="submit" class="btn btn-default btn-sm" style="width:100px;">Sửa</button>
+                                        <a type="button" class="btn btn-default btn-sm" style="width:100px;" href="{{route('QuanLyXe.index')}}">Quay lại</a>
                                     </div>
                                 </div>
                                 <div class="col-sm">
@@ -72,19 +73,7 @@
                                         <label >Dung tích <span style="color:red;">(*)</span>:</label>
                                         <input type="text" class="form-control" name="dungtich"  value={{$xe->DungTich}}>
                                     </div>
-                                    <div class="form-group">
-                                        <label >Tình trạng xe: <span style="color:red;">(*)</span>:</label>
-                                        <select class="form-control" name="TrangThaiXe">
-                                            <option value="">Chọn.....</option>
-                                            @if($xe->TrangThaiXe==0)
-                                            <option value="0" selected>Chưa có người thuê</option>
-                                            <option value="1" >Đang có người thuê</option>
-                                            @else
-                                            <option value="1" selected>Chưa có người thuê</option>
-                                            <option value="0" >Đang có người thuê</option>                       
-                                            @endif
-                                        </select> 
-                                    </div>
+                                    
                                     <div class="form-group">
                                         <label >Gía thuê: <span style="color:red;">(*)</span>:</label>
                                         <input type="text" class="form-control" name="giathue" value={{$xe->GiaThue}}>
@@ -93,14 +82,8 @@
                                         <label >Mô tả: <span style="color:red;">(*)</span>:</label>
                                         <textarea class="form-control" name="mota" rows="3">{{$xe->MoTa}}</textarea>
                                     </div>
-                                    <div class="form-group">
-                                        <label >Giấy tờ xe <span style="color:red;">(*)</span>:</label>
-                                        <input type="file" class="form-control-file" name="giaytoxe">
-                                        <img src="{{ URL::to('/') }}/imgs/{{ $xe->GiayToXe }}" width="100%" height="500"></img>
-                                    </div>
-                                    <div class="form-group">
-                                        <a type="button" class="btn btn-default btn-sm" style="width:100px;" href="{{route('QuanLyXe.index')}}">Quay lại</a>
-                                    </div>
+                                    
+                                 
                                 </div>                               
                             </div>
                            

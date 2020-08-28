@@ -79,18 +79,13 @@
                 <thead>
                 <tr>
                     <th ></th>
-                    <th >STT</th>
-                    <th>Tên xe </th>
+                    <th >Mã xe</th>                   
+                    <th>Tên xe </th>                  
                     <th >Hãng xe</th>
-                    <th >Loại xe</th>
-                    <th >Năm sản xuất </th>
-                    <th >Loại nhiên liệu</th>
-                    <th >Dung tích</th>
-                    <th >Giới hạn ngày</th>
-                    <th >Mô tả</th>
-                    <th >Giấy tờ xe</th>
-                    <th >Hình ảnh xe</th>                    
-                    <th >Trạng thái</th>         
+                    <th >Loại xe</th>                   
+                    <th>Ưu đãi</th>
+                    <th>Gía thuê(đồng/ngày)</th>                                    
+                    <th>Tình Trạng xe</th>                                    
                 </tr>
             </thead>
             <tbody>            
@@ -105,43 +100,26 @@
                         </div>
                         </div>
                         </td>
-                        <td scope="row">{{$loop->index +1 }}</td>
+                        <td scope="row">X_{{$elm->xe_id}}</td>
                         <td>{{$elm->TenXe}}</td>
                         @foreach($list_hang_xe as $hang_xe)
                             @if( $elm->hangxe_id == $hang_xe->hangxe_id)
                                 <td>{{$hang_xe->TenHangXe}}</td>                            
                             @endif                          
                         @endforeach
-
                         @foreach($list_loai_xe as $loai_xe)
                             @if( $elm->loaixe_id == $loai_xe->loaixe_id)
                                 <td>Xe {{$loai_xe->SoCho}} chỗ</td>
                             @endif                         
-                        @endforeach                   
-                        <td>{{$elm->NamSanXuat}}</td>
-                        <td>{{$elm->NhienLieu}}</td>
-                        <td>{{$elm->DungTich}} m<sup>3</sup></td>
-                        <td>{{$elm->GioiHanNgay}} km</td>
-                        <td><p>{{$elm->MoTa}}</p></td>
-                        <td> 
-                            <img alt="Giấy tờ xe" width="60" height="60" src="{{ URL::to('/') }}/imgs/{{ $elm->GiayToXe }}"/>
-                        </td>
-                        <td>
-                            <img alt="Hình ảnh xe" width="60" height="60" src="{{ URL::to('/') }}/imgs/{{ $elm->HinhAnh }}"/>
-                        </td>
-                        
-                        @if( $elm->TrangThai == 1)
-                            <td><i class="fas fa-check " style="color:blue"></i></td>
-                        @else   
-                            <td><i class="fas fa-times" style="color:red"></i></td>
-                        @endif
-                    </tr>
-                @endforeach
-          
-            
+                        @endforeach                                          
+                        <td>{{$elm->UuDai}}%</td>
+                        <td>{{$elm->GiaThue}}</td>                                                                                  
+                    </tr>        
+                @endforeach                  
             </tbody>
-             </table>
+             </table>         
             </div>
+           
 </div>
 <script>
 /*

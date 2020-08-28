@@ -43,10 +43,7 @@
                                         <label >Ngày Sinh<span style="color:red;">(*)</span>:</label>
                                         <input type="date" class="form-control" name="NgaySinh"  value={{$elm->NgaySinh}}>
                                     </div>
-                                    <div class="form-group">
-                                        <label >Ngày Hẹn<span style="color:red;">(*)</span>:</label>
-                                        <input type="date" class="form-control" name="NgayHen"  value={{$elm->NgayHen}}>
-                                    </div>
+                                  
                                     <div class="form-group">
                                         <label>Giấy Phép Lái Xe<span style="color:red;">(*)</span>:</label>
                                         <br>
@@ -73,23 +70,11 @@
                                     <div class="form-group">
                                         <label>Số Điện Thoại<span style="color:red;">(*)</span>:</label>
                                         <input type="text" class="form-control" name="SoDienThoai"  value={{$elm->SoDienThoai}}>
-                                    </div>
-                                     
-                                     
+                                    </div>   
                                     <div class="form-group">
-                                        <label >Thời Gian Hẹn<span style="color:red;">(*)</span>:</label>
-                                        <input type="time" class="form-control" name="ThoiGianHen"  value={{$elm->ThoiGianHen}}>
-                                    </div>
-                                    <div class="form-group mb-4">
-                                        <label >Trạng Thái Hẹn<span style="color:red;">(*)</span>:</label>
-                                        @if( $elm->TrangThaiHen == 1)
-                                        <p style="color:blue;"><b>Đang có lịch Hẹn</b></p>
-                                        @elseif($elm->TrangThaiHen == 0)  
-                                        <p style="color:red;"><b> Không có lịch hẹn</b></p>
-                                        @else
-                                        <p style="color:red;"><b>Đã có hợp đồng thành công</b></p>
-                                        @endif  
-                                    </div>
+                                        <label>Số Điện Thoại<span style="color:red;">(*)</span>:</label>
+                                        <input type="text" class="form-control" name="SoDienThoai"  value={{$elm->SoDienThoai}}>
+                                    </div>             
                                     <div class="form-group ">
                                         <label>Hộ Khẩu<span style="color:red;">(*)</span>:</label>
                                         <br>

@@ -71,17 +71,13 @@
                 <thead>
                 <tr>
                     <th ></th>
-                    <th >Mã xe</th>
-                    <th>Tên xe </th>
+                    <th >Mã xe</th>                   
+                    <th>Tên xe </th>                  
                     <th >Hãng xe</th>
-                    <th >Loại xe</th>
-                    
+                    <th >Loại xe</th>                   
                     <th>Ưu đãi</th>
-                    <th>Gía thuê(đồng/ngày)</th>
-                     
-                  
-                    <th>Trạng thái xe</th>                 
-                    <th >Trạng thái</th>         
+                    <th>Gía thuê(đồng/ngày)</th>                                    
+                    <th>Tình Trạng xe</th>                                    
                 </tr>
             </thead>
             <tbody>            
@@ -103,31 +99,15 @@
                                 <td>{{$hang_xe->TenHangXe}}</td>                            
                             @endif                          
                         @endforeach
-
                         @foreach($list_loai_xe as $loai_xe)
                             @if( $elm->loaixe_id == $loai_xe->loaixe_id)
                                 <td>Xe {{$loai_xe->SoCho}} chỗ</td>
                             @endif                         
-                        @endforeach                   
-                        
+                        @endforeach                                          
                         <td>{{$elm->UuDai}}%</td>
-                        <td>{{$elm->GiaThue}}</td>
-                        
-                        @if( $elm->TrangThaiXe == 0)
-                            <td style="color:red">Chưa có khách thuê</td>
-                        @else   
-                            <td style="color:blue">Đang có khách thuê</td>
-                        @endif                     
-                        @if( $elm->TrangThai == 1)
-                            <td><i class="fas fa-check " style="color:blue"></i></td>
-                        @else   
-                            <td><i class="fas fa-times" style="color:red"></i></td>
-                        @endif
-                    </tr>
-        
-                @endforeach
-          
-            
+                        <td>{{$elm->GiaThue}}</td>                                                                                  
+                    </tr>        
+                @endforeach                  
             </tbody>
              </table>         
             </div>
