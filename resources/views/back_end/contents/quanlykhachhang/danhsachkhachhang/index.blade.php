@@ -45,9 +45,10 @@
                     <th>Mã_KH</th>
                     <th>Họ Tên</th>
                     <th>Email</th>
+                    <th>Địa chỉ</th>
+                    <th>Ngày sinh</th>
                     <th>Số điện thoại</th>                                    
-                    <th>Trạng thái hẹn</th>  
-                    <th>Trạng thái</th>         
+                           
                 </tr>
             </thead>
             <tbody>            
@@ -67,22 +68,14 @@
                     </td>
                     <td>KH_{{$elm->khachhang_id}}</td>
                     <td>{{$elm->Ten}}</td>
-                    <td>{{$elm->Email}}</td>                
+                    <td>{{$elm->Email}}</td>  
+                    <td>{{$elm->DiaChi}}</td>    
+                    <td>{{$elm->NgaySinh}}</td>          
                     <td>{{$elm->SoDienThoai}}</td>
-                    @if( $elm->TrangThaiHen == 0)
-                            <td>Không có lịch hẹn</td>
-                    @elseif ( $elm->TrangThaiHen == 1)  
-                            <td>Có lịch hẹn</td>
-                    @else
-                    <td>Có hợp đồng thành công</td>
-                    @endif
+                   
                     
 
-                    @if( $elm->TrangThai == 1)
-                            <td><i class="fas fa-check " style="color:blue"></i></td>
-                    @else   
-                            <td><i class="fas fa-times" style="color:red"></i></td>
-                    @endif
+                 
                 </tr>
                 @endforeach
             

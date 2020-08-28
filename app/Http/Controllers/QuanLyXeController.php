@@ -10,13 +10,7 @@ use Illuminate\Http\Request;
 
 class QuanLyXeController extends Controller
 {
-    private $xe;
-    private $hang_xe;
-    public function __construct(xe $xe, hang_xe $hang_xe)
-    {
-        $this->xe=$xe;
-        $this->hang_xe=$hang_xe;
-    }
+ 
     public function index(Request $request){
         try{
             DB::beginTransaction();                                             
@@ -41,22 +35,19 @@ class QuanLyXeController extends Controller
     {
         try{
             DB::beginTransaction();
-            if($request->hasFile('hinhanh') && $request->hasFile('giaytoxe'))
+            if($request->hasFile('hinhanh'))
             {
                 $file_hinhanh = $request->file('hinhanh');
                 $file_hinhanh->move('imgs', $file_hinhanh->getClientOriginalName());
-                $file_giaytoxe = $request->file('giaytoxe');
-                $file_giaytoxe->move('imgs', $file_giaytoxe->getClientOriginalName()); 
-            $them_xe = $this->xe->create([
+               
+            $them_xe = xe::create([
                 'hangxe_id'=>$request->hangxe,
                 'loaixe_id'=>$request->loaixe,
                 'HinhAnh'=>$file_hinhanh->getClientOriginalName(),
                 'TenXe'=>$request->tenxe,
                 'NamSanXuat'=>$request->namsanxuat,
                 'NhienLieu'=>$request->nhienlieu,
-                'DungTich'=>$request->dungtich,
-                'GiayToXe'=>$file_giaytoxe->getClientOriginalName(),
-                
+                'DungTich'=>$request->dungtich,                           
                 'MoTa'=>$request->mota,
                 'GiaThue'=>$request->giathue,
                 'UuDai'=>$request->uudai,
@@ -69,7 +60,7 @@ class QuanLyXeController extends Controller
             $list_loai_xe = DB::table('loai_xes')->where('TrangThai',true)->get();
             DB::commit();
             return redirect()->route('QuanLyXe.index');
-            //return view('back_end.contents.quanlythongtinxe.quanlyxe.index',compact('list_data','list_hang_xe','list_loai_xe'));
+           
         }
         catch(Exception $e)
         {
@@ -114,19 +105,17 @@ class QuanLyXeController extends Controller
                     'TenXe'=>$request->tenxe,
                     'NamSanXuat'=>$request->namsanxuat,
                     'NhienLieu'=>$request->nhienlieu,
-                    'DungTich'=>$request->dungtich,                   
-                   
+                    'DungTich'=>$request->dungtich,                                      
                     'MoTa'=>$request->mota,
                     'GiaThue'=>$request->giathue,
                     'UuDai'=>$request->uudai,
-                    'TrangThaiXe'=>$request->TrangThaiXe
+                   
                     ]);
             }else if ($request->hasFile('hinhanh')){                
                 $file_hinhanh1 = $request->hinhanh;     
-                //dd($file_hinhanh1);         
+                         
                 $file_hinhanh1->move('imgs', $file_hinhanh1->getClientOriginalName());               
-                //$file_giaytoxe1 = $request->file('giaytoxe');
-                //$file_giaytoxe1->move('imgs', $file_giaytoxe1->getClientOriginalName());                 
+                             
                 $thuchien_sua = DB::table('xes')->where('xe_id',$xe_id)->update([
                     'hangxe_id'=>$request->hangxe,
                     'loaixe_id'=>$request->loaixe,
@@ -135,33 +124,10 @@ class QuanLyXeController extends Controller
                     'NamSanXuat'=>$request->namsanxuat,
                     'NhienLieu'=>$request->nhienlieu,
                     'DungTich'=>$request->dungtich,
-                  //  'GiayToXe'=>$file_giaytoxe1->getClientOriginalName(),
-                   
                     'MoTa'=>$request->mota,
                     'GiaThue'=>$request->giathue,
                     'UuDai'=>$request->uudai,
-                    'TrangThaiXe'=>$request->TrangThaiXe
-                    ]);
-            }else{
-                //$file_hinhanh1 = $request->hinhanh;     
-                //dd($file_hinhanh1);         
-              //  $file_hinhanh1->move('imgs', $file_hinhanh1->getClientOriginalName());               
-                $file_giaytoxe1 = $request->file('giaytoxe');
-                $file_giaytoxe1->move('imgs', $file_giaytoxe1->getClientOriginalName());                 
-                $thuchien_sua = DB::table('xes')->where('xe_id',$xe_id)->update([
-                    'hangxe_id'=>$request->hangxe,
-                    'loaixe_id'=>$request->loaixe,
-                  //  'HinhAnh'=>$file_hinhanh1->getClientOriginalName(),
-                    'TenXe'=>$request->tenxe,
-                    'NamSanXuat'=>$request->namsanxuat,
-                    'NhienLieu'=>$request->nhienlieu,
-                    'DungTich'=>$request->dungtich,
-                    'GiayToXe'=>$file_giaytoxe1->getClientOriginalName(),
                   
-                    'MoTa'=>$request->mota,
-                    'GiaThue'=>$request->giathue,
-                    'UuDai'=>$request->uudai,
-                    'TrangThaiXe'=>$request->TrangThaiXe
                     ]);
             }
             DB::commit();

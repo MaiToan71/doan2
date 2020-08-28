@@ -17,7 +17,6 @@ class CreateHangXesTable extends Migration
             $table->increments('hangxe_id');
             $table->string('TenHangXe',20);
             $table->string('QuocGia',20);
-           // $table->boolean('DaXoa')->default(false);
             $table->boolean('TrangThai')->default(true);
             
         });

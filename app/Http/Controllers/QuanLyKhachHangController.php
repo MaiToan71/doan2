@@ -31,9 +31,8 @@ class QuanLyKhachHangController extends Controller
                     'SoDienThoai'=>$request->SoDienThoai,    
                     'NgaySinh'=>$request->NgaySinh,    
                     'GioiTinh'=>$request->GioiTinh,
-                    'NgayHen'=>$request->NgayHen,
-                    'TrangThaiHen'=>$request->TrangThaiHen,
-                    'ThoiGianHen'=>$request->ThoiGianHen
+                    
+                  
                     ]);
             }else if($request->hasFile('GiayPhepLaiXe') && !$request->hasFile('CMND')&& !$request->hasFile('HoKhau'))
             {
@@ -47,9 +46,7 @@ class QuanLyKhachHangController extends Controller
                     'SoDienThoai'=>$request->SoDienThoai,    
                     'NgaySinh'=>$request->NgaySinh,    
                     'GioiTinh'=>$request->GioiTinh,
-                    'NgayHen'=>$request->NgayHen,
-                    'ThoiGianHen'=>$request->ThoiGianHen,
-                    'TrangThaiHen'=>$request->TrangThaiHen,
+                
                     'GiayPhepLaiXe'=>$GiayPhepLaiXe->getClientOriginalName()
                     ]);
             }else if($request->hasFile('GiayPhepLaiXe') && $request->hasFile('CMND')&& !$request->hasFile('HoKhau'))
@@ -66,9 +63,7 @@ class QuanLyKhachHangController extends Controller
                     'SoDienThoai'=>$request->SoDienThoai,    
                     'NgaySinh'=>$request->NgaySinh,    
                     'GioiTinh'=>$request->GioiTinh,
-                    'NgayHen'=>$request->NgayHen,
-                    'ThoiGianHen'=>$request->ThoiGianHen,
-                    'TrangThaiHen'=>$request->TrangThaiHen,
+                   
                     'GiayPhepLaiXe'=>$GiayPhepLaiXe->getClientOriginalName(),
                     'CMND'=>$CMND->getClientOriginalName()
                     ]);
@@ -86,9 +81,7 @@ class QuanLyKhachHangController extends Controller
                     'SoDienThoai'=>$request->SoDienThoai,    
                     'NgaySinh'=>$request->NgaySinh,    
                     'GioiTinh'=>$request->GioiTinh,
-                    'NgayHen'=>$request->NgayHen,
-                    'ThoiGianHen'=>$request->ThoiGianHen,
-                    'TrangThaiHen'=>$request->TrangThaiHen,
+                   
                     'CMND'=>$CMND->getClientOriginalName(),
                     'HoKhau'=>$HoKhau->getClientOriginalName()
                     ]);
@@ -106,9 +99,7 @@ class QuanLyKhachHangController extends Controller
                     'SoDienThoai'=>$request->SoDienThoai,    
                     'NgaySinh'=>$request->NgaySinh,    
                     'GioiTinh'=>$request->GioiTinh,
-                    'NgayHen'=>$request->NgayHen,
-                    'ThoiGianHen'=>$request->ThoiGianHen,
-                    'TrangThaiHen'=>$request->TrangThaiHen,
+                   
                     'CMND'=>$CMND->getClientOriginalName(),
                     'HoKhau'=>$HoKhau->getClientOriginalName()
                     ]);
@@ -124,9 +115,7 @@ class QuanLyKhachHangController extends Controller
                     'SoDienThoai'=>$request->SoDienThoai,    
                     'NgaySinh'=>$request->NgaySinh,    
                     'GioiTinh'=>$request->GioiTinh,
-                    'NgayHen'=>$request->NgayHen,
-                    'ThoiGianHen'=>$request->ThoiGianHen,
-                    'TrangThaiHen'=>$request->TrangThaiHen,
+                   
                     'CMND'=>$CMND->getClientOriginalName()                    ]);
             }else if(!$request->hasFile('GiayPhepLaiXe') && !$request->hasFile('CMND')&& $request->hasFile('HoKhau'))
             {
@@ -140,9 +129,7 @@ class QuanLyKhachHangController extends Controller
                     'SoDienThoai'=>$request->SoDienThoai,    
                     'NgaySinh'=>$request->NgaySinh,    
                     'GioiTinh'=>$request->GioiTinh,
-                    'NgayHen'=>$request->NgayHen,
-                    'ThoiGianHen'=>$request->ThoiGianHen,
-                    'TrangThaiHen'=>$request->TrangThaiHen,
+                    
                     'HoKhau'=>$HoKhau->getClientOriginalName()
                     ]);
             }else{
@@ -160,9 +147,7 @@ class QuanLyKhachHangController extends Controller
                     'SoDienThoai'=>$request->SoDienThoai,    
                     'NgaySinh'=>$request->NgaySinh,    
                     'GioiTinh'=>$request->GioiTinh,
-                    'NgayHen'=>$request->NgayHen,
-                    'ThoiGianHen'=>$request->ThoiGianHen,
-                    'TrangThaiHen'=>$request->TrangThaiHen,
+                   
                     'GiayPhepLaiXe'=>$GiayPhepLaiXe->getClientOriginalName(),
                     'CMND'=>$CMND->getClientOriginalName(),
                     'HoKhau'=>$HoKhau->getClientOriginalName()

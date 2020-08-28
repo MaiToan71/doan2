@@ -18,9 +18,7 @@
                             <div class="row">
                                 <div class="col-sm">
                                     <div class="form-group">
-                                        <label >Hãng xe <span style="color:red;">(*)</span>:</label>
-                                      
-                                       
+                                        <label >Hãng xe <span style="color:red;">(*)</span>:</label>                                                                          
                                         <select class="select2bs4" multiple="multiple"name="hangxe" id="hangxe"data-placeholder="Chọn hãng xe"
                                                 style="width: 100%;">
                                                 @foreach($list_hang_xe as $hang_xe)                                  
@@ -44,14 +42,8 @@
                                         <label > Ưu đãi %: <span style="color:red;">(*)</span>:</label>
                                         <input type="text" class="form-control" name="uudai" value="0">
                                     </div>
-                                    <div class="form-group">
-                                        <label >Nhiên liệu xe: <span style="color:red;">(*)</span>:</label>
-                                        <input type="text" class="form-control" name="nhienlieu" >
-                                    </div>
-                                    <div class="form-group pt-5">
-                                        <button type="submit" class="btn btn-default btn-sm" style="width:100px;" >Thêm mới</button>
-                                        <a type="button" class="btn btn-default btn-sm" style="width:100px;" href="{{route('QuanLyXe.index')}}">Quay lại</a>
-                                    </div>
+                                   
+                                   
                                 </div>
                                 <div class="col-sm">
                                     <div class="form-group">
@@ -63,10 +55,7 @@
                                 @endforeach
                                         </select>
                                     </div>
-                                    <div class="form-group">
-                                        <label >Giấy tờ xe <span style="color:red;">(*)</span>:</label>
-                                        <input type="file" class="form-control-file" name="giaytoxe">
-                                    </div>
+                                    
                                     <div class="form-group">
                                         <label >Dung tích <span style="color:red;">(*)</span>:</label>
                                         <input type="text" class="form-control" name="dungtich" >
@@ -77,15 +66,22 @@
                                         <input type="text" class="form-control" name="giathue" >
                                     </div>
                                     <div class="form-group">
+                                        <label >Nhiên liệu xe: <span style="color:red;">(*)</span>:</label>
+                                        <input type="text" class="form-control" name="nhienlieu" >
+                                    </div>
+                                   
+                                    
+                                </div>   
+                                                            
+                            </div>
+                            <div class="form-group">
                                         <label >Mô tả: <span style="color:red;">(*)</span>:</label>
                                         <textarea class="form-control" name="mota" rows="3"></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                       
-                                    </div>
-                                </div>                               
                             </div>
-                           
+                            <div class="form-group pt-5">
+                                        <button type="submit" class="btn btn-default btn-sm" style="width:100px;" >Thêm mới</button>
+                                        <a type="button" class="btn btn-default btn-sm" style="width:100px;" href="{{route('QuanLyXe.index')}}">Quay lại</a>
+                            </div>
                             </div>                         
                         </div>
                 </form>

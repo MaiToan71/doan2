@@ -16,20 +16,20 @@ class CreateXesTable extends Migration
         Schema::create('xes', function (Blueprint $table) {
             $table->increments('xe_id');
             $table->unsignedInteger('hangxe_id');
+            $table->unsignedInteger('hopdong_id');
             $table->unsignedInteger('loaixe_id');
             $table->string('HinhAnh',500);
             $table->string('TenXe',50);
             $table->integer('NamSanXuat');
             $table->string('NhienLieu',20);
             $table->integer('DungTich');
-            $table->string('GiayToXe',500);
-           
+            $table->string('GiayToXe',500);          
             $table->string('MoTa',1000);
             $table->string('GiaThue',20);
             $table->string('UuDai',20)->nullable();
             $table->boolean('TrangThai')->default(true);
-            $table->integer('TrangThaiXe')->default(0);
             $table->foreign('hangxe_id')->references('hangxe_id')->on('hang_xes');
+           // $table->foreign('hopdong_id')->references('hopdong_id')->on('hop_dongs');
             $table->foreign('loaixe_id')->references('loaixe_id')->on('loai_xes');
         });
     }

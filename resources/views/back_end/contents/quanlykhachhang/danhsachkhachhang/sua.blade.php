@@ -43,20 +43,7 @@
                                         <label >Ngày Sinh<span style="color:red;">(*)</span>:</label>
                                         <input type="date" class="form-control" name="NgaySinh"  value={{$elm->NgaySinh}}>
                                     </div> 
-                                    <div class="form-group">
-                                        <label >Trạng Thái Hẹn<span style="color:red;">(*)</span>:</label>
-                                        <br>
-                                        <select class="form-control" name="TrangThaiHen">
-                                            <option value="">Chọn.....</option>
-                                            @if($elm->TrangThaiHen==0)
-                                            <option value="0" selected>Đã Hủy Hẹn</option>
-                                            <option value="1" >Đã Hẹn</option>
-                                            @else
-                                            <option value="1" selected>Đã Hẹn</option>
-                                            <option value="0" >Đã Hủy Hẹn</option>                       
-                                            @endif
-                                        </select> 
-                                    </div> 
+                                    
                                     <div class="form-group">
                                         <label>Giấy Phép Lái Xe<span style="color:red;">(*)</span>:</label>
                                         <input type="file" class="form-control-file" name="GiayPhepLaiXe" >
@@ -86,15 +73,11 @@
                                         <label>Số Điện Thoại<span style="color:red;">(*)</span>:</label>
                                         <input type="text" class="form-control" name="SoDienThoai"  value={{$elm->SoDienThoai}}>
                                     </div>
-                                    
                                     <div class="form-group">
-                                        <label >Ngày Hẹn<span style="color:red;">(*)</span>:</label>
-                                        <input type="date" class="form-control" name="NgayHen"  value={{$elm->NgayHen}}>
-                                    </div>  
-                                    <div class="form-group">
-                                        <label >Thời Gian Hẹn<span style="color:red;">(*)</span>:</label>
-                                        <input type="time" class="form-control" name="ThoiGianHen"  value={{$elm->ThoiGianHen}}>
+                                        <label>Số Điện Thoại<span style="color:red;">(*)</span>:</label>
+                                        <input type="text" class="form-control" name="SoDienThoai"  value={{$elm->SoDienThoai}}>
                                     </div>
+                                   
                                     <div class="form-group">
                                         <label>Hộ Khẩu<span style="color:red;">(*)</span>:</label>
                                         <input type="file" class="form-control-file" name="HoKhau" >
