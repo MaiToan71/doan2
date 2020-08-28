@@ -68,10 +68,7 @@
                                         <label >Dung tích <span style="color:red;">(*)</span>:</label>
                                         <input type="text" class="form-control" name="dungtich" >
                                     </div>
-                                    <div class="form-group">
-                                        <label >Giới hạn ngày: <span style="color:red;">(*)</span>:</label>
-                                        <input type="text" class="form-control" name="quangduong" >
-                                    </div>
+                                    
                                     <div class="form-group">
                                         <label >Gía thuê: <span style="color:red;">(*)</span>:</label>
                                         <input type="text" class="form-control" name="giathue" >

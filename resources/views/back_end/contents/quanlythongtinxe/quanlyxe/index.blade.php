@@ -75,15 +75,12 @@
                     <th>Tên xe </th>
                     <th >Hãng xe</th>
                     <th >Loại xe</th>
-                    <th >Năm sản xuất </th>
-                    <th >Loại nhiên liệu</th>
-                    <th >Dung tích</th>
-                    <th >Giới hạn</th>
+                    
                     <th>Ưu đãi</th>
-                    <th>Gía</th>
+                    <th>Gía thuê(đồng/ngày)</th>
                      
-                    <th >Mô tả</th>
-                                      
+                  
+                    <th>Trạng thái xe</th>                 
                     <th >Trạng thái</th>         
                 </tr>
             </thead>
@@ -112,13 +109,15 @@
                                 <td>Xe {{$loai_xe->SoCho}} chỗ</td>
                             @endif                         
                         @endforeach                   
-                        <td>{{$elm->NamSanXuat}}</td>
-                        <td>{{$elm->NhienLieu}}</td>
-                        <td>{{$elm->DungTich}} m<sup>3</sup></td>
-                        <td>{{$elm->GioiHanNgay}} ngày</td>
+                        
                         <td>{{$elm->UuDai}}%</td>
                         <td>{{$elm->GiaThue}}</td>
-                        <td><p>{{$elm->MoTa}}</p></td>                      
+                        
+                        @if( $elm->TrangThaiXe == 0)
+                            <td style="color:red">Chưa có khách thuê</td>
+                        @else   
+                            <td style="color:blue">Đang có khách thuê</td>
+                        @endif                     
                         @if( $elm->TrangThai == 1)
                             <td><i class="fas fa-check " style="color:blue"></i></td>
                         @else   
