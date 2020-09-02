@@ -18,7 +18,7 @@ class CreateHopDongsTable extends Migration
             $table->unsignedInteger('khachhang_id')->nullable();     
             $table->unsignedInteger('loivipham_id')->nullable();        
             $table->string('TenHopDong',50)->nullable();
-            $table->string('HinhAnhHopDong',500)->nullable();   
+           
             $table->datetime('CapNhatNgay')->nullable(); 
             $table->datetime('ThoiGianDatTruoc')->nullable();      
             $table->float('TienTheChap')->nullable();

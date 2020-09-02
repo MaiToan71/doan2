@@ -46,6 +46,8 @@ Route::group(['prefix'=>'Giaodien','as' => 'Giaodien.' ],function(){
    
     Route::get('/form-dat-xe','GiaoDienFormDatXeController@FormDatXe')->name('FormDatXe');
     Route::post('/form-dat-xe','GiaoDienFormDatXeController@ThucHienDatXe')->name('ThucHienDatXe');
+
+    Route::get('/lich-su-dat-xe','GiaoDienHoSoController@LichSu')->name('LichSu');
 });
 
 
@@ -112,6 +114,7 @@ Route::group(['prefix'=>'QuanLyKhachHang','middleware'=>'LoginMiddle','as' => 'Q
     Route::post('/sua/{khachhang_id}','QuanLyKhachHangController@ThucHienSua')->name('ThucHienSua');
     //xóa dữ liệu
     Route::get('/xoa/{khachhang_id}','QuanLyKhachHangController@xoa')->name('xoa');
+    Route::get('/huykhoa/{khachhang_id}','QuanLyKhachHangController@HuyKhoa')->name('HuyKhoa');
     //tìm kiếm
     Route::get('/tim-kiem','QuanLyKhachHangController@TimKiem')->name('TimKiem');
     //hiển thị chi tiết
@@ -131,7 +134,8 @@ Route::group(['prefix'=>'QuanLyHopDong','middleware'=>'LoginMiddle','as' => 'Qua
     // duyet hop dong
     Route::get('/duyet-lan-1/{hopdong_id}','DanhSachHopDongController@DuyetLanMot')->name('DuyetLanMot');
     //hien thi duyet lan 1
-    Route::get('/duyet-hop-dong-lan-1','DanhSachHopDongController@hienthilanmot')->name('hienthilanmot');
+    Route::get('/duyet-hop-dong-lan-1','DanhSachHopDongController@hienthilanmot')->name('hienthilanmot'); 
+    Route::get('/quay-lai-doi{hopdong_id}','DanhSachHopDongController@QuayLaiDoi')->name('QuayLaiDoi');
     // hop dong done 
     Route::get('/hop-dong-xong','DanhSachHopDongController@hopdongxog')->name('hopdongxog');
     Route::get('/hop-dong-xong/{hopdong_id}','DanhSachHopDongController@ketthuc')->name('ketthuc');

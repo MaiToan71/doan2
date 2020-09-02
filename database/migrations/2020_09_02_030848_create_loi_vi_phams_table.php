@@ -15,8 +15,8 @@ class CreateLoiViPhamsTable extends Migration
     {
         Schema::create('loi_vi_phams', function (Blueprint $table) {
             $table->increments('loivipham_id');
-            $table->float('TheoNgay');
-            $table->float('TheoGio');
+            $table->float('TheoNgay')->nullable();
+            $table->float('TheoGio')->nullable();
         });
     }
 

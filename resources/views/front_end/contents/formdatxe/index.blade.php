@@ -13,11 +13,12 @@
 </section>
 <section>
 <div class="container">
-<form method="post" id="datxe">
+<h3>Bạn hãy đặt lịch hẹn trong giờ hành chính từ 8:00 đến 17:00</h3>
+<form method="post" id="datxe" onsubmit="return kt()" name="myForm">
 @csrf 
   <div class="row mt-3">
     <div class="col-sm">
-    <input type="text" name="khachhang_id" value="{{ session('khachhang_id')}}">
+    <input type="text" name="khachhang_id" hidden value="{{ session('khachhang_id')}}">
     <div class="form-group">
         <label style="color:black; font-size:20px">Thời gian hẹn đến làm hợp đồng:</label>
         <input type="datetime-local" class="form-control" name="ThoiGianDatTruoc" id="ThoiGianDatTruoc" >
@@ -48,12 +49,11 @@
     </div>
   </div>
 </form>
+
 </div>
 <section>
 <script>
-$().ready(function(){
-    $('#ThoiGianDatTruoc').datetimepicker({format: 'HH:mm'});
-})
+
 
 $("#datxe").validate({
 		onfocusout: false,
@@ -93,17 +93,34 @@ $("#datxe").validate({
         unhighlight: function (element, errorClass, validClass) {
         $(element).removeClass('is-invalid');
         }
-    });
-    function kt(){
-    var val1 = new date( $("#ThoiGianDatTruoc").val());
-    var val1 = new date($("#ThoiGianNhanXe").val());
-    var val1 = new date( $("#ThoiGianTraXe").val());
+});
+function kt(){
+    var ThoiGianDatTruoc = new Date(document.forms["myForm"]["ThoiGianDatTruoc"].value);
+    var ThoiGianNhanXe =new Date( document.forms["myForm"]["ThoiGianNhanXe"].value )
+    var ThoiGianTraXe =  new Date( document.forms["myForm"]["ThoiGianTraXe"].value);
+      
+    var dateNow = new Date(); 
+    var date = new Date ('08:00:00');
+    if(ThoiGianDatTruoc < dateNow || ThoiGianNhanXe <  dateNow || ThoiGianTraXe < dateNow){
+        alert("Bạn phải chọn ngày lớn hơn hôm nay ");   
+        alert(ThoiGianDatTruoc-date);
+        return false;
+    }
+    if(ThoiGianDatTruoc  > ThoiGianNhanXe || ThoiGianDatTruoc > ThoiGianTraXe){
+        alert("Thời gian hẹn làm hợp đồng phải nhỏ hơn thời gian dự kiến thuê ");   
+        return false;
+    }
+    if(ThoiGianNhanXe  > ThoiGianTraXe ){
+        alert("Thời gian nhận xe phải nhỏ hơn thời thoi gian tra xe");   
+        return false;
+    }
     
-   
-    if(val1 > val3 || val1 > val2){
-        alert("Nhập ngày hẹn nhỏ hơn");
-     //   return false;
+    if( ThoiGianDatTruoc  - dateNow <  86400000)
+    {
+        alert("Bạn hãy đặt lịch hẹn sang hôm tới");   
+        return false;
     }
-    }
+    
+}
 </script>
 @endsection
