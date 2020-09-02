@@ -21,8 +21,8 @@
 
     <link rel="stylesheet" href="{{URL::asset('frontend/css/bootstrap-datepicker.css')}}">
     <link rel="stylesheet" href="{{URL::asset('frontend/css/jquery.timepicker.css')}}">
-
-    
+    <script src="{{URL::asset('frontend/js/jquery.min.js')}}"></script>
+    <script src="{{URL::asset('plugins/jquery-validation/jquery.validate.min.js')}}"></script>
     <link rel="stylesheet" href="{{URL::asset('frontend/css/flaticon.css')}}">
     <link rel="stylesheet" href="{{URL::asset('frontend/css/icomoon.css')}}">
     <link rel="stylesheet" href="{{URL::asset('frontend/css/style.css')}}">
@@ -132,7 +132,7 @@
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
 
-  <script src="{{URL::asset('frontend/js/jquery.min.js')}}"></script>
+ 
   <script src="{{URL::asset('frontend/js/jquery-migrate-3.0.1.min.js')}}"></script>
   <script src="{{URL::asset('frontend/js/popper.min.js')}}"></script>
   <script src="{{URL::asset('frontend/js/bootstrap.min.js')}}"></script>
