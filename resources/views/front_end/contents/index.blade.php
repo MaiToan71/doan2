@@ -1,5 +1,11 @@
 @extends('front_end.layouts.layout')
 @section('body')
+<style>
+	body{
+		font-family: times;
+	}
+</style>
+<body>
 <div class="hero-wrap ftco-degree-bg" style="background-image: url('images/bg_1.jpg');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
@@ -13,7 +19,7 @@
 	            		<span class="ion-ios-play"></span>
 	            	</div>
 	            	<div class="heading-title ml-5">
-		            	<span>Easy steps for renting a car</span>
+		            	<span>Dễ Dàng Đặt Xe</span>
 	            	</div>
 	            </a>
             </div>
@@ -59,13 +65,13 @@
 	  					</div>
 	  					<div class="col-md-8 d-flex align-items-center">
 	  						<div class="services-wrap rounded-right w-100">
-	  							<h3 class="heading-section mb-4">Better Way to Rent Your Perfect Cars</h3>
+	  							<h3 class="heading-section mb-4">Cách Tốt Nhất Để Thuê Xe Hoàn Hảo</h3>
 	  							<div class="row d-flex mb-4">
 					          <div class="col-md-4 d-flex align-self-stretch ftco-animate">
 					            <div class="services w-100 text-center">
 				              	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-route"></span></div>
 				              	<div class="text w-100">
-					                <h3 class="heading mb-2">Choose Your Pickup Location</h3>
+					                <h3 class="heading mb-2">Chọn Vị Trí Bạn Muốn Đặt Xe</h3>
 				                </div>
 					            </div>      
 					          </div>
@@ -73,7 +79,7 @@
 					            <div class="services w-100 text-center">
 				              	<div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-handshake"></span></div>
 				              	<div class="text w-100">
-					                <h3 class="heading mb-2">Select the Best Deal</h3>
+					                <h3 class="heading mb-2">Chọn Giá Tốt Nhất</h3>
 					              </div>
 					            </div>      
 					          </div>
@@ -97,8 +103,8 @@
     	<div class="container">
     		<div class="row justify-content-center">
           <div class="col-md-12 heading-section text-center ftco-animate mb-5">
-          	<span class="subheading">What we offer</span>
-            <h2 class="mb-2">Feeatured Vehicles</h2>
+          	<span class="subheading">Chúng Tôi Cung Cấp</span>
+            <h2 class="mb-2">Những Chiếc Xe Đặc Sắc</h2>
           </div>
         </div>
     		<div class="row">
@@ -114,7 +120,7 @@
 			    						<span class="cat">Cheverolet</span>
 			    						<p class="price ml-auto">$500 <span>/day</span></p>
 		    						</div>
-		    						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a href="#" class="btn btn-secondary py-2 ml-1">Details</a></p>
+		    						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Đặt Xe</a> <a href="#" class="btn btn-secondary py-2 ml-1">Details</a></p>
 		    					</div>
 		    				</div>
     					</div>
@@ -128,7 +134,7 @@
 			    						<span class="cat">Cheverolet</span>
 			    						<p class="price ml-auto">$500 <span>/day</span></p>
 		    						</div>
-		    						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a href="#" class="btn btn-secondary py-2 ml-1">Details</a></p>
+		    						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Đặt Xe</a> <a href="#" class="btn btn-secondary py-2 ml-1">Details</a></p>
 		    					</div>
 		    				</div>
     					</div>
@@ -142,7 +148,7 @@
 			    						<span class="cat">Cheverolet</span>
 			    						<p class="price ml-auto">$500 <span>/day</span></p>
 		    						</div>
-		    						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a href="#" class="btn btn-secondary py-2 ml-1">Details</a></p>
+		    						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Đặt Xe</a> <a href="#" class="btn btn-secondary py-2 ml-1">Details</a></p>
 		    					</div>
 		    				</div>
     					</div>
@@ -415,5 +421,6 @@
           </div>
         </div>
     	</div>
-</section>	
+</section>
+</body>	
 @endsection

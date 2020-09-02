@@ -1,5 +1,10 @@
 @extends('front_end.dangky.layout')
 @section('body1')
+<style>
+    #container {
+        font-family: serif;
+    }
+</style>
 <section class="signup">
             <div class="container">
                 <div class="signup-content">
