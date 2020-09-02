@@ -15,9 +15,12 @@ class CreateHopDongsTable extends Migration
     {
         Schema::create('hop_dongs', function (Blueprint $table) {
             $table->increments('hopdong_id');
-            $table->unsignedInteger('khachhang_id');        
+            $table->unsignedInteger('khachhang_id')->nullable();     
+            $table->unsignedInteger('loivipham_id')->nullable();        
             $table->string('TenHopDong',50)->nullable();
-            $table->string('HinhAnhHopDong',500)->nullable();          
+            $table->string('HinhAnhHopDong',500)->nullable();   
+            $table->datetime('CapNhatNgay')->nullable(); 
+            $table->datetime('ThoiGianDatTruoc')->nullable();      
             $table->float('TienTheChap')->nullable();
             $table->datetime('ThoiGianNhanXe')->nullable();         
             $table->datetime('ThoiGianTraXe')->nullable();           
@@ -27,7 +30,8 @@ class CreateHopDongsTable extends Migration
             $table->float('TongTien')->nullable();
             $table->boolean('TrangThai')->default(true);
             $table->foreign('khachhang_id')->references('khachhang_id')->on('khach_hangs');
-           
+            $table->foreign('loivipham_id')->references('loivipham_id')->on('loi_vi_phams');
+
         });
     }
 
