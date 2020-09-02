@@ -11,60 +11,70 @@
         </div>
     </div>
 </section>
+<form method = "post" id ="myform" enctype="multipart/form-data">
+    @csrf 
+    @foreach($thongtin as $elm)
 <section class="mt-3">
 <div class="container">
 <div class="card">
   <div class="card-body">
+ 
   <div class="row">
     <div class="col-sm">
-    <form>
-    @csrf 
-    <input type="text" hidden name="khachhang_id" value="{{session ('khachhang_id')}}">
-        <div class="form-group">
-            <label for="exampleFormControlInput1">Họ và tên:</label>
-            <input type="text" class="form-control"  >
-        </div> 
-     
-        <div class="form-group">
-            <label for="exampleFormControlInput1">Số điện thoại:</label>
-            <input type="text" class="form-control"  >
+   
+   
+        <input type="text" hidden name="khachhang_id" value="{{session ('khachhang_id')}}">
+            <div class="form-group">
+                <label >Họ và tên:</label>
+                <input type="text" class="form-control" name="Ten" value="{{$elm->Ten}}"  >
+            </div> 
+        
+            <div class="form-group">
+                <label >Số điện thoại:</label>
+                <input type="text" class="form-control" name="SoDienThoai" value="{{$elm->SoDienThoai}}" >
+            </div>
+            <div class="form-group">
+                <label >Ngày sinh:</label>
+                <input type="date" class="form-control"  name="NgaySinh" value="{{$elm->NgaySinh}}" >
+            </div>
+            <div class="form-group">
+                <label >Giấy phép lái xe:</label>
+                <input type="file" class="form-control-file"  name="GiayPhepLaiXe"/>
+                <br>
+                <img src="{{ URL::to('/') }}/imgs/{{ $elm->GiayPhepLaiXe }}"   alt="giấy phép lái xe" width="500" height="500">
+            </div>
+            <div class="form-group">
+                <label >CMND:</label>
+                <input type="file" class="form-control-file"  name="CMND"/>
+                <br>
+                <img src="{{ URL::to('/') }}/imgs/{{ $elm->CMND }}"  alt="CMND" width="500" height="500">
+            </div>    
+            <div class="form-group">
+            <button type="submit" class="btn btn-primary">Ghi lại</button>
+            </div>    
         </div>
-        <div class="form-group">
-            <label for="exampleFormControlInput1">Ngày sinh:</label>
-            <input type="datetime" class="form-control"  >
+        <div class="col-sm">   
+            <div class="form-group">
+                <label >Email:</label>
+                <input type="text" name="Email" class="form-control" value="{{$elm->Email}}"  >
+            </div>   
+            <div class="form-group">
+                <label >Mật khẩu:</label>
+                <input type="password" name="MatKhau" class="form-control"  value="{{$elm->MatKhau}}"  >
+            </div>
+            <div class="form-group">
+                <label >Địa chỉ:</label>
+                <input type="text" name="DiaChi" class="form-control"  value="{{$elm->DiaChi}}" >
+            </div>
+            <div class="form-group">
+                <label >Hộ khẩu:</label>
+                <input type="file" class="form-control-file"  name="HoKhau"/>
+                <br>
+                <img src="{{ URL::to('/') }}/imgs/{{ $elm->HoKhau }}"   alt="Hộ khẩu" width="500" height="500">
+            </div>
+           
         </div>
-        <div class="form-group">
-            <label for="exampleFormControlInput1">Giấy phép lái xe:</label>
-            <img src="" alt="giấy phép lái xe" width="500" height="500">
-        </div>
-        <div class="form-group">
-            <label for="exampleFormControlInput1">CMND:</label>
-            <img src="" alt="CMND" width="500" height="500">
-        </div>
-       
-    </form>
-    </div>
-    <div class="col-sm">   
-        <div class="form-group">
-            <label for="exampleFormControlInput1">Email:</label>
-            <input type="text" class="form-control"  >
-        </div>   
-        <div class="form-group">
-            <label for="exampleFormControlInput1">Mật khẩu:</label>
-            <input type="password" class="form-control"  >
-        </div>
-        <div class="form-group">
-            <label for="exampleFormControlInput1">Địa chỉ:</label>
-            <input type="text" class="form-control"  >
-        </div>
-        <div class="form-group">
-            <label for="exampleFormControlInput1">Hộ khẩu:</label>
-            <img src="" alt="Hộ khẩu" width="500" height="500">
-        </div>
-        <div class="form-group">
-        <button type="submit" class="btn btn-primary">Ghi lại</button>
-        </div>
-    </div>
+      
   </div>
   </div>
 </div>
@@ -72,6 +82,8 @@
    
   
 </section>
+@endforeach
+    </form>
 <section class="mt-5">
 <div class="container">
 <div class="card">

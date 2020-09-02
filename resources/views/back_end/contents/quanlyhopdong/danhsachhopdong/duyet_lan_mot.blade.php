@@ -43,23 +43,21 @@
 <div class="container-fluid">
     <div class="card">
     <hr>
-    <h4 style="margin-left:20px;">Danh sách hợp đồng đang chờ duyệt</h4>
+    <h4 style="margin-left:20px;">Hợp đồng đang hoạt động</h4>
     <hr>   
               <!-- /.card-header -->
             <div class="card-body table-responsive p-0">
             <table class="table table-hover " >
                 <thead>
                 <tr>
-                    <th ></th>
+                <th ></th>
                     <th >Mã hợp đồng</th>
-                    <th>Tên khách hàng </th>
-                    <th>Tên hợp đồng </th>
-                   
-                   
+                    <th>Tên khách hàng </th>                                  
+                    <th>Thời gian hẹn</th>
                     <th >Bắt đầu</th>                   
                     <th >Ngày trả</th>
-                    <th >Duyệt</th>
-                    <th >Trạng thái</th>                          
+                    <th >Duyệt</th> 
+                                        
                 </tr>
             </thead>
             <tbody>                           
@@ -70,6 +68,7 @@
                             <i class="far fa-hand-rock dropdown-toggle" data-toggle="dropdown"></i>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> 
                             <a type="button" class="dropdown-item btn btn-danger" href="{{route('QuanLyHopDong.ChiTiet',['hopdong_id' => $elm->hopdong_id])}}"><i class="fas fa-pen-alt"></i> Chi Tiết hợp đồng</a>
+                            <a type="button" class="dropdown-item btn btn-danger" href="{{route('QuanLyHopDong.QuayLaiDoi',['hopdong_id' => $elm->hopdong_id])}}"><i class="fas fa-pen-alt"></i>Quay lại đợi duyệt</a>
                             <a type="button" class="dropdown-item btn btn-danger" href="{{route('QuanLyHopDong.vipham',['hopdong_id' => $elm->hopdong_id])}}" onclick="return confirm('Bạn xác nhận có vi phạm chứ?')"><i class="fas fa-pen-alt"></i> Có vi phạm</a>   
                             @if($elm->Duyet ==3)
                             <a type="button" class="dropdown-item btn btn-danger" href="{{route('QuanLyHopDong.formvipham',['hopdong_id' => $elm->hopdong_id])}}" ><i class="fas fa-pen-alt"></i> Ghi nội dung vi phạm</a>                
@@ -84,26 +83,19 @@
                     <td>{{$Ten->Ten}}</td>
                       @endif
                     @endforeach
-                    <td>{{$elm->TenHopDong}}</td>
-                    
-                 
+                    <td>{{$elm->ThoiGianDatTruoc}}</td>              
                     <td>{{$elm->ThoiGianNhanXe}}</td>
-                    <td>{{$elm->ThoiGianTraXe}}</td>
-                    
+                    <td>{{$elm->ThoiGianTraXe}}</td>                 
                     @if($elm->Duyet == 1)                  
                       <td style="color:blue">Đang đợi duyệt</td>
                     @elseif($elm->Duyet == 2) 
-                      <td style="color:#006600">Đã duyệt lần 1</td>
+                      <td style="color:#006600">Đang hoạt động</td>
                     @elseif($elm->Duyet == 3) 
                       <td style="color:red">Hợp đồng có vi phạm</td>
                     @else
                       <td style="color:blue">Đã thành tiền</td>
                     @endif
-                    @if( $elm->TrangThai == 1)
-                            <td><i class="fas fa-check " style="color:blue"></i></td>
-                    @else   
-                            <td><i class="fas fa-times" style="color:red"></i></td>
-                    @endif
+                   
                 </tr>
                 @endforeach
             </tbody>

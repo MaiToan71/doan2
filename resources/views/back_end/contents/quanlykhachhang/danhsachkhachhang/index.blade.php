@@ -48,7 +48,7 @@
                     <th>Địa chỉ</th>
                     <th>Ngày sinh</th>
                     <th>Số điện thoại</th>                                    
-                           
+                    <th> Trạng thái </th>
                 </tr>
             </thead>
             <tbody>            
@@ -60,9 +60,9 @@
                             <i class="far fa-hand-rock dropdown-toggle" data-toggle="dropdown"></i>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> 
                         <a type="button" class="dropdown-item btn btn-danger" href="{{route('QuanLyKhachHang.chitiet',['khachhang_id' => $elm->khachhang_id])}}"><i class="fas fa-pen-alt"></i> Chi Tiết</a>                   
-                        <a type="button" class="dropdown-item btn btn-danger" href="{{route('QuanLyKhachHang.sua',['khachhang_id' => $elm->khachhang_id])}}"><i class="fas fa-pen-alt"></i> Sửa</a>                   
-                        <a type="button" class="dropdown-item btn btn-danger" href="{{route('QuanLyKhachHang.xoa',['khachhang_id' => $elm->khachhang_id])}}"  onclick="return confirm('Bạn xác nhận duyệt chứ?')"><i class="fas fa-pen-alt"></i> Xóa</a>               
-                           
+                                 
+                        <a type="button" class="dropdown-item btn btn-danger" href="{{route('QuanLyKhachHang.xoa',['khachhang_id' => $elm->khachhang_id])}}"  onclick="return confirm('Bạn xác nhận duyệt chứ?')"><i class="fas fa-pen-alt"></i> Khóa</a>               
+                        <a type="button" class="dropdown-item btn btn-danger" href="{{route('QuanLyKhachHang.HuyKhoa',['khachhang_id' => $elm->khachhang_id])}}"  onclick="return confirm('Bạn xác nhận duyệt chứ?')"><i class="fas fa-pen-alt"></i> Hủy Khóa</a>
                         </div>
                         </div>
                     </td>
@@ -72,9 +72,11 @@
                     <td>{{$elm->DiaChi}}</td>    
                     <td>{{$elm->NgaySinh}}</td>          
                     <td>{{$elm->SoDienThoai}}</td>
-                   
-                    
-
+                    @if($elm->TrangThai == 1)
+                    <td style="color:blue">Đang hoạt động</td>
+                    @else
+                    <td style="color:red">Đã khóa</td>
+                    @endif
                  
                 </tr>
                 @endforeach

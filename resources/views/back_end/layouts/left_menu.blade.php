@@ -116,19 +116,19 @@
               <li class="nav-item">
                 <a href="{{route('QuanLyHopDong.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Danh sách hợp đồng</p>
+                  <p>Đang đợi duyệt</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('QuanLyHopDong.hienthilanmot')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Hợp đồng đang thực hiện</p>
+                  <p>Đang hoạt động</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('QuanLyHopDong.hopdongxog')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p> Hợp đồng đã duyệt</p>
+                  <p>Hoàn thành</p>
                 </a>
             
             </ul>

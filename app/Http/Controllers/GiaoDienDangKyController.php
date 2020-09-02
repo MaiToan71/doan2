@@ -39,8 +39,8 @@ class GiaoDienDangKyController extends Controller
         $MatKhau = md5($request->MatKhau);
         
         $request->session()->put('Email',$request->input());      
-        $result = DB::table('khach_hangs')->where('Email',$Email)->get()->toArray();
-        
+        $result = DB::table('khach_hangs')->where('Email',$Email)->where('TrangThai',true)->get()->toArray();
+        if($result != null){
         foreach($result as $value)
         {}
        
@@ -50,6 +50,9 @@ class GiaoDienDangKyController extends Controller
         }else{
             dd('false');
         }
+    }else{
+        dd('false');
+    }
     }
     public function logout(){
         session()->forget('Email');

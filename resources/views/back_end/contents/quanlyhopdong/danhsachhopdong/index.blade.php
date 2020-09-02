@@ -44,9 +44,7 @@
     <div class="card">
     <hr>
     <h4 style="margin-left:20px;">Danh sách hợp đồng tiếp nhận</h4>
-    <div class="card-header">
-            <a type="button" class="btn btn-default btn-sm" href="{{route('QuanLyHopDong.ThemHopDong')}}">Tạo hợp đồng</a>       
-           </div>
+   
     <hr>   
               <!-- /.card-header -->
             <div class="card-body table-responsive p-0">
@@ -55,18 +53,14 @@
                 <tr>
                     <th ></th>
                     <th >Mã hợp đồng</th>
-                    <th>Tên khách hàng </th>
-                    <th>Tên hợp đồng </th>
-                   
-                    <th >Tiền thế chấp (đồng)</th>
+                    <th>Tên khách hàng </th>                                  
+                    <th>Thời gian hẹn</th>
                     <th >Bắt đầu</th>                   
                     <th >Ngày trả</th>
-                    <th >Duyệt</th>
-                    <th >Trạng thái</th>                          
+                    <th >Duyệt</th>                                           
                 </tr>
             </thead>
             <tbody>           
-
                   @foreach($danhsach_hd as $elm)
                   <tr>
                     <td>
@@ -86,9 +80,8 @@
                     <td>{{$Ten->Ten}}</td>
                       @endif
                     @endforeach
-                    <td>{{$elm->TenHopDong}}</td>
-                    
-                    <td id="tienthechap">{{$elm->TienTheChap}}</td>
+                                      
+                    <td style="color:blue">{{$elm->ThoiGianDatTruoc}}</td>
                     <td>{{$elm->ThoiGianNhanXe}}</td>
                     <td>{{$elm->ThoiGianTraXe}}</td>
                     
@@ -101,11 +94,7 @@
                     @else
                       <td style="color:blue">Đã thành tiền</td>
                     @endif
-                    @if( $elm->TrangThai == 1)
-                            <td><i class="fas fa-check " style="color:blue"></i></td>
-                    @else   
-                            <td><i class="fas fa-times" style="color:red"></i></td>
-                    @endif
+                    
                 </tr>
                 @endforeach
                 

@@ -10,7 +10,7 @@ class QuanLyKhachHangController extends Controller
     public function index()
     {
        // $ = DB::table('khach_hangs')->where('TrangThai',true)->get();
-        $list_cust = DB::table('khach_hangs')->where('TrangThai',true)->orderBy('khachhang_id','DESC')->paginate(5);
+        $list_cust = DB::table('khach_hangs')->orderBy('khachhang_id','DESC')->paginate(5);
         return view('back_end.contents.quanlykhachhang.danhsachkhachhang.index',compact('list_cust'));
     }
     public function sua($khachhang_id)
@@ -170,6 +170,21 @@ class QuanLyKhachHangController extends Controller
         try{
             DB::beginTransaction();
             $xoa = DB::table('khach_hangs')->where('khachhang_id', $khachhang_id)->update(['TrangThai' => false]);
+            session()->forget('Email');
+            session()->forget('khachhang_id');
+            DB::commit();
+            return redirect()->route('QuanLyKhachHang.index');
+        }catch(Expception $e)
+        {
+            DB::rollBack();
+        }
+    }
+    public function HuyKhoa(Request $request, $khachhang_id)
+    {
+        try{
+            DB::beginTransaction();
+            $xoa = DB::table('khach_hangs')->where('khachhang_id', $khachhang_id)->update(['TrangThai' => true]);
+           
             DB::commit();
             return redirect()->route('QuanLyKhachHang.index');
         }catch(Expception $e)

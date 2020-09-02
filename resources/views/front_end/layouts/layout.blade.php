@@ -53,7 +53,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                 <li class="nav-item"><a href="{{route('Giaodien.ThongTinCaNhan')}}" class="nav-link" style="color:black">Hồ sơ </a></li>
-                <li class="nav-item"><a href="{{route('Giaodien.ThongTinCaNhan')}}" class="nav-link" style="color:black">Lịch sửa đặt xe</a></li>
+                <li class="nav-item"><a href="{{route('Giaodien.LichSu')}}" class="nav-link" style="color:black">Lịch sửa đặt xe</a></li>
                  
                 </div>
               </div>      
