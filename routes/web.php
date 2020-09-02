@@ -42,6 +42,7 @@ Route::group(['prefix'=>'Giaodien','as' => 'Giaodien.' ],function(){
     Route::get('/thong-tin-xe-chi-tiet/{xe_id}','GiaoDienXeController@ThongTinChiTiet')->name('ThongTinChiTiet');
     
     Route::get('/thong-tin-ca-nhan','GiaoDienHoSoController@ThongTinCaNhan')->name('ThongTinCaNhan');
+    Route::post('/thong-tin-ca-nhan','GiaoDienHoSoController@ThongTinCaNhanCuaBan')->name('ThongTinCaNhanCuaBan');
    
     Route::get('/form-dat-xe','GiaoDienFormDatXeController@FormDatXe')->name('FormDatXe');
     Route::post('/form-dat-xe','GiaoDienFormDatXeController@ThucHienDatXe')->name('ThucHienDatXe');

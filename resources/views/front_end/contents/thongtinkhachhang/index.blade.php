@@ -19,7 +19,7 @@
     <div class="col-sm">
     <form>
     @csrf 
-    
+    <input type="text" hidden name="khachhang_id" value="{{session ('khachhang_id')}}">
         <div class="form-group">
             <label for="exampleFormControlInput1">Họ và tên:</label>
             <input type="text" class="form-control"  >
