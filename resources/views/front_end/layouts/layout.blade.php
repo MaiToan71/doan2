@@ -36,7 +36,7 @@
     
 	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="{{route('index')}}" style="font-family: times">Đặt<span>Xe</span></a>
+	      <a class="navbar-brand" href="{{route('index')}}" style="font-family: times">Đặt<span>Xe-sup</span></a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu" style="font-family: times"></span> Danh sách
 	      </button>
@@ -74,7 +74,7 @@
         <div class="row mb-5">
           <div class="col-md">
             <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2"><a href="#" class="logo">Car<span>book</span></a></h2>
+              <h2 class="ftco-heading-2"><a href="#" class="logo">Đặt<span>Xe-SUP</span></a></h2>
               <p>Đi khắp muôn nơi.</p>
               <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                 <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>

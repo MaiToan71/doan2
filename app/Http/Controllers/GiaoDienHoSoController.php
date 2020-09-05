@@ -162,7 +162,25 @@ class GiaoDienHoSoController extends Controller
     }
     public function LichSu(){
         $khachhang_id = session()->get('khachhang_id');
-        $thongtin = DB::table('hop_dongs')->where('khachhang_id',$khachhang_id)->get();
+       // $thongtin = DB::table('hop_dongs')->where('khachhang_id',$khachhang_id)->get();
+        $thongtin = DB::select(DB::raw("
+        SELECT 
+        xes.TenXe, 
+        loai_xes.SoCho, 
+        hang_xes.TenHangXe, 
+        hop_dongs.ThoiGianDatTruoc, 
+        hop_dongs.ThoiGianNhanXe,
+        hop_dongs.ThoiGianTraXe, 
+        hop_dongs.TongTien,
+        hop_dongs.Duyet 
+
+        from hop_dongs 
+
+        INNER join xes on xes.xe_id=hop_dongs.xe_id 
+        INNER JOIN loai_xes on xes.loaixe_id=loai_xes.loaixe_id 
+        INNER JOIN hang_xes ON hang_xes.hangxe_id=xes.hangxe_id
+        WHERE khachhang_id= $khachhang_id 
+            "));
         return view('front_end.contents.thongtinkhachhang.lichsu', compact('thongtin'));
     }
 }

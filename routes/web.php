@@ -44,8 +44,8 @@ Route::group(['prefix'=>'Giaodien','as' => 'Giaodien.' ],function(){
     Route::get('/thong-tin-ca-nhan','GiaoDienHoSoController@ThongTinCaNhan')->name('ThongTinCaNhan');
     Route::post('/thong-tin-ca-nhan','GiaoDienHoSoController@ThongTinCaNhanCuaBan')->name('ThongTinCaNhanCuaBan');
    
-    Route::get('/form-dat-xe','GiaoDienFormDatXeController@FormDatXe')->name('FormDatXe');
-    Route::post('/form-dat-xe','GiaoDienFormDatXeController@ThucHienDatXe')->name('ThucHienDatXe');
+    Route::get('/form-dat-xe/{xe_id}','GiaoDienFormDatXeController@FormDatXe')->name('FormDatXe');
+    Route::post('/form-dat-xe/{xe_id}','GiaoDienFormDatXeController@ThucHienDatXe')->name('ThucHienDatXe');
 
     Route::get('/lich-su-dat-xe','GiaoDienHoSoController@LichSu')->name('LichSu');
 });

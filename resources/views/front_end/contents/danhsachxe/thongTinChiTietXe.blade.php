@@ -44,11 +44,11 @@
                                         <p class="price ml-auto">Tình trạng xe:
                                          {{$elm->DungTich}}
                                          </p>
-                                        <h1 class="price ml-auto" style="color: red;">Giá: {{$elm->GiaThue}}<span>/day</span></h1> 
+                                        <h1 class="price ml-auto" style="color: red;">Giá: {{number_format($elm->GiaThue)}}<span>/day</span></h1> 
                                         @if(!Session::has('Email'))
                                         <a href="{{route('DangNhap')}}" class="btn btn-primary py-2 mr-1">Đặt Xe</a> 
                                         @else
-                                        <a href="{{route('Giaodien.FormDatXe')}}" class="btn btn-primary py-2 mr-1">Đặt Xe</a> 
+                                        <a href="{{route('Giaodien.FormDatXe',['xe_id' => $elm->xe_id])}}" class="btn btn-primary py-2 mr-1">Đặt Xe</a> 
                                         @endif   
                                     </div>
                                     </div>
