@@ -23,7 +23,7 @@
 							<img src="{{ URL::to('/') }}/imgs/{{ $elm->HinhAnh}}" width="349" height="262"></img>
     					</div>
     					<div class="text">
-    						<h2 class="mb-0"><a href="car-single.html">{{$elm->TenXe}}</a></h2>
+    						<h2 class="mb-0"><a href="#">{{$elm->TenXe}}</a> || @if($elm->UuDai>0)<span style="color:red">- {{$elm->UuDai}} %</span> @endif</h2>
     						<div class="d-flex mb-3">
 	    						<span class="cat">
 									@foreach($ds_hang_xe as $hang_xe)
@@ -32,14 +32,14 @@
 									@endif
 									@endforeach
 								</span>
-	    						<p class="price ml-auto">{{$elm->GiaThue}}<span>/day</span></p>
+	    						<p class="price ml-auto">{{number_format($elm->GiaThue)}}<span>/Ngày</span></p>
     						</div>
 							
     						<p class="d-flex mb-0 d-block">
 							@if(!Session::has('Email'))
 							<a href="{{route('DangNhap')}}" class="btn btn-primary py-2 mr-1">Đặt Xe</a> 
 							@else
-							<a href="{{route('Giaodien.FormDatXe')}}" class="btn btn-primary py-2 mr-1">Đặt Xe</a> 
+							<a href="{{route('Giaodien.FormDatXe',['xe_id' => $elm->xe_id])}}" class="btn btn-primary py-2 mr-1">Đặt Xe</a> 
 							@endif
 							<a href="{{route('Giaodien.ThongTinChiTiet',['xe_id' => $elm->xe_id])}}" class="btn btn-secondary py-2 ml-1">Chi Tiết</a></p>
     					</div>

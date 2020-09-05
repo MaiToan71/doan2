@@ -13,18 +13,35 @@
 </section>
 <section>
 @foreach($thongtin as $elm)
-<div class="container mt-3">
+<div class="container mt-3 mb-3">
 <div class="card">
   <div class="card-body">
-    <div class="row">
-        <div class="col-sm">
-            <p>{{$elm -> hopdong_id}}</p>
+    <div class="row">  
+        <div class="col-sm ml-5">
+        <span >Tên xe: {{$elm -> TenXe}}</span>
+        <br>
+        <span>Hãng xe:</span> {{$elm -> TenHangXe}} ||
+        <span>Số chỗ: {{$elm -> TenHangXe}} chỗ</span>
+        <br>
+        <span>Tổng tiền:</span> <span name="tien">{{number_format($elm -> TongTien)}} </span>đồng
+        <br>
+                @if($elm->Duyet == 1)                  
+                      <span style="color:blue">Đang đợi duyệt</span>
+                    @elseif($elm->Duyet == 2) 
+                      <span style="color:#006600">Đã duyệt lần 1</span>
+                    @elseif($elm->Duyet == 3) 
+                      <span style="color:red">Hợp đồng có vi phạm</span>
+                    @else
+                      <span style="color:blue">Đã thành tiền</span>
+                    @endif
+       
+        
         </div>
-        <div class="col-sm">
-            <p>{{$elm -> khachhang_id}}</p>
-        </div>
-        <div class="col-sm">
-             <p>{{$elm -> loivipham_id}}</p>
+        <div class="col-sm mr-5">
+        <span style="color:blue">Lịch hẹn:</span> <span>{{$elm -> ThoiGianDatTruoc}}</span>
+        <br>
+        <span style="color:blue">Bắt đầu :</span> <span>{{$elm -> ThoiGianNhanXe}}</span> ||
+        <span style="color:blue">Kết thúc :</span> <span>{{$elm -> ThoiGianTraXe}}</span>
         </div>
     </div>
   </div>
@@ -32,4 +49,13 @@
 </div>
 @endforeach
 </section>
+<script>
+
+var formatter = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'VND',
+});
+var tien = document.getElementsByName("tien");
+tien.forEach(element => console.log(element.value));
+</script>
 @endsection

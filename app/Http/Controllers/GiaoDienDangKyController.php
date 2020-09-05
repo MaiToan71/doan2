@@ -45,13 +45,16 @@ class GiaoDienDangKyController extends Controller
         {}
        
         $request->session()->put('khachhang_id',$value->khachhang_id); 
-        if($value->MatKhau== $MatKhau){          
+        if($value->MatKhau== $MatKhau){  
+                 
             return redirect()->route('index');
         }else{
-            dd('false');
+            $request->session()->flash('fali');
+            return redirect()->route('DangNhap');
         }
     }else{
-        dd('false');
+        $request->session()->flash('fali');
+        return redirect()->route('DangNhap');
     }
     }
     public function logout(){

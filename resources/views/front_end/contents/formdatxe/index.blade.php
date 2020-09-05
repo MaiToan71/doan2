@@ -13,7 +13,21 @@
 </section>
 <section>
 <div class="container">
-<h3>Bạn hãy đặt lịch hẹn trong giờ hành chính từ 8:00 đến 17:00</h3>
+@if(session()->has('success'))
+<div class="alert alert-primary" role="alert">
+  Bạn đã đặt xe thành công
+</div>
+@endif
+@if(session()->has('fail'))
+<div class="alert alert-danger mt-2" role="alert">
+  Bạn đặt xe thất bại
+</div>
+@endif
+@if($count=='0')
+<h4><span style="color:red">Chú ý</span>: chưa có ai đặt trước, bạn là người đầu</h4>
+@else
+<h4><span style="color:red">Chú ý</span>: Xe bạn chọn đã có khách đặt đến <span style="color:red">{{$format}}</span>, bạn có thể đặt ở 5 ngày kế tiếp </h4>
+@endif
 <form method="post" id="datxe" onsubmit="return kt()" name="myForm">
 @csrf 
   <div class="row mt-3">
