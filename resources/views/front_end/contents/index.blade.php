@@ -6,7 +6,8 @@
 	}
 </style>
 <body>
-<div class="hero-wrap ftco-degree-bg" style="background-image: url('images/bg_1.jpg');" data-stellar-background-ratio="0.5">
+
+<div class="hero-wrap ftco-degree-bg" style="background-image: url('{{ URL::to('/') }}/imgs/Bugatti.jpg');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text justify-content-start align-items-center justify-content-center">
@@ -34,27 +35,32 @@
     			<div class="col-md-12	featured-top">
     				<div class="row no-gutters" style="height:100% ">
 	  					<div class="col-md-4 d-flex align-items-center" >
-	  						<form action="#" style="height:100%; width:100%" class="request-form ftco-animate bg-primary">
+	  						<form  action="{{route('TimKiemXe')}}" method="get"   style="height:100%; width:100%" class="request-form ftco-animate bg-primary">
+							  @csrf 
 								<h2>Tìm xe</h2>				
 										<div class="form-group">
 											<label for="" class="label">Tên xe</label>
-											<input type="text" class="form-control" placeholder="City, Airport, Station, etc">
+											<input type="text" class="form-control" name="tenxe">
 										</div>
 								<div class="d-flex">
 									<div class="form-group mr-2"  >
 										<label for="" class="label">Hãng xe</label>
 										
-										<select class="form-control" name="socho">
+										<select class="form-control" name="loaixe">
 											<option  value="">Chọn .......</option>
-											<option style="color:blue" value="1">1 chỗ</option>
+											@foreach($list_hang_xe as $hang_xe)                                  
+												<option value="{{$hang_xe->hangxe_id}}" style="color:black">{{$hang_xe->TenHangXe}}</option>
+											@endforeach
 										</select>
 									</div>
 									<div class="form-group ml-2">
 										<label for="" class="label">Số chỗ</label>
 										
-										<select class="form-control" name="socho">
+										<select class="form-control" name="hangxe">
 											<option  value="">Chọn ...</option>
-											<option style="color:blue" value="1">1 chỗ</option>
+											@foreach($list_loai_xe as $loai_xe)  
+												<option value="{{$loai_xe->loaixe_id}}"  style="color:black">{{$loai_xe->SoCho}} chỗ</option>
+											@endforeach
 										</select>
 									</div>
 								</div>             
@@ -103,22 +109,23 @@
     	<div class="container">
     		<div class="row justify-content-center">
           <div class="col-md-12 heading-section text-center ftco-animate mb-5">
-          	<span class="subheading">Chúng Tôi Cung Cấp</span>
-            <h2 class="mb-2">Những Chiếc Xe Đặc Sắc</h2>
+          	<span class="subheading">What we offer</span>
+            <h2 class="mb-2">Feeatured Vehicles</h2>
           </div>
         </div>
     		<div class="row">
-    		@foreach($ds_xe as $elm)
-    			<div class="col-md-4">
-    				<div class="car-wrap rounded ftco-animate">
-					
-						<div class="img rounded d-flex align-items-end" style="background-image: url(images/car-1.jpg);">
+    			<div class="col-md-12">
+    				<div class="carousel-car owl-carousel">
+					@foreach($ds_xe as $elm)
+    					<div class="item">
+    						<div class="car-wrap rounded ftco-animate">
+							<div class="img rounded d-flex align-items-end" style="background-image: url(images/car-1.jpg);">
 							<img src="{{ URL::to('/') }}/imgs/{{ $elm->HinhAnh}}" width="349" height="262"></img>
     					</div>
-    					<div class="text">
-    						<h2 class="mb-0"><a href="#">{{$elm->TenXe}}</a> || @if($elm->UuDai>0)<span style="color:red">- {{$elm->UuDai}} %</span> @endif</h2>
+		    					<div class="text">
+		    					<h2 class="mb-0"><a href="#">{{$elm->TenXe}}</a> || @if($elm->UuDai>0)<span style="color:red">- {{$elm->UuDai}} %</span> @endif</h2>
 							
-    						<div class="d-flex mb-3">
+		    					<div class="d-flex mb-3">
 	    						<span class="cat">
 									@foreach($ds_hang_xe as $hang_xe)
 									@if($hang_xe->hangxe_id == $elm->hangxe_id)
@@ -127,23 +134,25 @@
 									@endforeach
 								</span>
 	    						<p class="price ml-auto">{{number_format($elm->GiaThue)}}<span>/Ngày</span></p>
-    						</div>
-							
-    						<p class="d-flex mb-0 d-block">
+    						</div>	
+							<p class="d-flex mb-0 d-block">
 							@if(!Session::has('Email'))
 							<a href="{{route('DangNhap')}}" class="btn btn-primary py-2 mr-1">Đặt Xe</a> 
 							@else
 							<a href="{{route('Giaodien.FormDatXe',['xe_id' => $elm->xe_id])}}" class="btn btn-primary py-2 mr-1">Đặt Xe</a> 
 							@endif
 							<a href="{{route('Giaodien.ThongTinChiTiet',['xe_id' => $elm->xe_id])}}" class="btn btn-secondary py-2 ml-1">Chi Tiết</a></p>
+		    					</div>
+		    				</div>
     					</div>
+						@endforeach
+    					
+    				
     				</div>
     			</div>
-    			@endforeach
     		</div>
     	</div>
     </section>
-
     <section class="ftco-section ftco-about">
 			<div class="container">
 				<div class="row no-gutters">

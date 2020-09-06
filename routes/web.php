@@ -32,6 +32,8 @@ Route::get('/logout','GiaoDienDangKyController@logout')->name('logout');
 
 Route::get('/giao-dien','GiaoDienController@index')->name('index');
 
+Route::get('/tim-kiem-xe','GiaoDienController@TimKiemXe')->name('TimKiemXe');
+
 Route::group(['prefix'=>'Giaodien','as' => 'Giaodien.' ],function(){
     Route::get('/tim-kiem','GiaoDienTimKiemController@TimKiem')->name('timkiem');
 
@@ -48,6 +50,7 @@ Route::group(['prefix'=>'Giaodien','as' => 'Giaodien.' ],function(){
     Route::post('/form-dat-xe/{xe_id}','GiaoDienFormDatXeController@ThucHienDatXe')->name('ThucHienDatXe');
 
     Route::get('/lich-su-dat-xe','GiaoDienHoSoController@LichSu')->name('LichSu');
+
 });
 
 
