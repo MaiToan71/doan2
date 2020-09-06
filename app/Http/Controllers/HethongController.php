@@ -26,8 +26,7 @@ class HethongController extends Controller
         return view('back_end.contents.hethong.themmoi');
     }
     public function Them(Request $request)
-    {
-        
+    {      
         try{         
             DB::beginTransaction();
             $admin = $this->admin->create([
@@ -38,8 +37,7 @@ class HethongController extends Controller
                     'NgaySinh' => $request->ngaysinh,
                     'GioiTinh' => $request->gioitinh,
                     'DiaChi' => $request->diachi,
-                    'Quyen' => $request->quyen,
-                   
+                    'Quyen' => $request->quyen,                 
                 ]);
             DB::commit();
             return redirect()->route('Hethong.index');
@@ -51,7 +49,6 @@ class HethongController extends Controller
     public function thongtinsua($admin_id)
     {
         $listdata = DB::table('admins')->where('admin_id',$admin_id)->get();
-       // dd($listdata);
         return view('back_end.contents.hethong.sua', compact('listdata'));
     }
         
@@ -110,9 +107,7 @@ class HethongController extends Controller
                     'SoDienThoai' => $request->sodienthoai,
                     'NgaySinh' => $request->ngaysinh,
                     'GioiTinh' => $request->gioitinh,
-                    'DiaChi' => $request->diachi,
-                                   
-                
+                    'DiaChi' => $request->diachi,                                                 
                 ]);
                 DB::commit();
                 return redirect()->route('Hethong.ChinhSua');

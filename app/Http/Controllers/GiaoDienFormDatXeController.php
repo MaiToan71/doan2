@@ -10,7 +10,6 @@ use App\hop_dong;
 class GiaoDienFormDatXeController extends Controller
 {
     public function FormDatXe($xe_id){
-       // dd($xe_id);
         $khachhang_id = session()->get('khachhang_id');
         $rows = DB::table('hop_dongs')->where('xe_id',$xe_id)->get();
         $count =count($rows);
@@ -20,12 +19,10 @@ class GiaoDienFormDatXeController extends Controller
             return view('front_end.contents.formdatxe.index', compact ('format','count'));
         }else{
             return view('front_end.contents.formdatxe.index',compact ('count'));
-        }
-       
+        }      
     }
     public function ThucHienDatXe(Request $request ,$xe_id)
-    {      
-       
+    {            
         date_default_timezone_set("Asia/Ho_Chi_Minh");
         $khachhang_id = session()->get('khachhang_id');
         $rows = DB::table('hop_dongs')->where('xe_id',$xe_id)->get();

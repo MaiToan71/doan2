@@ -151,6 +151,10 @@ Route::group(['prefix'=>'QuanLyHopDong','middleware'=>'LoginMiddle','as' => 'Qua
     // route them moi hop dong
     Route::get('/them-hop-dong','DanhSachHopDongController@ThemHopDong')->name('ThemHopDong');
     Route::post('/them-hop-dong','DanhSachHopDongController@ThucHienThem')->name('ThucHienThem');
+
+    Route::post('/them-hop-dong','DanhSachHopDongController@ThucHienThem')->name('ThucHienThem');
+
+    Route::get('/xoa-hop-dong/{hopdong_id}','DanhSachHopDongController@Xoa')->name('Xoa');
  
 });
 

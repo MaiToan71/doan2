@@ -50,13 +50,13 @@
             <table class="table table-hover " >
                 <thead>
                 <tr>
-                    <th ></th>
+                <th ></th>
                     <th >Mã hợp đồng</th>
-                    <th>Tên khách hàng </th>
-                    <th>Tên hợp đồng </th>                 
-                                      
-                    <th >Duyệt</th>
-                    <th >Trạng thái</th>                          
+                    <th>Tên khách hàng </th>                                  
+                    <th>Thời gian hẹn</th>
+                    <th >Bắt đầu</th>                   
+                    <th >Ngày trả</th>
+                    <th >Duyệt</th>                           
                 </tr>
             </thead>
             <tbody>                           
@@ -77,7 +77,9 @@
                     <td>{{$Ten->Ten}}</td>
                       @endif
                     @endforeach
-                    <td>{{$elm->TenHopDong}}</td>
+                    <td style="color:blue">{{$elm->ThoiGianDatTruoc}}</td>
+                    <td>{{$elm->ThoiGianNhanXe}}</td>
+                    <td>{{$elm->ThoiGianTraXe}}</td>
                     
                    
                    

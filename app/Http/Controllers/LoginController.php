@@ -29,7 +29,7 @@ class LoginController extends Controller
            
             return redirect()->route('TrangChu');
         }else{
-            dd('false');
+            return redirect()->route('Login');
         }
     }
     public function logout(){
