@@ -10,7 +10,7 @@
                 <div class="signup-content">
                     <div class="signup-form">
                         <h2 class="form-title">Đăng Ký</h2>
-                        <form method="POST" class="register-form" id="register-form">
+                        <form method="POST" class="register-form"  name="myForm" onsubmit="return validateForm()">
                         @csrf
                             <div class="form-group">
                                 <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
@@ -52,4 +52,18 @@
                 </div>
             </div>
         </section>
+        <script>
+        function validateForm() {
+        var x = document.forms["myForm"]["Email"].value;
+        if (x == "") {
+            alert("Bạn chưa điền đầy đủ thông tin");
+            return false;
+        }
+        var y= document.forms["myForm"]["MatKhau"].value;
+        if (y == "") {
+            alert("Bạn chưa điền đầy đủ thông tin");
+            return false;
+        }
+        }
+        </script>
 @endsection

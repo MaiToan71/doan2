@@ -32,7 +32,7 @@ Route::get('/giao-dien','GiaoDienController@index')->name('index');
 Route::get('/tim-kiem-xe','GiaoDienController@TimKiemXe')->name('TimKiemXe');
 
 Route::group(['prefix'=>'Giaodien','as' => 'Giaodien.' ],function(){
-    Route::get('/tim-kiem','GiaoDienTimKiemController@TimKiem')->name('timkiem');
+  Route::get('/tim-kiem','GiaoDienTimKiemController@TimKiem')->name('timkiem');
 
     Route::get('/danh-sach-xe','GiaoDienTimKiemController@DanhSachXe')->name('danhsachxe');
     
@@ -40,13 +40,13 @@ Route::group(['prefix'=>'Giaodien','as' => 'Giaodien.' ],function(){
 
     Route::get('/thong-tin-xe-chi-tiet/{xe_id}','GiaoDienXeController@ThongTinChiTiet')->name('ThongTinChiTiet');
     
-    Route::get('/thong-tin-ca-nhan','GiaoDienHoSoController@ThongTinCaNhan')->name('ThongTinCaNhan');
-    Route::post('/thong-tin-ca-nhan','GiaoDienHoSoController@ThongTinCaNhanCuaBan')->name('ThongTinCaNhanCuaBan');
+    Route::get('/thong-tin-ca-nhan','GiaoDienHoSoController@ThongTinCaNhan')->middleware('LoginGiaoDien')->name('ThongTinCaNhan');
+    Route::post('/thong-tin-ca-nhan','GiaoDienHoSoController@ThongTinCaNhanCuaBan')->middleware('LoginGiaoDien')->name('ThongTinCaNhanCuaBan');
    
-    Route::get('/form-dat-xe/{xe_id}','GiaoDienFormDatXeController@FormDatXe')->name('FormDatXe');
-    Route::post('/form-dat-xe/{xe_id}','GiaoDienFormDatXeController@ThucHienDatXe')->name('ThucHienDatXe');
+    Route::get('/form-dat-xe/{xe_id}','GiaoDienFormDatXeController@FormDatXe')->middleware('LoginGiaoDien')->name('FormDatXe');
+    Route::post('/form-dat-xe/{xe_id}','GiaoDienFormDatXeController@ThucHienDatXe')->middleware('LoginGiaoDien')->name('ThucHienDatXe');
 
-    Route::get('/lich-su-dat-xe','GiaoDienHoSoController@LichSu')->name('LichSu');
+    Route::get('/lich-su-dat-xe','GiaoDienHoSoController@LichSu')->middleware('LoginGiaoDien')->name('LichSu');
 
 });
 

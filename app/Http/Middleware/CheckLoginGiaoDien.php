@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class LoginMiddleware
+class CheckLoginGiaoDien
 {
     /**
      * Handle an incoming request.
@@ -15,13 +15,10 @@ class LoginMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if($request->session()->has('email')){
+        if($request->session()->has('Email')){
             return $next($request);
         }else{
-            return redirect()->route('Login');
+            return redirect()->route('DangNhap');
         }
-
-        
-        
     }
 }

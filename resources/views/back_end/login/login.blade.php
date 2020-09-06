@@ -62,12 +62,6 @@
           <!-- /.col -->
         </div>
       </form>
-
-     
-      <!-- /.social-auth-links -->
-
-     
-     
     </div>
     <!-- /.login-card-body -->
   </div>
