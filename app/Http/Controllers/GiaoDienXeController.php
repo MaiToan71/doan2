@@ -10,7 +10,7 @@ class GiaoDienXeController extends Controller
     public function Xes()
     {
     
-        $ds_xe = DB::table('xes')->where('TrangThai',true)->paginate(4);
+        $ds_xe = DB::table('xes')->where('TrangThai',true)->paginate(6);
         $ds_hang_xe = DB::table('hang_xes')->get();
         return view('front_end.contents.danhsachxe.index',compact('ds_xe','ds_hang_xe'));
     }

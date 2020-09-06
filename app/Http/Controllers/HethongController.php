@@ -17,7 +17,7 @@ class HethongController extends Controller
     }
     public function index()
     {
-        $list_dat1a = DB::table('admins')->where('TrangThai',true)->orderBy('admin_id','DESC')->paginate(5);
+        $list_dat1a = DB::table('admins')->orderBy('admin_id','DESC')->paginate(5);
         
         return view('back_end.contents.hethong.he_thong', compact('list_dat1a'));
     }
@@ -78,6 +78,13 @@ class HethongController extends Controller
         try{
             DB::beginTransaction();
             $xoa = DB::table('admins')->where('admin_id', $admin_id)->update(['TrangThai' => false]);
+            //
+          //  $khachhang_id = ;
+            if ( session()->forget('admin_id') == $admin_id){
+                session()->forget('email');
+                session()->forget('admin_id');
+            }
+           
             DB::commit();
             return redirect()->route('Hethong.index');
         }catch(Expception $e)

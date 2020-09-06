@@ -76,7 +76,7 @@
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">                                  
                                 <a type="button" class="dropdown-item btn btn-danger" href="{{route('Hethong.thongtinsua',['admin_id' => $data->admin_id])}}"><i class="fas fa-pen-alt"></i>Xem thông tin</a>   
                                 @if($data->Quyen!=0)             
-                                <a type="button" class="dropdown-item btn btn-danger" href="{{route('Hethong.Xoa',['admin_id' => $data->admin_id])}}"><i class="far fa-trash-alt"  style="color: red;"></i> Xóa</a>   
+                                <a type="button" class="dropdown-item btn btn-danger" href="{{route('Hethong.Xoa',['admin_id' => $data->admin_id])}}"><i class="far fa-trash-alt"  style="color: red;"></i> Khóa</a>   
                                 @endif         
                             </div>
                             </div>

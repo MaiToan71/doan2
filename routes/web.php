@@ -16,10 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-//login
-Route::get('/login','LoginController@Login')->name('Login');
-Route::post('/login','LoginController@PostLogin')->name('PostLogin');
-Route::get('/logout','LoginController@logout')->name('logout');
+
 
 
 //font-end
@@ -54,6 +51,10 @@ Route::group(['prefix'=>'Giaodien','as' => 'Giaodien.' ],function(){
 });
 
 
+//login
+Route::get('/login','LoginController@Login')->name('Login');
+Route::post('/login','LoginController@PostLogin')->name('PostLogin');
+Route::get('/dangxuat','LoginController@dangxuat')->name('dangxuat');
 //back-end
 Route::get('/Trang-chu', 'TrangChuController@TrangChu')->middleware('LoginMiddle')->name('TrangChu');
 Route::get('/data', 'TrangChuController@data')->name('data');

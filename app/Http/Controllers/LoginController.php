@@ -26,14 +26,18 @@ class LoginController extends Controller
         $request->session()->put('quyen',$value->Quyen);
         $request->session()->put('admin_id',$value->admin_id); 
         if($value->MatKhau== $matkhau){
-           
-            return redirect()->route('TrangChu');
+           if($value->TrangThai == true){
+            return redirect()->route('QuanLyHopDong.index');
+           }else{
+            return redirect()->route('Login');
+           }
         }else{
             return redirect()->route('Login');
         }
     }
-    public function logout(){
+    public function dangxuat(){
         session()->forget('email');
+        session()->forget('admin_id');
         return redirect()->route('Login');
     }
     

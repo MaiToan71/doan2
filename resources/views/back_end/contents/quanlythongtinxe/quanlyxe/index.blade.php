@@ -77,7 +77,7 @@
                     <th >Loại xe</th>                   
                     <th>Ưu đãi</th>
                     <th>Gía thuê(đồng/ngày)</th>                                    
-                    <th>Tình Trạng xe</th>                                    
+                                                      
                 </tr>
             </thead>
             <tbody>            
@@ -105,7 +105,7 @@
                             @endif                         
                         @endforeach                                          
                         <td>{{$elm->UuDai}}%</td>
-                        <td>{{$elm->GiaThue}}</td>                                                                                  
+                        <td>{{number_format($elm->GiaThue)}}</td>                                                                                  
                     </tr>        
                 @endforeach                  
             </tbody>

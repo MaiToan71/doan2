@@ -65,7 +65,7 @@
 									</div>
 								</div>             
 								<div class="form-group">
-								<input type="submit" value="Đặt xe" class="btn btn-secondary py-3 px-4">
+								<input type="submit" value="Tìm kiếm" class="btn btn-secondary py-3 px-4">
 								</div>
 			    			</form>
 	  					</div>

@@ -56,8 +56,8 @@
                     <th ></th>
                     <th >Mã hợp đồng</th>
                     <th>Tên khách hàng </th>
-                    <th>Tên hợp đồng </th>                  
-                    <th >Tiền thế chấp (đồng)</th>
+                                    
+                    
                     <th >Bắt đầu</th>                   
                     <th >Ngày trả</th>
                     <th >Duyệt</th>
@@ -98,9 +98,7 @@
                     <td>{{$Ten->Ten}}</td>
                       @endif
                     @endforeach
-                    <td>{{$elm->TenHopDong}}</td>
-                    
-                    <td id="tienthechap">{{$elm->TienTheChap}}</td>
+                   
                     <td>{{$elm->ThoiGianNhanXe}}</td>
                     <td>{{$elm->ThoiGianTraXe}}</td>
                     

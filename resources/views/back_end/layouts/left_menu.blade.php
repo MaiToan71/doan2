@@ -17,7 +17,7 @@
        
       </li>
       <li class="nav-item">
-        <a class="nav-link"   href="{{route('logout')}}" role="button">
+        <a class="nav-link"  href="{{route('dangxuat')}}" >
         Đăng xuất
         </a>
       </li>

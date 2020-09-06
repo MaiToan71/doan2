@@ -140,25 +140,33 @@ class DanhSachHopDongController extends Controller
         $loivipham = DB::table('loi_vi_phams')->get();
         foreach($loivipham  as $elm){
         }
-      //  dd($elm->TheoNgay);
         $theohopdong = new Carbon( $request->thoigiantraxe); 
         $thucte = new Carbon( date('Y-m-d h:i',strtotime($request->thucte)));
-        $tonggioqua =  $theohopdong->diffInHours($thucte);
-        $ngayqua =floor ($tonggioqua / 24);
-        $gioqua = $tonggioqua - $ngayqua*24;
+        if($thucte>$theohopdong){
+            $tonggioqua =  $theohopdong->diffInHours($thucte);
+            $ngayqua =floor ($tonggioqua / 24);
+            $gioqua = $tonggioqua - $ngayqua*24;
 
-        $tienquahan = $ngayqua*$elm->TheoNgay + $gioqua*$elm->TheoGio;
-       
-        $tongtien =  $tienquahan + $request->tongtien;
-        $ghiLaiViPham = DB::table('hop_dongs')->where('hopdong_id',$hopdong_id)->update([     
-            'NgayTraThucTe'=>    date('Y-m-d h:i',strtotime($request->thucte)),   
-            'TienQuaHan'=>$tienquahan,                         
-            'loivipham_id'=>1,
-            'TongTien'=>$tongtien
-            ]);
-        DB::commit();
-        return redirect()->route('QuanLyHopDong.formvipham',[$hopdong_id]);
+            $tienquahan = $ngayqua*$elm->TheoNgay + $gioqua*$elm->TheoGio;
         
+            $tongtien =  $tienquahan + $request->tongtien;
+            $ghiLaiViPham = DB::table('hop_dongs')->where('hopdong_id',$hopdong_id)->update([     
+                'NgayTraThucTe'=>    date('Y-m-d h:i',strtotime($request->thucte)),   
+                'TienQuaHan'=>$tienquahan,                         
+                'loivipham_id'=>1,
+                'TongTien'=>$tongtien
+                ]);
+            DB::commit();
+            return redirect()->route('QuanLyHopDong.formvipham',[$hopdong_id]);
+        }
+        else{
+            $ghiLaiViPham = DB::table('hop_dongs')->where('hopdong_id',$hopdong_id)->update([     
+                'NgayTraThucTe'=>    date('Y-m-d h:i',strtotime($request->thucte)),   
+               
+                ]);
+            DB::commit();
+            return redirect()->route('QuanLyHopDong.formvipham',[$hopdong_id]);
+        }
     }
  
     public function TimKiem(Request $request)
@@ -181,8 +189,7 @@ class DanhSachHopDongController extends Controller
     }
     public function ThucHienThem(Request $request)
     {
-       // dd($request->batDauDat);
-       // dd($request->tenhopdong);
+       
         try{         
             DB::beginTransaction();
             $hopDong = $this->hopDong->create([
