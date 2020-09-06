@@ -22,24 +22,18 @@
                                         <label >Tên hợp đồng <span style="color:red;">(*)</span>:</label>
                                         <input type="text" class="form-control" name="tenhopdong" value="{{$elm->TenHopDong}}">
                                     </div>
-                                    <div class="form-group">
-                                        <label >Bắt đầu<span style="color:red;">(*)</span>:</label>
-                                        <input type="text" class="form-control" name="tenhopdong" value="{{$elm->TenHopDong}}">
-                                    </div>
+                                    
                                     <div class="form-group mt-4">
-                                        <button type="submit" class="btn btn-default btn-sm" style="width:100px;">Thêm mới</button>
+                                        <button type="submit" class="btn btn-default btn-sm" style="width:100px;">Ghi lại</button>
                                     </div>   
                                    
                                 </div>
                                 <div class="col-sm">                                              
                                     <div class="form-group">
                                         <label >Tiền thế chấp <span style="color:red;">(*)</span>:</label>
-                                        <input type="text" class="form-control" name="tenhopdong" value="{{$elm->TenHopDong}}">
+                                        <input type="text" class="form-control" name="tienthechap" value="{{$elm->TienTheChap}}">
                                     </div>
-                                    <div class="form-group">
-                                        <label >Kết thúc <span style="color:red;">(*)</span>:</label>
-                                        <input type="text" class="form-control" name="tenhopdong" value="{{$elm->TenHopDong}}">
-                                    </div>
+                                   
                                     <div class="form-group mt-4">
                                         <a type="button" class="btn btn-default btn-sm" style="width:100px;" href="{{route('QuanLyHopDong.index')}}">Quay lại</a>
                                     </div>

@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use App\xe;
 use App\hop_dong;
 use App\chi_tiet_hop_dong;
+use Carbon\Carbon;
+
 class DanhSachHopDongController extends Controller
 {
     private $xe;
@@ -28,8 +30,12 @@ class DanhSachHopDongController extends Controller
     public function ChiTiet($hopdong_id)
     {
         $danhsach_hd = DB::table('hop_dongs')->where('hopdong_id',$hopdong_id)->get();
-      
-        return view('back_end.contents.quanlyhopdong.danhsachhopdong.chi_tiet', compact('danhsach_hd'));
+        $xes = DB::table('xes')->get();
+        $khachhangs = DB::table('khach_hangs')->get();
+        $hangXes = DB::table('hang_xes')->get();
+        $loaiXes = DB::table('loai_xes')->get();
+        return view('back_end.contents.quanlyhopdong.danhsachhopdong.chi_tiet', compact(
+         'khachhangs','hangXes','loaiXes','xes','danhsach_hd'));
     }
 
     public function thongtinsua($hopdong_id)
@@ -40,31 +46,13 @@ class DanhSachHopDongController extends Controller
     public function thuchiensua(Request $request,$hopdong_id)
     {
         DB::beginTransaction();
-        if(!$request->hasFile('filehopdong') )
-        {
-            $thuchien_sua = DB::table('hop_dongs')->where('hopdong_id',$hopdong_id)->update([               
+        
+           $thuchien_sua = DB::table('hop_dongs')->where('hopdong_id',$hopdong_id)->update([               
                 'TenHopDong'=>$request->tenhopdong,                         
                 'TienTheChap'=>$request->tienthechap,
-                'ThoiGianNhanXe'=>$request->batdau,
-                'ThoiGianTraXe'=>$request->ketthuc,
-                
+                     
                 ]);
-        }       
-        else{
-            $file_hopdong = $request->filehopdong;     
-            //dd($file_hinhanh1);         
-            $file_hopdong->move('imgs', $file_hopdong->getClientOriginalName());               
-                             
-            $thuchien_sua = DB::table('hop_dongs')->where('hopdong_id',$hopdong_id)->update([
-                
-                'TenHopDong'=>$request->tenhopdong,           
-                'FileHopDong'=>$file_hopdong->getClientOriginalName(),
-                'TienTheChap'=>$request->tienthechap,
-                'ThoiGianNhanXe'=>$request->batdau,
-                'ThoiGianTraXe'=>$request->ketthuc,
-                
-                ]);
-        }
+       
          DB::commit();
         return redirect()->route('QuanLyHopDong.index');
     }
@@ -124,14 +112,8 @@ class DanhSachHopDongController extends Controller
     {
         {
             try{
-                DB::beginTransaction();
-                
-                $ketthuc = DB::table('hop_dongs')->where('hopdong_id', $hopdong_id)->update(['Duyet' => 4]);
-                $hopdong =DB::table('chi_tiet_hop_dongs')->where('hopdong_id', $hopdong_id)->get()->toArray();
-                foreach($hopdong as $value)
-                {}
-              //  dd();
-                $hopdong =DB::table('xes')->where('xe_id', $value->xe_id)->update(['TrangThaiXe' => 0]);             
+                DB::beginTransaction();            
+                $ketthuc = DB::table('hop_dongs')->where('hopdong_id', $hopdong_id)->update(['Duyet' => 4]);                           
                 DB::commit();
                 return redirect()->route('QuanLyHopDong.hopdongxog');
             }catch(Expception $e)
@@ -142,34 +124,40 @@ class DanhSachHopDongController extends Controller
     }
 
     public function formvipham( $hopdong_id)
-    {
-        
-            try{
+    {       
+        try{
                 DB::beginTransaction();
                 $HopDongViPham = DB::table('hop_dongs')->where('hopdong_id', $hopdong_id)->get();
-                $Xes = DB::table('chi_tiet_hop_dongs')->where('hopdong_id', $hopdong_id)->get();
-                foreach($Xes as $xe){
-
-                }
-              //  dd();
-                $XeHopDong = DB::table('xes')->where('xe_id',$xe->xe_id)->get();
-                return view('back_end.contents.quanlyhopdong.hopdongchoduyet.Form_them_vipham', compact('HopDongViPham','XeHopDong'));
-            }catch(Expception $e)
-            {
+                return view('back_end.contents.quanlyhopdong.hopdongchoduyet.Form_them_vipham', compact('HopDongViPham'));
+        }catch(Expception $e)
+        {
                 DB::rollBack();
             }
         
     }
     public function ghiLaiViPham(Request $request, $hopdong_id)
     {
+        $loivipham = DB::table('loi_vi_phams')->get();
+        foreach($loivipham  as $elm){
+        }
+      //  dd($elm->TheoNgay);
+        $theohopdong = new Carbon( $request->thoigiantraxe); 
+        $thucte = new Carbon( date('Y-m-d h:i',strtotime($request->thucte)));
+        $tonggioqua =  $theohopdong->diffInHours($thucte);
+        $ngayqua =floor ($tonggioqua / 24);
+        $gioqua = $tonggioqua - $ngayqua*24;
+
+        $tienquahan = $ngayqua*$elm->TheoNgay + $gioqua*$elm->TheoGio;
        
-        $ghiLaiViPham = DB::table('hop_dongs')->where('hopdong_id',$hopdong_id)->update([               
-            'TienQuaHan'=>$request->quahan,                         
-            'LoiViPham'=>$request->MoTaLoi,
-            'TongTien'=>$request->tongtien
+        $tongtien =  $tienquahan + $request->tongtien;
+        $ghiLaiViPham = DB::table('hop_dongs')->where('hopdong_id',$hopdong_id)->update([     
+            'NgayTraThucTe'=>    date('Y-m-d h:i',strtotime($request->thucte)),   
+            'TienQuaHan'=>$tienquahan,                         
+            'loivipham_id'=>1,
+            'TongTien'=>$tongtien
             ]);
         DB::commit();
-        return redirect()->route('QuanLyHopDong.hienthilanmot');
+        return redirect()->route('QuanLyHopDong.formvipham',[$hopdong_id]);
         
     }
  
@@ -203,9 +191,7 @@ class DanhSachHopDongController extends Controller
                 'TienTheChap' => $request->TienTheChap,
                 'ThoiGianNhanXe' => $request->batDauDat,
                 'ThoiGianTraXe' => $request->ketThuc
-            ]);
-               
-           
+            ]);                      
             $chiTiet = chi_tiet_hop_dong::create([
                 'hopdong_id' => $hopDong['id'],
                 'xe_id' => $request->maXe,
@@ -219,6 +205,10 @@ class DanhSachHopDongController extends Controller
         {
             DB::rollBack();
         }
+    }
+    public function Xoa($hopdong_id){
+        $xoa = DB::table('hop_dongs')->where('hopdong_id',$hopdong_id)->delete();
+        return redirect()->route('QuanLyHopDong.index');
     }
      
 }

@@ -68,7 +68,8 @@
                             <i class="far fa-hand-rock dropdown-toggle" data-toggle="dropdown"></i>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> 
                             <a type="button" class="dropdown-item btn btn-danger" href="{{route('QuanLyHopDong.ChiTiet',['hopdong_id' => $elm->hopdong_id])}}"><i class="fas fa-pen-alt"></i> Chi Tiết hợp đồng</a>     
-                            <a type="button" class="dropdown-item btn btn-danger" href="{{route('QuanLyHopDong.thongtinsua',['hopdong_id' => $elm->hopdong_id])}}"><i class="fas fa-pen-alt"></i> Sửa</a>                   
+                            <a type="button" class="dropdown-item btn btn-danger" href="{{route('QuanLyHopDong.thongtinsua',['hopdong_id' => $elm->hopdong_id])}}"><i class="fas fa-pen-alt"></i> Sửa</a>     
+                            <a type="button" class="dropdown-item btn btn-danger" href="{{route('QuanLyHopDong.Xoa',['hopdong_id' => $elm->hopdong_id])}}" onclick="return confirm('Bạn xác nhận xóa chứ?')"><i class="fas fa-pen-alt"></i> Xóa</a>                                 
                             <a type="button" class="dropdown-item btn btn-danger" href="{{route('QuanLyHopDong.DuyetLanMot',['hopdong_id' => $elm->hopdong_id])}}"  onclick="return confirm('Bạn xác nhận duyệt chứ?')"><i class="fas fa-pen-alt"></i> Duyệt lần 1</a>               
                            
                         </div>

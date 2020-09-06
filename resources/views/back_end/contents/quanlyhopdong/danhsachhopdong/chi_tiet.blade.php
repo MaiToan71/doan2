@@ -26,24 +26,37 @@
                                     </div>
                                     <div class="form-group">
                                         <label  >Hãng  xe:</label>
-                                        <input type="text" class="form-control" disabled  value="{{$elm->ThoiGianDatTruoc}}">
+                                        @foreach($xes as $elm_xe)
+                                        @if($elm_xe->xe_id == $elm->xe_id)
+                                        @foreach($hangXes as $elm_hang)
+                                        @if($elm_hang->hangxe_id == $elm_xe->hangxe_id)
+                                        <input type="text" class="form-control" disabled  value="{{$elm_hang->TenHangXe}}">
+                                        @endif
+                                        @endforeach
+                                        @endif
+                                        @endforeach
                                     </div>
                                     <div class="form-group">
                                         <label >Số chỗ:</label>
-                                        <input type="text" class="form-control" disabled  value="{{$elm->ThoiGianDatTruoc}}">
+                                        @foreach($xes as $elm_xe)
+                                        @if($elm_xe->xe_id == $elm->xe_id)
+                                        @foreach($loaiXes as $elm_loai)
+                                        @if($elm_loai->loaixe_id == $elm_xe->loaixe_id)
+                                        <input type="text" class="form-control" disabled  value="{{$elm_loai->SoCho }} chỗ">
+                                        @endif
+                                        @endforeach
+                                        @endif
+                                        @endforeach
+                                       
                                     </div>
                                       
                                     <div class="form-group">
-                                        <label >Quá hạn theo giờ (đồng):</label>
-                                        <input type="text" class="form-control" disabled value="{{$elm->TienTheChap}}">
-                                    </div>  
-                                    <div class="form-group">
-                                        <label >Quá hạn theo ngày (đồng):</label>
-                                        <input type="text" class="form-control" disabled  value="{{$elm->TienTheChap}}">
+                                        <label  style="color:blue;">Thời gian đặt hẹn:</label>
+                                        <input type="text" class="form-control" disabled  value="{{$elm->ThoiGianDatTruoc}}">
                                     </div>
                                     <div class="form-group">
                                         <label >Tiền thế chấp:</label>
-                                        <input type="text" class="form-control" disabled name="tenhopdong" value="{{$elm->TienTheChap}}">
+                                        <input type="text" class="form-control" disabled name="tenhopdong" value="{{number_format($elm->TienTheChap)}} đồng">
                                     </div>
                                     <div class="form-group">
                                         <label >Tien quá hạn:</label>
@@ -51,7 +64,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label  style="color:red">Tổng giá trị hợp đồng: </label>
-                                        <input type="text" class="form-control" disabled name="tongtien" value="{{$elm->TongTien}}">                              
+                                        <input type="text" class="form-control" disabled name="tongtien" value="{{number_format($elm->TongTien)}} đồng">                              
                                     </div>    
                                     <div class="form-group mt-4">
                                         <a type="button" class="btn btn-default btn-sm" style="width:100px;" href="{{route('QuanLyHopDong.index')}}">Quay lại</a>
@@ -60,36 +73,45 @@
                                 <div class="col-sm">
                                     <div class="form-group">
                                         <label  >Tên khách:</label>
-                                        <input type="text" class="form-control" disabled  value="{{$elm->ThoiGianDatTruoc}}">
+                                        @foreach($khachhangs as $elm_khach)
+                                        @if($elm_khach->khachhang_id  == $elm->khachhang_id)
+                                        <input type="text" class="form-control" disabled  value="{{$elm_khach->Ten}}">
+                                        @endif
+                                        @endforeach
                                     </div>
                                     <div class="form-group">
                                         <label >Địa chỉ:</label>
-                                        <input type="text" class="form-control" disabled  value="{{$elm->ThoiGianDatTruoc}}">
+                                        @foreach($khachhangs as $elm_khach)
+                                        @if($elm_khach->khachhang_id  == $elm->khachhang_id)
+                                        <input type="text" class="form-control" disabled  value="{{$elm_khach->DiaChi}}">
+                                        @endif
+                                        @endforeach
                                     </div>
                                     <div class="form-group">
                                         <label >Tên xe:</label>
-                                        <input type="text" class="form-control" disabled  value="{{$elm->ThoiGianDatTruoc}}">
+                                        @foreach($xes as $elm_xe)
+                                        @if($elm_xe->xe_id == $elm->xe_id)
+                                        <input type="text" class="form-control" disabled  value="{{$elm_xe->TenXe}}">
+                                        @endif
+                                        @endforeach
                                     </div>
                                     <div class="form-group">
                                         <label >Ngày tạo :</label>
-                                        <input type="datetime" class="form-control" disabled  value="{{$elm->CapNhatNgay}}">
+                                        <input type="datetime" class="form-control" disabled  value="{{date('d-m-Y h:i',strtotime($elm->CapNhatNgay ))}}">
                                     </div> 
                                    
-                                    <div class="form-group">
-                                        <label  style="color:blue;">Thời gian đặt hẹn:</label>
-                                        <input type="text" class="form-control" disabled  value="{{$elm->ThoiGianDatTruoc}}">
-                                    </div>
+                                  
                                     <div class="form-group">
                                         <label  style="color:blue;">Thời gian nhận xe :</label>
-                                        <input type="text" class="form-control" disabled name="tenhopdong" value="{{$elm->ThoiGianNhanXe}}">
+                                        <input type="text" class="form-control" disabled name="tenhopdong" value="{{date('d-m-Y h:i',strtotime($elm->ThoiGianNhanXe ))}}">
                                     </div>
                                     <div class="form-group">
                                         <label  style="color:blue;">Thời gian trả xe:</label>
-                                        <input type="text" class="form-control" disabled name="tenhopdong" value="{{$elm->ThoiGianTraXe}}">
+                                        <input type="text" class="form-control" disabled name="tenhopdong" value="{{date('d-m-Y h:i',strtotime($elm->ThoiGianTraXe )) }}">
                                     </div>
                                     <div class="form-group">
                                         <label  style="color:blue;">Ngày Trả thực tế:</label>
-                                        <input type="text" class="form-control" disabled name="tenhopdong" value="{{$elm->NgayTraThucTe}}">
+                                        <input type="text" class="form-control" disabled name="tenhopdong" value=" {{$elm->NgayTraThucTe}}">
                                     </div>
       
                                 </div>                               
